@@ -16,6 +16,7 @@
 		B6834E772566C9C700EE1C58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E762566C9C700EE1C58 /* User.swift */; };
 		DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94432566DCC700CF7C52 /* ViewObjects.swift */; };
 		DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94472566E0E800CF7C52 /* SignUpView.swift */; };
+		DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B6834E762566C9C700EE1C58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DF5F94432566DCC700CF7C52 /* ViewObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObjects.swift; sourceTree = "<group>"; };
 		DF5F94472566E0E800CF7C52 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				DF5F94422566DCAC00CF7C52 /* ViewObjects */,
 				B6834E6F2566C84500EE1C58 /* LoginView.swift */,
 				DF5F94472566E0E800CF7C52 /* SignUpView.swift */,
+				DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
 				DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */,
 				DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */,
+				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,
 				B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */,
 			);
