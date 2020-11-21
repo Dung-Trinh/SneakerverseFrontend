@@ -42,23 +42,23 @@ struct LoginView: View {
                     let successfulLogin = viewModel.login(username: username, password: password)
                     loginMessage = successfulLogin ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
                 }) {
-                        LoginButton(buttonText: "Login", buttonColour: .blue)
+                        CustomButton(buttonText: "Login", buttonColour: .blue)
                 }
                 
                 LabelledDivider(label: "or")
                 
                 Button(action: {
                 }) {
-                    LoginButton(buttonText: "Sign up", buttonColour: .black)
+                    CustomButton(buttonText: "Sign up", buttonColour: .black)
                 }
                 
                 Button(action: {
                     self.successfulAuth = viewModel.authorization()
                 }) {
                     if(successfulAuth){
-                        LoginButton(buttonText: "Authorization Test", buttonColour: .green)
+                        CustomButton(buttonText: "Authorization Test", buttonColour: .green)
                     }else{
-                        LoginButton(buttonText: "Authorization Test", buttonColour: .black)
+                        CustomButton(buttonText: "Authorization Test", buttonColour: .black)
                     }
                         
                 }

@@ -25,11 +25,11 @@ struct UI_Objects: View {
             Text("Buttons")
             Button(action: {
             }) {
-                LoginButton(buttonText: "Example", buttonColour: .black)
+                CustomButton(buttonText: "Example", buttonColour: .black)
             }
             Button(action: {
             }) {
-                LoginButton(buttonText: "Sign up", buttonColour: .blue)
+                CustomButton(buttonText: "Sign up", buttonColour: .blue)
             }
             Text("Response Message")
             ResponseMessage(message: $showState)
@@ -45,16 +45,16 @@ struct UI_Objects_Previews: PreviewProvider {
     }
 }
 
-struct LoginButton: View {
+struct CustomButton: View {
     var buttonText: String
     var buttonColour: Color
     
     var body: some View {
         Text(buttonText)
-            .font(.headline)
+            .font(.subheadline)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 220, height: 60)
+            .frame(width: 300, height: .infinity)
             .background(buttonColour)
             .cornerRadius(35.0)
     }
@@ -66,7 +66,7 @@ struct Title: View {
         Text(text)
             .font(.largeTitle)
             .fontWeight(.semibold)
-            .padding(.bottom, 60)
+            .padding(.bottom, 20)
     }
 }
 
