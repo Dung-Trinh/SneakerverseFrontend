@@ -44,4 +44,21 @@ class LoginViewModel{
         group.wait() // blocks current queue so beware!
         return success
     }
+    
+    
+    
+    func authorization() -> Bool{
+        var success = false;
+        let group = DispatchGroup()
+        group.enter()
+        
+        userService.sendAuthorizationRequest(userResponse: userResponse)
+        { json, error in
+            success = json.accessToken != "" ? true : false
+            // will be called at either completion or at an error.
+            group.leave()
+        }
+        group.wait() // blocks current queue so beware!
+        return success
+    }
 }
