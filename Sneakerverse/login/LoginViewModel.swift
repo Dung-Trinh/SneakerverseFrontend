@@ -9,18 +9,6 @@ import SwiftUI
 
 import Foundation
 
-struct LoginResponse: Codable{
-    var data: String
-    var accessToken: String
-    var errorDescription: String
-    
-    init(json: [String: Any]) {
-        self.accessToken = json["accessToken"] as? String ?? ""
-        self.data = json["data"] as? String ?? ""
-        self.errorDescription = json["errorDescription"] as? String ?? ""
-    }
-}
-
 class LoginViewModel{
     var userService = UserService()
     var accessToken:String?

@@ -14,7 +14,7 @@ struct OnboardingView: View {
                 Title(text: "SNEAKERVERSE")
                 
                 OnboardingGallery()
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: .infinity, height: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 
                 NavigationLink (destination: LoginView()){

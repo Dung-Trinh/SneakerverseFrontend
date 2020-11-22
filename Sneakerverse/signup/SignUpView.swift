@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+enum SignUpStates: String{
+    case DEFAULT = ""
+    case SIGNUPFAILED = "Sign Up failed"
+    case SUCCESSFUL = "Sign Up successfull"
+}
+
 struct SignUpView: View {
-    @State var username: String = "TestUser"
-    @State var password: String = "TestPassword"
+    @State var username: String = "TestUser3"
+    @State var password: String = "TestPassword3"
     //@State var passwordsAreNotTheSame: Bool
+    @State var responseMessage: SignUpStates = SignUpStates.DEFAULT
     @State var viewModel: SignUpViewModel = SignUpViewModel()
     var body: some View {
         NavigationView{
@@ -19,12 +26,13 @@ struct SignUpView: View {
                 CustomTextField(storedText: $username, placholderText: "Username", type: .USERNAME)
                 CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
                 CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
-               // ResponseMessage(message: <#T##Binding<LoginStates>#>)
+                ResponseSignUp(message: $responseMessage)
                 Button(action: {
-            //        self.successfulSignUp = viewModel.signUp()
-                }, label: {
-                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-                })
+                    let successfullSignUp = viewModel.signUp(username: username, password: password)
+                    responseMessage = successfullSignUp ? SignUpStates.SUCCESSFUL : SignUpStates.SIGNUPFAILED
+                }){
+                    CustomButton(buttonText: "Sign Up", buttonColour: .blue)
+                }
             }
         }
     }

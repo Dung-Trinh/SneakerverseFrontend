@@ -18,13 +18,13 @@ class SignUpViewModel{
         var success = false;
         let group = DispatchGroup()
         group.enter()
-
-        userService.sendLoginRequest(username: username, password: password, completion:
-            { json, error in
-                success = json!.accessToken != "" ? true : false
-                // will be called at either completion or at an error.
-                group.leave()
-            })
+        
+        userService.sendSignUpRequest(username: username, password: password, completion:
+                                        { json, error in
+                                            success = json!.accessToken != "" ? true : false
+                                            // will be called at either completion or at an error.
+                                            group.leave()
+                                        })
         group.wait() // blocks current queue so beware!
         return success
     }

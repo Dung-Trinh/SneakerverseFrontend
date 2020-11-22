@@ -72,7 +72,7 @@ struct Title: View {
 
 struct ResponseMessage: View {
     @Binding var message: LoginStates
-        
+    
     var body: some View {
         var textColor: Color
         
@@ -80,6 +80,27 @@ struct ResponseMessage: View {
         case .LOGINFAILED:
             textColor = .red
         case .SECCESSFUL:
+            textColor = .green
+        case .DEFAULT:
+            textColor = .black
+        }
+        
+        return Text(message.rawValue)
+            .animation(Animation.easeIn)
+            .foregroundColor(textColor)
+    }
+}
+
+struct ResponseSignUp: View {
+    @Binding var message: SignUpStates
+    
+    var body: some View {
+        var textColor: Color
+        
+        switch message {
+        case .SIGNUPFAILED:
+            textColor = .red
+        case .SUCCESSFUL:
             textColor = .green
         case .DEFAULT:
             textColor = .black
@@ -106,7 +127,7 @@ struct CustomTextField: View {
                     .opacity(0.8)
                 
                 TextField(placholderText, text: $storedText)
-                    
+                
             }
             .padding()
             .background(lightGreyColor)
@@ -129,15 +150,15 @@ struct CustomTextField: View {
 }
 
 struct LabelledDivider: View {
-
+    
     let label: String
     let horizontalPadding: CGFloat
-
+    
     init(label: String, horizontalPadding: CGFloat = 20) {
         self.label = label
         self.horizontalPadding = horizontalPadding
     }
-
+    
     var body: some View {
         HStack {
             line
@@ -145,7 +166,7 @@ struct LabelledDivider: View {
             line
         }
     }
-
+    
     var line: some View {
         VStack {
             Divider().background(Color.gray)
