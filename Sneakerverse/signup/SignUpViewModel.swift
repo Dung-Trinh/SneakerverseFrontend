@@ -10,6 +10,7 @@ import Foundation
 
 class SignUpViewModel{
     var userService = UserService()
+    
     func checkPasswordsAreTheSame(firstPW:String, secondPW: String) -> Bool{
         return firstPW == secondPW ? true : false
     }

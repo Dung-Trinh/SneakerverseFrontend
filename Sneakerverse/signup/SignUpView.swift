@@ -11,11 +11,13 @@ enum SignUpStates: String{
     case DEFAULT = ""
     case SIGNUPFAILED = "Sign Up failed"
     case SUCCESSFUL = "Sign Up successfull"
+    case PASSWORDFAILED = "Passwords are not the same"
 }
 
 struct SignUpView: View {
     @State var username: String = "TestUser3"
-    @State var password: String = "TestPassword3"
+    @State var password: String = "TestPassword"
+    @State var passwordVerify: String = "TestPassword3"
     //@State var passwordsAreNotTheSame: Bool
     @State var responseMessage: SignUpStates = SignUpStates.DEFAULT
     @State var viewModel: SignUpViewModel = SignUpViewModel()
@@ -25,11 +27,15 @@ struct SignUpView: View {
                 Title(text:"Registrieren")
                 CustomTextField(storedText: $username, placholderText: "Username", type: .USERNAME)
                 CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
-                CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
+                CustomTextField(storedText: $passwordVerify, placholderText: "Password wiederholen", type: .PASSWORD)
                 ResponseSignUp(message: $responseMessage)
                 Button(action: {
-                    let successfullSignUp = viewModel.signUp(username: username, password: password)
-                    responseMessage = successfullSignUp ? SignUpStates.SUCCESSFUL : SignUpStates.SIGNUPFAILED
+                    if(viewModel.checkPasswordsAreTheSame(firstPW: password, secondPW: passwordVerify)){
+                        let successfullSignUp = viewModel.signUp(username: username, password: password)
+                        responseMessage = successfullSignUp ? SignUpStates.SUCCESSFUL : SignUpStates.SIGNUPFAILED
+                    }else{
+                        responseMessage = SignUpStates.PASSWORDFAILED
+                    }
                 }){
                     CustomButton(buttonText: "Sign Up", buttonColour: .blue)
                 }

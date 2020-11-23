@@ -104,6 +104,8 @@ struct ResponseSignUp: View {
             textColor = .green
         case .DEFAULT:
             textColor = .black
+        case .PASSWORDFAILED:
+            textColor = .red
         }
         
         return Text(message.rawValue)
