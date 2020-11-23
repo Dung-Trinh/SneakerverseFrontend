@@ -11,7 +11,7 @@ import SwiftUI
 struct SneakerverseApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            OnboardingView()
         }
     }
 }

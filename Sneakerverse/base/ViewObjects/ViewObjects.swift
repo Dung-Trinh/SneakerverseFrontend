@@ -25,11 +25,11 @@ struct UI_Objects: View {
             Text("Buttons")
             Button(action: {
             }) {
-                LoginButton(buttonText: "Example", buttonColour: .black)
+                CustomButton(buttonText: "Example", buttonColour: .black)
             }
             Button(action: {
             }) {
-                LoginButton(buttonText: "Sign up", buttonColour: .blue)
+                CustomButton(buttonText: "Sign up", buttonColour: .blue)
             }
             Text("Response Message")
             ResponseMessage(message: $showState)
@@ -45,16 +45,16 @@ struct UI_Objects_Previews: PreviewProvider {
     }
 }
 
-struct LoginButton: View {
+struct CustomButton: View {
     var buttonText: String
     var buttonColour: Color
     
     var body: some View {
         Text(buttonText)
-            .font(.headline)
+            .font(.subheadline)
             .foregroundColor(.white)
             .padding()
-            .frame(width: 220, height: 60)
+            .frame(width: 300, height: .infinity)
             .background(buttonColour)
             .cornerRadius(35.0)
     }
@@ -66,13 +66,13 @@ struct Title: View {
         Text(text)
             .font(.largeTitle)
             .fontWeight(.semibold)
-            .padding(.bottom, 60)
+            .padding(.bottom, 20)
     }
 }
 
 struct ResponseMessage: View {
     @Binding var message: LoginStates
-        
+    
     var body: some View {
         var textColor: Color
         
@@ -83,6 +83,29 @@ struct ResponseMessage: View {
             textColor = .green
         case .DEFAULT:
             textColor = .black
+        }
+        
+        return Text(message.rawValue)
+            .animation(Animation.easeIn)
+            .foregroundColor(textColor)
+    }
+}
+
+struct ResponseSignUp: View {
+    @Binding var message: SignUpStates
+    
+    var body: some View {
+        var textColor: Color
+        
+        switch message {
+        case .SIGNUPFAILED:
+            textColor = .red
+        case .SUCCESSFUL:
+            textColor = .green
+        case .DEFAULT:
+            textColor = .black
+        case .PASSWORDFAILED:
+            textColor = .red
         }
         
         return Text(message.rawValue)
@@ -106,7 +129,7 @@ struct CustomTextField: View {
                     .opacity(0.8)
                 
                 TextField(placholderText, text: $storedText)
-                    
+                
             }
             .padding()
             .background(lightGreyColor)
@@ -129,15 +152,15 @@ struct CustomTextField: View {
 }
 
 struct LabelledDivider: View {
-
+    
     let label: String
     let horizontalPadding: CGFloat
-
+    
     init(label: String, horizontalPadding: CGFloat = 20) {
         self.label = label
         self.horizontalPadding = horizontalPadding
     }
-
+    
     var body: some View {
         HStack {
             line
@@ -145,7 +168,7 @@ struct LabelledDivider: View {
             line
         }
     }
-
+    
     var line: some View {
         VStack {
             Divider().background(Color.gray)

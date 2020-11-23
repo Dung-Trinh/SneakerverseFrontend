@@ -20,7 +20,7 @@ enum LoginStates: String{
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
 
 struct LoginView: View {
-
+    
     @State var username: String = "TestUser"
     @State var password: String = "TestPassword"
     
@@ -35,32 +35,21 @@ struct LoginView: View {
                 
                 CustomTextField(storedText: $username, placholderText: "Username",type: .USERNAME)
                 CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
-               
+                
                 ResponseMessage(message: $loginMessage)
-
+                
                 Button(action: {
                     let successfulLogin = viewModel.login(username: username, password: password)
                     loginMessage = successfulLogin ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
                 }) {
-                        LoginButton(buttonText: "Login", buttonColour: .blue)
+                    CustomButton(buttonText: "Login", buttonColour: .blue)
                 }
                 
                 LabelledDivider(label: "or")
                 
                 Button(action: {
                 }) {
-                    LoginButton(buttonText: "Sign up", buttonColour: .black)
-                }
-                
-                Button(action: {
-                    self.successfulAuth = viewModel.authorization()
-                }) {
-                    if(successfulAuth){
-                        LoginButton(buttonText: "Authorization Test", buttonColour: .green)
-                    }else{
-                        LoginButton(buttonText: "Authorization Test", buttonColour: .black)
-                    }
-                        
+                    CustomButton(buttonText: "Sign up", buttonColour: .black)
                 }
             }
             .padding()

@@ -14,9 +14,14 @@
 		B6834E702566C84500EE1C58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E6F2566C84500EE1C58 /* LoginView.swift */; };
 		B6834E732566C98E00EE1C58 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E722566C98E00EE1C58 /* LoginViewModel.swift */; };
 		B6834E772566C9C700EE1C58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E762566C9C700EE1C58 /* User.swift */; };
+		DF183B06256984A7006DE246 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B05256984A7006DE246 /* UserService.swift */; };
+		DF183B0E256AE8ED006DE246 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B0D256AE8ED006DE246 /* Response.swift */; };
 		DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94432566DCC700CF7C52 /* ViewObjects.swift */; };
 		DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94472566E0E800CF7C52 /* SignUpView.swift */; };
 		DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */; };
+		DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */; };
+		DF5F94512567346F00CF7C52 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */; };
+		DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94532567354200CF7C52 /* OnboardingGallery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +34,14 @@
 		B6834E6F2566C84500EE1C58 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B6834E722566C98E00EE1C58 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B6834E762566C9C700EE1C58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DF183B05256984A7006DE246 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DF183B0D256AE8ED006DE246 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		DF5F94432566DCC700CF7C52 /* ViewObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObjects.swift; sourceTree = "<group>"; };
 		DF5F94472566E0E800CF7C52 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		DF5F94532567354200CF7C52 /* OnboardingGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGallery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +74,12 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
+				DF183B0B256AD169006DE246 /* onboarding */,
+				DF183B0A256AD159006DE246 /* base */,
+				DF183B09256AD132006DE246 /* signup */,
+				DF183B08256AD121006DE246 /* login */,
+				DF183B0425698496006DE246 /* services */,
 				B6834E6D2566C7DF00EE1C58 /* Model */,
-				B6834E6B2566C7B800EE1C58 /* View */,
-				B6834E6C2566C7C600EE1C58 /* ViewModel */,
 				B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */,
 				B6834E5D2566C72100EE1C58 /* ContentView.swift */,
 				B6834E5F2566C72500EE1C58 /* Assets.xcassets */,
@@ -84,25 +97,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B6834E6B2566C7B800EE1C58 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DF5F94422566DCAC00CF7C52 /* ViewObjects */,
-				B6834E6F2566C84500EE1C58 /* LoginView.swift */,
-				DF5F94472566E0E800CF7C52 /* SignUpView.swift */,
-				DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B6834E6C2566C7C600EE1C58 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B6834E722566C98E00EE1C58 /* LoginViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		B6834E6D2566C7DF00EE1C58 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,10 +105,55 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DF183B0425698496006DE246 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				DF183B05256984A7006DE246 /* UserService.swift */,
+				DF183B0D256AE8ED006DE246 /* Response.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		DF183B08256AD121006DE246 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				B6834E6F2566C84500EE1C58 /* LoginView.swift */,
+				B6834E722566C98E00EE1C58 /* LoginViewModel.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		DF183B09256AD132006DE246 /* signup */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F94472566E0E800CF7C52 /* SignUpView.swift */,
+				DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */,
+			);
+			path = signup;
+			sourceTree = "<group>";
+		};
+		DF183B0A256AD159006DE246 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F94422566DCAC00CF7C52 /* ViewObjects */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		DF183B0B256AD169006DE246 /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */,
+				DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */,
+			);
+			path = onboarding;
+			sourceTree = "<group>";
+		};
 		DF5F94422566DCAC00CF7C52 /* ViewObjects */ = {
 			isa = PBXGroup;
 			children = (
 				DF5F94432566DCC700CF7C52 /* ViewObjects.swift */,
+				DF5F94532567354200CF7C52 /* OnboardingGallery.swift */,
 			);
 			path = ViewObjects;
 			sourceTree = "<group>";
@@ -192,7 +231,12 @@
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
 				DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */,
+				DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */,
+				DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */,
+				DF183B0E256AE8ED006DE246 /* Response.swift in Sources */,
+				DF5F94512567346F00CF7C52 /* OnboardingViewModel.swift in Sources */,
 				DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */,
+				DF183B06256984A7006DE246 /* UserService.swift in Sources */,
 				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,
 				B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */,
