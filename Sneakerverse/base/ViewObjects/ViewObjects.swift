@@ -132,30 +132,30 @@ struct CustomTextField: View {
     }
     
     var body: some View {
-            HStack(spacing:15){
-                if(type == .PASSWORD){
-                    Image(systemName: "key.fill")
+        HStack(spacing:15){
+            if(type == .PASSWORD){
+                Image(systemName: "key.fill")
+                    .foregroundColor(.blue)
+                    .opacity(0.8)
+                SecureField(placholderText, text: $storedText)
+            }else{
+                if((icon) != nil){
+                    self.icon
                         .foregroundColor(.blue)
                         .opacity(0.8)
-                    SecureField(placholderText, text: $storedText)
-                }else{
-                    if((icon) != nil){
-                        self.icon
-                            .foregroundColor(.blue)
-                            .opacity(0.8)
-                    }
-                    
-                    TextField(placholderText, text: $storedText)
-                        .if(type == .NUMBERS) {
-                            $0.keyboardType(.decimalPad)
-                        }
-                        
                 }
+                
+                TextField(placholderText, text: $storedText)
+                    .if(type == .NUMBERS) {
+                        $0.keyboardType(.decimalPad)
+                    }
+                
             }
-            .padding()
-            .background(lightGreyColor)
-            .cornerRadius(5.0)
-            .padding(.bottom, 20)
+        }
+        .padding()
+        .background(lightGreyColor)
+        .cornerRadius(5.0)
+        .padding(.bottom, 20)
         
     }
 }

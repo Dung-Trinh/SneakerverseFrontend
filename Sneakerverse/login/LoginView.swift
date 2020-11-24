@@ -29,32 +29,32 @@ struct LoginView: View {
     
     @State var viewModel: LoginViewModel = LoginViewModel()
     var body: some View {
-            ZStack {
-                VStack {
-                    Title(text: "Sneaker Market")
-                    
-                    CustomTextField(storedText: $username, placholderText: "Username",type: .TEXT,icon: Image(systemName:"person.fill"))
-                    CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
-                    
-                    ResponseMessage(message: $loginMessage)
-                    
-                    Button(action: {
-                        let successfulLogin = viewModel.login(username: username, password: password)
-                        loginMessage = successfulLogin ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
-                        self.successfulAuth = successfulLogin
-                        print(successfulLogin)
-                    }) {
-                        CustomButton(buttonText: "Login", buttonColour: .blue)
-                    }
-                    
-                    NavigationLink(destination: HomeView(), isActive: $successfulAuth){}
-                    
+        ZStack {
+            VStack {
+                Title(text: "Sneaker Market")
+                
+                CustomTextField(storedText: $username, placholderText: "Username",type: .TEXT,icon: Image(systemName:"person.fill"))
+                CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
+                
+                ResponseMessage(message: $loginMessage)
+                
+                Button(action: {
+                    let successfulLogin = viewModel.login(username: username, password: password)
+                    loginMessage = successfulLogin ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
+                    self.successfulAuth = successfulLogin
+                    print(successfulLogin)
+                }) {
+                    CustomButton(buttonText: "Login", buttonColour: .blue)
                 }
-                .padding()
+                
+                NavigationLink(destination: HomeView(), isActive: $successfulAuth){}
                 
             }
-           
+            .padding()
             
+        }
+        
+        
         
     }
 }

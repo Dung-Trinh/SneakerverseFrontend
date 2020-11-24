@@ -35,12 +35,12 @@ struct SneakerDataPicker: View {
     }
     
     var body: some View {
-            Picker(selection: $selectedSize, label:
-                    Text(self.labelText!)){
-                ForEach( 0 ..< self.selectionOption.count){
-                    Text(self.selectionOption[$0]).tag($0)
-                }
+        Picker(selection: $selectedSize, label:
+                Text(self.labelText!)){
+            ForEach( 0 ..< self.selectionOption.count){
+                Text(self.selectionOption[$0]).tag($0)
             }
+        }
     }
     
 }
