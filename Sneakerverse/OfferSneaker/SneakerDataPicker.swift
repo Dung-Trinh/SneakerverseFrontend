@@ -14,38 +14,47 @@ enum DataPickerType: String{
 }
 
 struct SneakerDataPicker: View {
-    @State var selectedSize = 0
-    
-    var selectionOption : [String]
-    var labelText: String?
     let SIZES = ["6","6.5","7"]
     let BRANDS = ["Nike", "Adidas", "Puma", "New Balance"]
     let CONDITION = ["new", "good", "satisfactorily"]
     
-    init(type: DataPickerType) {
+    @State var selectedItemIndex = 0
+    @Binding var selectedItem: String
+
+    
+    var selectionOptions : [String]
+    var labelText: String?
+    
+    
+    init(type: DataPickerType, selectedValue:Binding<String>) {
         labelText = type.rawValue
+        
         switch type {
         case .SIZES:
-            self.selectionOption = SIZES
+            self.selectionOptions = SIZES
         case .BRANDS:
-            self.selectionOption = BRANDS
+            self.selectionOptions = BRANDS
         case .CONDITION:
-            self.selectionOption = CONDITION
+            self.selectionOptions = CONDITION
         }
+        self._selectedItem = selectedValue
     }
     
     var body: some View {
-        Picker(selection: $selectedSize, label:
+        Picker(selection: $selectedItemIndex, label:
                 Text(self.labelText!)){
-            ForEach( 0 ..< self.selectionOption.count){
-                Text(self.selectionOption[$0]).tag($0)
+            ForEach( 0 ..< self.selectionOptions.count){
+                Text(self.selectionOptions[$0]).tag($0)
             }
-        }
+        }.onChange(of: selectedItemIndex, perform: { value in
+            self.selectedItem = selectionOptions[selectedItemIndex]
+        })
     }
     
 }
-struct SizePicker_Previews: PreviewProvider {
-    static var previews: some View {
-        SneakerDataPicker(type: DataPickerType.BRANDS)
-    }
-}
+
+//struct SizePicker_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SneakerDataPicker(type: DataPickerType.BRANDS)
+//    }
+//}
