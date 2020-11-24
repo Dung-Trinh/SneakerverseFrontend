@@ -16,7 +16,7 @@ struct UI_Objects: View {
             Title(text: "SNEAKER MARKET")
             Group{
                 CustomTextField(
-                    storedText: $exampleText, placholderText: "Username",type: .USERNAME)
+                    storedText: $exampleText, placholderText: "Username", type:.TEXT, icon: Image(systemName: "person.fill"))
                 CustomTextField(
                     storedText: $exampleText, placholderText: "Password", type:.PASSWORD)
                 Text("Divider")
@@ -119,35 +119,44 @@ struct CustomTextField: View {
     @Binding var storedText: String
     
     var placholderText: String
-    var type: TextType
+    var type: TextFieldType
+    var icon: Image?
+    
+    init(storedText:Binding<String>, placholderText:String, type: TextFieldType, icon: Image? = nil) {
+        self._storedText = storedText
+        self.type = type
+        self.placholderText = placholderText
+        if icon != nil {
+            self.icon = icon
+        }
+    }
     
     var body: some View {
-        if(type == .USERNAME){
             HStack(spacing:15){
-                Image(systemName: "person.fill")
-                    .foregroundColor(.blue)
-                    .opacity(0.8)
-                
-                TextField(placholderText, text: $storedText)
-                
+                if(type == .PASSWORD){
+                    Image(systemName: "key.fill")
+                        .foregroundColor(.blue)
+                        .opacity(0.8)
+                    SecureField(placholderText, text: $storedText)
+                }else{
+                    if((icon) != nil){
+                        self.icon
+                            .foregroundColor(.blue)
+                            .opacity(0.8)
+                    }
+                    
+                    TextField(placholderText, text: $storedText)
+                        .if(type == .NUMBERS) {
+                            $0.keyboardType(.decimalPad)
+                        }
+                        
+                }
             }
             .padding()
             .background(lightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
-        }else if (type == .PASSWORD){
-            HStack(spacing:15){
-                Image(systemName: "key.fill")
-                    .foregroundColor(.blue)
-                    .opacity(0.8)
-                
-                SecureField(placholderText, text: $storedText)
-            }
-            .padding()
-            .background(lightGreyColor)
-            .cornerRadius(5.0)
-            .padding(.bottom, 20)
-        }
+        
     }
 }
 
@@ -174,5 +183,16 @@ struct LabelledDivider: View {
             Divider().background(Color.gray)
         }
         .padding(horizontalPadding)
+    }
+}
+
+extension View {
+    @ViewBuilder
+    public func `if`<V>(_ condition: Bool, input: (Self) -> V) -> some View where V: View {
+        if condition {
+            input(self)
+        } else {
+            self
+        }
     }
 }

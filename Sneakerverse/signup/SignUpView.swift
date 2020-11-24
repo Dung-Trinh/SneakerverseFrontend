@@ -25,7 +25,7 @@ struct SignUpView: View {
         NavigationView{
             VStack {
                 Title(text:"Registrieren")
-                CustomTextField(storedText: $username, placholderText: "Username", type: .USERNAME)
+                CustomTextField(storedText: $username, placholderText: "Username", type: .TEXT, icon: Image(systemName: "person.fill"))
                 CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
                 CustomTextField(storedText: $passwordVerify, placholderText: "Password wiederholen", type: .PASSWORD)
                 ResponseSignUp(message: $responseMessage)

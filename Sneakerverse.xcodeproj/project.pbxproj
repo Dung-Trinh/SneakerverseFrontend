@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D323256BD33A007B58CF /* OfferSneakerView.swift */; };
+		B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */; };
+		B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C39EC256B1F8C0041C4CE /* HomeView.swift */; };
 		B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */; };
 		B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5D2566C72100EE1C58 /* ContentView.swift */; };
 		B6834E602566C72500EE1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6834E5F2566C72500EE1C58 /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B601D323256BD33A007B58CF /* OfferSneakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerView.swift; sourceTree = "<group>"; };
+		B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDataPicker.swift; sourceTree = "<group>"; };
+		B61C39EC256B1F8C0041C4CE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6834E582566C72100EE1C58 /* Sneakerverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sneakerverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerverseApp.swift; sourceTree = "<group>"; };
 		B6834E5D2566C72100EE1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B601D322256BD2FC007B58CF /* OfferSneaker */ = {
+			isa = PBXGroup;
+			children = (
+				B601D323256BD33A007B58CF /* OfferSneakerView.swift */,
+				B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */,
+			);
+			path = OfferSneaker;
+			sourceTree = "<group>";
+		};
+		B61C39EB256B1F710041C4CE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B61C39EC256B1F8C0041C4CE /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B6834E4F2566C72100EE1C58 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +97,8 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
+				B601D322256BD2FC007B58CF /* OfferSneaker */,
+				B61C39EB256B1F710041C4CE /* Home */,
 				DF183B0B256AD169006DE246 /* onboarding */,
 				DF183B0A256AD159006DE246 /* base */,
 				DF183B09256AD132006DE246 /* signup */,
@@ -228,8 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6834E732566C98E00EE1C58 /* LoginViewModel.swift in Sources */,
+				B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */,
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
+				B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */,
 				DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */,
 				DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */,
 				DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */,
@@ -238,6 +265,7 @@
 				DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */,
 				DF183B06256984A7006DE246 /* UserService.swift in Sources */,
 				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
+				B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,
 				B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */,
 			);
