@@ -11,11 +11,11 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
             TabView{
-                Text("").tabItem {
+                Text("HOME").tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-                Text("")
+                Text("CALENDAR")
                     .tabItem {
                         Image(systemName: "calendar")
                         Text("Calendar")
@@ -25,7 +25,13 @@ struct HomeView: View {
                         Image(systemName: "plus.circle.fill")
                         Text("Offer Sneaker")
                     }
-                Text("The content of the first view")
+                Text("DEALS")
+                    .tabItem {
+                        Image(systemName: "tag.fill")
+                        Text("Deals")
+                    }
+
+                Text("PROFILE")
                     .tabItem {
                         Image(systemName: "person.crop.rectangle.fill")
                         Text("Profile")

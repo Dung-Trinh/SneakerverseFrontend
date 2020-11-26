@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct OfferSneakerView: View {
-    @State var sneakerName = ""
-    @State var description = ""
-    @State var price = ""
-    @State var size = ""
-    @State var brand = ""
-    @State var condition = ""
+    @ObservedObject var viewModel = OfferSneakerViewModel()
     
+    @State var isValid = true
     
     var body: some View {
         VStack{
@@ -26,27 +22,28 @@ struct OfferSneakerView: View {
                     }
                 }
                 VStack{
-                    CustomTextField(storedText: $sneakerName, placholderText: "Sneaker name",type: .TEXT,icon: Image(systemName: "person.fill"))
-                    CustomTextField(storedText: $description, placholderText: "Description",type: .TEXT, icon: Image(systemName:"text.below.photo.fill"))
-                    CustomTextField(storedText: $price, placholderText: "Price",type: .NUMBERS, icon: Image(systemName:"tag.fill"))
+                    CustomTextField(storedText: $viewModel.sneakerName, placholderText: "Sneaker name",type: .TEXT,icon: Image(systemName: "person.fill"))
+                    CustomTextField(storedText: $viewModel.description, placholderText: "Description",type: .TEXT, icon: Image(systemName:"text.below.photo.fill"))
+                    CustomTextField(storedText: $viewModel.price, placholderText: "Price",type: .NUMBERS, icon: Image(systemName:"tag.fill"))
                     
                 }
                 Section{
-                    SneakerDataPicker(type: DataPickerType.SIZES, selectedValue: $size)
-                    SneakerDataPicker(type: DataPickerType.BRANDS, selectedValue: $brand)
-                    SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $condition)
+                    SneakerDataPicker(type: DataPickerType.SIZES, selectedValue: $viewModel.size)
+                    SneakerDataPicker(type: DataPickerType.BRANDS, selectedValue: $viewModel.brand)
+                    SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $viewModel.condition)
                 }
             }
             
             Button(action: {
                 print( """
-                    name: \(sneakerName)
-                    description: \(description)
-                    price: \(price)
-                    size: \(size)
-                    brand: \(brand)
-                    condition: \(condition)
+                    name: \(viewModel.sneakerName)
+                    description: \(viewModel.description)
+                    price: \(viewModel.price)
+                    size: \(viewModel.size)
+                    brand: \(viewModel.brand)
+                    condition: \(viewModel.condition)
                     """)
+                
             }) {
                 CustomButton(buttonText: "add sneaker", buttonColour: .blue)
             }
