@@ -21,8 +21,8 @@ class SignUpViewModel{
         group.enter()
         
         userService.sendSignUpRequest(username: username, password: password, completion:
-                                        { json, error in
-                                            success = json!.accessToken != "" ? true : false
+                                        { response in
+                                            success = response!.accessToken != "" ? true : false
                                             // will be called at either completion or at an error.
                                             group.leave()
                                         })

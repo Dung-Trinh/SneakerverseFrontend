@@ -10,6 +10,7 @@
 		B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D323256BD33A007B58CF /* OfferSneakerView.swift */; };
 		B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */; };
 		B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C39EC256B1F8C0041C4CE /* HomeView.swift */; };
+		B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65717F6257597D800F36970 /* SneakerOffer.swift */; };
 		B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */; };
 		B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5D2566C72100EE1C58 /* ContentView.swift */; };
 		B6834E602566C72500EE1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6834E5F2566C72500EE1C58 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 		B6834E732566C98E00EE1C58 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E722566C98E00EE1C58 /* LoginViewModel.swift */; };
 		B6834E772566C9C700EE1C58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E762566C9C700EE1C58 /* User.swift */; };
 		B68F8679256FABB100793819 /* OfferSneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */; };
+		B68F8683256FF98E00793819 /* SneakerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8682256FF98E00793819 /* SneakerService.swift */; };
 		DF183B06256984A7006DE246 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B05256984A7006DE246 /* UserService.swift */; };
 		DF183B0E256AE8ED006DE246 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B0D256AE8ED006DE246 /* Response.swift */; };
 		DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94432566DCC700CF7C52 /* ViewObjects.swift */; };
@@ -32,6 +34,7 @@
 		B601D323256BD33A007B58CF /* OfferSneakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerView.swift; sourceTree = "<group>"; };
 		B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDataPicker.swift; sourceTree = "<group>"; };
 		B61C39EC256B1F8C0041C4CE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B65717F6257597D800F36970 /* SneakerOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOffer.swift; sourceTree = "<group>"; };
 		B6834E582566C72100EE1C58 /* Sneakerverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sneakerverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerverseApp.swift; sourceTree = "<group>"; };
 		B6834E5D2566C72100EE1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		B6834E722566C98E00EE1C58 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B6834E762566C9C700EE1C58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerViewModel.swift; sourceTree = "<group>"; };
+		B68F8682256FF98E00793819 /* SneakerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerService.swift; sourceTree = "<group>"; };
 		DF183B05256984A7006DE246 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DF183B0D256AE8ED006DE246 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		DF5F94432566DCC700CF7C52 /* ViewObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObjects.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				B6834E762566C9C700EE1C58 /* User.swift */,
+				B65717F6257597D800F36970 /* SneakerOffer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			children = (
 				DF183B05256984A7006DE246 /* UserService.swift */,
 				DF183B0D256AE8ED006DE246 /* Response.swift */,
+				B68F8682256FF98E00793819 /* SneakerService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -266,8 +272,10 @@
 				DF183B0E256AE8ED006DE246 /* Response.swift in Sources */,
 				DF5F94512567346F00CF7C52 /* OnboardingViewModel.swift in Sources */,
 				DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */,
+				B68F8683256FF98E00793819 /* SneakerService.swift in Sources */,
 				B68F8679256FABB100793819 /* OfferSneakerViewModel.swift in Sources */,
 				DF183B06256984A7006DE246 /* UserService.swift in Sources */,
+				B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */,
 				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
 				B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,

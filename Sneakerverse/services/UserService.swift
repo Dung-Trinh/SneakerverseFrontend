@@ -10,7 +10,7 @@ import Foundation
 class UserService{
     var accessToken : String = ""
     
-    func sendLoginRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?, _ statuscode: Int?)->()) {
+    func sendLoginRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?)->()) {
         let parameters = [
             "user":
                 [
@@ -59,21 +59,21 @@ class UserService{
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    userResponse = Response(json: json)
+                    userResponse = Response(json: json,statusCode: statusCode!)
                     self.accessToken = userResponse?.accessToken ?? ""
                     // handle json...
                 }
             } catch _ {
                 print("LOGIN REQUEST ERROR")
             }
-            completion(userResponse,statusCode)
+            completion(userResponse)
         })
         
         task.resume()
     }
     
     
-    func sendSignUpRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?, _ statuscode: Int?)->()) {
+    func sendSignUpRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?)->()) {
         let parameters = [
             "user":
                 [
@@ -123,14 +123,14 @@ class UserService{
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    userResponse = Response(json: json)
+                    userResponse = Response(json: json,statusCode: statusCode!)
                     self.accessToken = userResponse?.accessToken ?? ""
                     // handle json...
                 }
             } catch _ {
                 print("REGISTER REQUEST ERROR")
             }
-            completion(userResponse,statusCode)
+            completion(userResponse)
         })
         
         task.resume()

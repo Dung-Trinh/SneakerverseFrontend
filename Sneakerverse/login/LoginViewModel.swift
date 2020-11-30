@@ -20,11 +20,11 @@ class LoginViewModel{
         
         userService.sendLoginRequest(username: username, password: password, completion:
                                         {
-                                            json, statusCode in
-                                            if(statusCode == 200){
+                                            response in
+                                            if(response?.statusCode == 200){
                                                 success = true
                                             }
-                                            print(json ?? "")
+                                            print(response ?? "")
                                             
                                             // will be called at either completion or at an error.
                                             group.leave()
