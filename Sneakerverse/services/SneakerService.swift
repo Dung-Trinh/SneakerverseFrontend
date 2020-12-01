@@ -6,13 +6,14 @@
 //
 
 import Foundation
-
+import KeychainAccess
 class SneakerService {
     //TODO: — passing token
-    var accessToken : String = ""
+    var accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
+    
     func sendSneakerOfferRequest(sneakerOffer: SneakerOffer, completion: @escaping (_ response: Response?)->()) {
         let parameters = [
-            "user":
+            "offer":
                 [
                     "name":"\(sneakerOffer.sneakerName)",
                     "description": "\(sneakerOffer.description)",
@@ -60,7 +61,7 @@ class SneakerService {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     userResponse = Response(json: json,statusCode: statusCode!)
-                    self.accessToken = userResponse?.accessToken ?? ""
+                    
                     // handle json...
                 }
             } catch _ {

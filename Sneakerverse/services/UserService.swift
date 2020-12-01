@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import KeychainAccess
 
 class UserService{
-    var accessToken : String = ""
     
     func sendLoginRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?)->()) {
         let parameters = [
@@ -60,7 +60,9 @@ class UserService{
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     userResponse = Response(json: json,statusCode: statusCode!)
-                    self.accessToken = userResponse?.accessToken ?? ""
+                    
+                    let keychain = Keychain(service: "sneakerverse.Sneakerverse")
+                    keychain["accessToken"] = userResponse?.accessToken ?? ""
                     // handle json...
                 }
             } catch _ {
@@ -124,7 +126,9 @@ class UserService{
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     userResponse = Response(json: json,statusCode: statusCode!)
-                    self.accessToken = userResponse?.accessToken ?? ""
+                    
+                    let keychain = Keychain(service: "sneakerverse.Sneakerverse")
+                    keychain["accessToken"] = userResponse?.accessToken ?? ""
                     // handle json...
                 }
             } catch _ {

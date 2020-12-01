@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B44C7BBA6A411A107829AAA /* Pods_Sneakerverse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D0BA69ACB4796F9853E934 /* Pods_Sneakerverse.framework */; };
 		B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D323256BD33A007B58CF /* OfferSneakerView.swift */; };
 		B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */; };
 		B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C39EC256B1F8C0041C4CE /* HomeView.swift */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A76635A0F0DD84DF206A404 /* Pods-Sneakerverse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakerverse.release.xcconfig"; path = "Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse.release.xcconfig"; sourceTree = "<group>"; };
+		A3D0BA69ACB4796F9853E934 /* Pods_Sneakerverse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sneakerverse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B601D323256BD33A007B58CF /* OfferSneakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerView.swift; sourceTree = "<group>"; };
 		B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDataPicker.swift; sourceTree = "<group>"; };
 		B61C39EC256B1F8C0041C4CE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		B6834E762566C9C700EE1C58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerViewModel.swift; sourceTree = "<group>"; };
 		B68F8682256FF98E00793819 /* SneakerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerService.swift; sourceTree = "<group>"; };
+		DC0DFD48700A6F9E44AD4636 /* Pods-Sneakerverse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakerverse.debug.xcconfig"; path = "Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse.debug.xcconfig"; sourceTree = "<group>"; };
 		DF183B05256984A7006DE246 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DF183B0D256AE8ED006DE246 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		DF5F94432566DCC700CF7C52 /* ViewObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewObjects.swift; sourceTree = "<group>"; };
@@ -61,12 +65,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B44C7BBA6A411A107829AAA /* Pods_Sneakerverse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62A8125104400E15D9CE2E24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC0DFD48700A6F9E44AD4636 /* Pods-Sneakerverse.debug.xcconfig */,
+				5A76635A0F0DD84DF206A404 /* Pods-Sneakerverse.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B601D322256BD2FC007B58CF /* OfferSneaker */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +105,8 @@
 			children = (
 				B6834E5A2566C72100EE1C58 /* Sneakerverse */,
 				B6834E592566C72100EE1C58 /* Products */,
+				62A8125104400E15D9CE2E24 /* Pods */,
+				DC224659198B879FE60E9B78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +153,14 @@
 				B65717F6257597D800F36970 /* SneakerOffer.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC224659198B879FE60E9B78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3D0BA69ACB4796F9853E934 /* Pods_Sneakerverse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DF183B0425698496006DE246 /* services */ = {
@@ -199,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6834E672566C72500EE1C58 /* Build configuration list for PBXNativeTarget "Sneakerverse" */;
 			buildPhases = (
+				AEFA36D39984465BD9977D60 /* [CP] Check Pods Manifest.lock */,
 				B6834E542566C72100EE1C58 /* Sources */,
 				B6834E552566C72100EE1C58 /* Frameworks */,
 				B6834E562566C72100EE1C58 /* Resources */,
+				809B5E8BFA9A7D2290AD4640 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +282,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		809B5E8BFA9A7D2290AD4640 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AEFA36D39984465BD9977D60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sneakerverse-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6834E542566C72100EE1C58 /* Sources */ = {
@@ -404,6 +473,7 @@
 		};
 		B6834E682566C72500EE1C58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC0DFD48700A6F9E44AD4636 /* Pods-Sneakerverse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -425,6 +495,7 @@
 		};
 		B6834E692566C72500EE1C58 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A76635A0F0DD84DF206A404 /* Pods-Sneakerverse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
