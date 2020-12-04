@@ -10,28 +10,15 @@ import SwiftUI
 import Foundation
 import PromiseKit
 
-class LoginViewModel{
+struct LoginViewModel{
     var userService = UserService()
     var accessToken:String?
 
-        func login(username:String, password:String) -> Bool{
-            var success = false;
-            let group = DispatchGroup()
-                    group.enter()
-            print("enter group")
+    func login(username:String, password:String, completion: @escaping (Bool)->Void) {
             userService.sendLoginRequest(username: username, password: password, completion: {response in
-                let status = response?.statusCode
-                if(response?.statusCode == 200){
-                    print("success true")
-                    success = true
-                }
-                print(response ?? "")
-                group.leave()
+                completion(response?.statusCode == 200)
             })
             
-            print("")
-            group.wait()
-            return success
         }
 //    func login(username:String, password:String) -> Bool{
 //        var success = false;

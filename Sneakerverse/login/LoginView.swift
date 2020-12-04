@@ -39,10 +39,10 @@ struct LoginView: View {
                 ResponseMessage(message: $loginMessage)
                 
                 Button(action: {
-                    let successfulLogin = viewModel.login(username: username, password: password)
-                    loginMessage = successfulLogin ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
-                    self.successfulAuth = successfulLogin
-                    print(successfulLogin)
+                    viewModel.login(username: username, password: password){success in
+                        self.successfulAuth = success
+                        loginMessage = self.successfulAuth ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
+                    }
                 }) {
                     CustomButton(buttonText: "Login", buttonColour: .blue)
                 }
