@@ -43,7 +43,9 @@ struct OfferSneakerView: View {
                     brand: \(viewModel.brand)
                     condition: \(viewModel.condition)
                     """)
-                viewModel.offerSneaker(sneakerOffer: SneakerOffer(sneakerName: viewModel.sneakerName, description: viewModel.description, price: viewModel.price, size: viewModel.size, brand: viewModel.size, condition: viewModel.condition))
+                
+                viewModel.offerSneaker(sneakerOffer: SneakerOffer(sneakerName: viewModel.sneakerName, description: viewModel.description, price: viewModel.price, size: viewModel.size, brand: viewModel.size, condition: viewModel.condition), completion: {success in
+                })
             }) {
                 CustomButton(buttonText: "add sneaker", buttonColour: .blue)
             }

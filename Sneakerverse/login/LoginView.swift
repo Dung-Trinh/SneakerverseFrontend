@@ -17,8 +17,6 @@ enum LoginStates: String{
     case SECCESSFUL = "Login successfull"
 }
 
-let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
-
 struct LoginView: View {
     
     @State var username: String = "TestUser"

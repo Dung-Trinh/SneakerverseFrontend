@@ -17,21 +17,12 @@ class OfferSneakerViewModel: ObservableObject {
     
     var sneakerService = SneakerService()
     
-    func offerSneaker(sneakerOffer: SneakerOffer) -> Bool{
-        var success = false;
-        let group = DispatchGroup()
-        group.enter()
-        sneakerService.sendSneakerOfferRequest(sneakerOffer: sneakerOffer, completion:
-                                                {
-                                                    response in
-                                                    if(response?.statusCode == 200){
-                                                        success = true
-                                                    }
-                                                    print(response ?? "")
-                                                    
-                                                    // will be called at either completion or at an error.
-                                                    group.leave()
-                                                })
+    func offerSneaker(sneakerOffer: SneakerOffer,completion: @escaping (Bool)->Void){
+        let success = sneakerService.sendSneakerOfferRequest(sneakerOffer: sneakerOffer, completion: { response in
+            print(response)
+            completion(response?.statusCode == 200)
+        })
+
         return success
     }
 }
