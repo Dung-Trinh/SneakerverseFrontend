@@ -42,7 +42,7 @@ struct LoginView: View {
                         loginMessage = self.successfulAuth ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
                     }
                 }) {
-                    CustomButton(buttonText: "Login", buttonColour: .blue)
+                    CustomButton(buttonText: "Login", buttonColor: .blue)
                 }
                 
                 NavigationLink(destination: HomeView(), isActive: $successfulAuth){}

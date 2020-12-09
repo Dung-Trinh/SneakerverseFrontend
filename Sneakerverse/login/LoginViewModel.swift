@@ -8,7 +8,6 @@
 import SwiftUI
 
 import Foundation
-import PromiseKit
 
 struct LoginViewModel{
     var userService = UserService()

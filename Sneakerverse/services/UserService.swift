@@ -10,8 +10,7 @@ import KeychainAccess
 import Alamofire
 
 class UserService{
-    let urlString = "http://localhost:3000"
-    
+
     func sendLoginRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?)->()){
         let headers: HTTPHeaders = [
             .accept("application/json")
@@ -25,7 +24,7 @@ class UserService{
                 ]
         ]
         
-        AF.request(urlString+"/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.HOST_URL+"/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
             var userResponse: Response?
@@ -62,7 +61,7 @@ class UserService{
             .accept("application/json")
         ]
         
-        AF.request(urlString+"/user/register", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.HOST_URL+"/user/register", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
             var userResponse: Response?

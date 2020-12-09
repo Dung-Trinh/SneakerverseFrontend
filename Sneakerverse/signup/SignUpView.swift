@@ -37,7 +37,7 @@ struct SignUpView: View {
                         responseMessage = SignUpStates.PASSWORDFAILED
                     }
                 }){
-                    CustomButton(buttonText: "Sign Up", buttonColour: .blue)
+                    CustomButton(buttonText: "Sign Up", buttonColor: .blue)
                 }
             }
         }

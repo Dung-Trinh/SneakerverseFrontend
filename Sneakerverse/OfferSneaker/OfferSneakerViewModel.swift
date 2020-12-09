@@ -19,7 +19,7 @@ class OfferSneakerViewModel: ObservableObject {
     
     func offerSneaker(sneakerOffer: SneakerOffer,completion: @escaping (Bool)->Void){
         let success = sneakerService.sendSneakerOfferRequest(sneakerOffer: sneakerOffer, completion: { response in
-            print(response)
+            print(response!)
             completion(response?.statusCode == 200)
         })
 

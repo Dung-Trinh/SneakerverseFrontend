@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
-
 struct UI_Objects: View {
     @Binding var showState: LoginStates
     @Binding var exampleText: String
@@ -27,11 +25,11 @@ struct UI_Objects: View {
             Text("Buttons")
             Button(action: {
             }) {
-                CustomButton(buttonText: "Example", buttonColour: .black)
+                CustomButton(buttonText: "Example", buttonColor: .black)
             }
             Button(action: {
             }) {
-                CustomButton(buttonText: "Sign up", buttonColour: .blue)
+                CustomButton(buttonText: "Sign up", buttonColor: .blue)
             }
             Text("Response Message")
             ResponseMessage(message: $showState)
@@ -49,7 +47,7 @@ struct UI_Objects_Previews: PreviewProvider {
 
 struct CustomButton: View {
     var buttonText: String
-    var buttonColour: Color
+    var buttonColor: Color
     
     var body: some View {
         Text(buttonText)
@@ -57,7 +55,7 @@ struct CustomButton: View {
             .foregroundColor(.white)
             .padding()
             .frame(width: 300, height: .infinity)
-            .background(buttonColour)
+            .background(buttonColor)
             .cornerRadius(35.0)
     }
 }
@@ -155,7 +153,7 @@ struct CustomTextField: View {
             }
         }
         .padding()
-        .background(lightGreyColor)
+        .background(DESIGN.COLOR.lightGreyColor)
         .cornerRadius(5.0)
         .padding(.bottom, 20)
         

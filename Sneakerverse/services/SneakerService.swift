@@ -10,9 +10,7 @@ import KeychainAccess
 import Alamofire
 
 class SneakerService {
-    let urlString = "http://localhost:3000"
     var accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
-    
     
     func sendSneakerOfferRequest(sneakerOffer: SneakerOffer, completion: @escaping (_ userResponse: Response?)->()){
         let headers: HTTPHeaders = [
@@ -33,7 +31,7 @@ class SneakerService {
         ]
         
         
-        AF.request(urlString+"/offer", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.HOST_URL+"/offer", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
             var userResponse: Response?
@@ -61,7 +59,7 @@ class SneakerService {
             "Authorization": "bearer \(self.accessToken)"
         ]
         
-        AF.request(urlString+"/offer", method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.HOST_URL+"/offer", method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
             var userResponse: Response?

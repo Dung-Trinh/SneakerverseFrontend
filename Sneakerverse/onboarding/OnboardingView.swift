@@ -18,13 +18,13 @@ struct OnboardingView: View {
                 
                 
                 NavigationLink (destination: LoginView()){
-                    CustomButton(buttonText: "Login", buttonColour: .black)
+                    CustomButton(buttonText: "Login", buttonColor: .black)
                 }
                 
                 LabelledDivider(label: "or")
                 
                 NavigationLink(destination: SignUpView()){
-                    CustomButton(buttonText: "Sign up", buttonColour: .blue)
+                    CustomButton(buttonText: "Sign up", buttonColor: .blue)
                 }
             }
         }
