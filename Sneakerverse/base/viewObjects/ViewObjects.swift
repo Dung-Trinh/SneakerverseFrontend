@@ -12,6 +12,7 @@ struct UI_Objects: View {
     @Binding var exampleText: String
     var body: some View {
         VStack {
+            IconButton(iconName: "paperplane.fill")
             Text("Title")
             Title(text: "SNEAKER MARKET")
             Group{
@@ -90,6 +91,17 @@ struct ResponseMessage: View {
             .foregroundColor(textColor)
     }
 }
+
+struct IconButton: View{
+    var iconName:String
+    var body: some View{
+        Image(systemName:iconName)
+            .resizable()
+            .frame(width: 30, height: 30)
+    }
+    
+}
+
 
 struct ResponseSignUp: View {
     @Binding var message: SignUpStates

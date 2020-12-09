@@ -22,7 +22,7 @@ struct DealsOverviewListItemView: View {
                     Spacer()
                     Image("default-sneaker")
                         .resizable()
-                        .frame(width: 180, height: 180)
+                        .frame(width: 180, height: 150)
                         .offset(x: -10, y: 0)
                     Button(action: {}) {
                             IconButton(iconName: "star")
@@ -30,7 +30,7 @@ struct DealsOverviewListItemView: View {
                     }
                 }
                     Text(location)
-                        .offset(x: 0, y: -20)
+                        .offset(x: 0, y: -10)
                         .foregroundColor(.gray)
                 HStack {
                     Text(title)
