@@ -207,7 +207,7 @@
 		DF183B0A256AD159006DE246 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				DF5F94422566DCAC00CF7C52 /* ViewObjects */,
+				DF5F94422566DCAC00CF7C52 /* viewObjects */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -221,13 +221,13 @@
 			path = onboarding;
 			sourceTree = "<group>";
 		};
-		DF5F94422566DCAC00CF7C52 /* ViewObjects */ = {
+		DF5F94422566DCAC00CF7C52 /* viewObjects */ = {
 			isa = PBXGroup;
 			children = (
 				DF5F94432566DCC700CF7C52 /* ViewObjects.swift */,
 				DF5F94532567354200CF7C52 /* OnboardingGallery.swift */,
 			);
-			path = ViewObjects;
+			path = viewObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
