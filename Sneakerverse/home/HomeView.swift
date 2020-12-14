@@ -36,6 +36,11 @@ struct HomeView: View {
                         Image(systemName: "person.crop.rectangle.fill")
                         Text("Profile")
                     }
+                ChatView()
+                    .tabItem {
+                        Image(systemName: "person.crop.rectangle.fill")
+                        Text("Chat")
+                    }
             }
         }.navigationBarHidden(true)
         
