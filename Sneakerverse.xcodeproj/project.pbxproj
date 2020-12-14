@@ -10,7 +10,6 @@
 		0B44C7BBA6A411A107829AAA /* Pods_Sneakerverse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D0BA69ACB4796F9853E934 /* Pods_Sneakerverse.framework */; };
 		B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D323256BD33A007B58CF /* OfferSneakerView.swift */; };
 		B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */; };
-		B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C39EC256B1F8C0041C4CE /* HomeView.swift */; };
 		B635FDF0258684350037170C /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B635FDEF258684350037170C /* ChatView.swift */; };
 		B635FDF4258684460037170C /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B635FDF3258684460037170C /* ChatViewModel.swift */; };
 		B6463244257FB6A9004E5AE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463243257FB6A9004E5AE3 /* API.swift */; };
@@ -27,6 +26,7 @@
 		B68F8683256FF98E00793819 /* SneakerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8682256FF98E00793819 /* SneakerService.swift */; };
 		B697AD7D25817B6D00947710 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AD7C25817B6D00947710 /* PopUpView.swift */; };
 		B6DB4AC0258807BC00011994 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB4ABF258807BC00011994 /* ChatService.swift */; };
+		B6DB4AC42588172300011994 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB4AC32588172300011994 /* HomeView.swift */; };
 		B6DD638E258782BF00DE0C7D /* ChatText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD638D258782BF00DE0C7D /* ChatText.swift */; };
 		B6DD63912587BDA400DE0C7D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD63902587BDA400DE0C7D /* MessageView.swift */; };
 		DF183B06256984A7006DE246 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B05256984A7006DE246 /* UserService.swift */; };
@@ -44,7 +44,6 @@
 		A3D0BA69ACB4796F9853E934 /* Pods_Sneakerverse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sneakerverse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B601D323256BD33A007B58CF /* OfferSneakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerView.swift; sourceTree = "<group>"; };
 		B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDataPicker.swift; sourceTree = "<group>"; };
-		B61C39EC256B1F8C0041C4CE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B635FDEF258684350037170C /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B635FDF3258684460037170C /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		B6463243257FB6A9004E5AE3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		B68F8682256FF98E00793819 /* SneakerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerService.swift; sourceTree = "<group>"; };
 		B697AD7C25817B6D00947710 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		B6DB4ABF258807BC00011994 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		B6DB4AC32588172300011994 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6DD638D258782BF00DE0C7D /* ChatText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatText.swift; sourceTree = "<group>"; };
 		B6DD63902587BDA400DE0C7D /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		DC0DFD48700A6F9E44AD4636 /* Pods-Sneakerverse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakerverse.debug.xcconfig"; path = "Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,14 +107,6 @@
 			path = offerSneaker;
 			sourceTree = "<group>";
 		};
-		B61C39EB256B1F710041C4CE /* home */ = {
-			isa = PBXGroup;
-			children = (
-				B61C39EC256B1F8C0041C4CE /* HomeView.swift */,
-			);
-			path = home;
-			sourceTree = "<group>";
-		};
 		B635FDEE258684210037170C /* chatView */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,10 +148,10 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
+				B6DB4AC22588170B00011994 /* home */,
 				B635FDEE258684210037170C /* chatView */,
 				B646323F257FB5DF004E5AE3 /* constants */,
 				B601D322256BD2FC007B58CF /* offerSneaker */,
-				B61C39EB256B1F710041C4CE /* home */,
 				DF183B0B256AD169006DE246 /* onboarding */,
 				DF183B0A256AD159006DE246 /* base */,
 				DF183B09256AD132006DE246 /* signup */,
@@ -190,6 +182,14 @@
 				B65717F6257597D800F36970 /* SneakerOffer.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		B6DB4AC22588170B00011994 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				B6DB4AC32588172300011994 /* HomeView.swift */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 		DC224659198B879FE60E9B78 /* Frameworks */ = {
@@ -369,8 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6DB4AC42588172300011994 /* HomeView.swift in Sources */,
 				B6834E732566C98E00EE1C58 /* LoginViewModel.swift in Sources */,
-				B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */,
 				B635FDF0258684350037170C /* ChatView.swift in Sources */,
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
