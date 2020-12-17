@@ -12,11 +12,18 @@ import Foundation
 struct ChatViewModel{
     var chatService = ChatService()
     
-    func sendMessage(message: String, completion: @escaping ()->Void){
+    func sendMessage(message: String, completion: @escaping (_ statusCode:Int)->Void){
         chatService.sendMessage(message: message, completion: {response in
-            print("statuscode \(response)")
+            completion(response)
         })
     }
+    
+    func getAllChats(completion:@escaping(_ response: [ChatList]?)->()){
+        chatService.fetchAllChats(completion: {response in
+            completion(response?.data.chatList)
+        })
+    }
+    
 }
 
 struct ChatUser {

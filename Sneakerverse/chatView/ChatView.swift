@@ -18,9 +18,11 @@ struct ChatView: View {
 
             HStack(){
                 CustomTextField(storedText: $typingMessage, placholderText: "text...", type: .TEXT)
+                
                 Button(action:{
-                    chatViewModel.sendMessage(message: typingMessage, completion: {
-                        
+                    
+                    chatViewModel.sendMessage(message: typingMessage, completion: { response in
+                        print("statuscode \(response)")
                     })
                 }){
                     CustomButton(buttonText: "send", buttonColor: .blue)
@@ -29,6 +31,12 @@ struct ChatView: View {
                 
                 
             }
+        }
+        .onAppear {
+            chatViewModel.getAllChats(completion: { response in
+                // TODO: chat anzeigen
+                // print(response)
+            })
         }
     }
 }

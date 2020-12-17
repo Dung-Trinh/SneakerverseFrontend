@@ -10,7 +10,16 @@ import KeychainAccess
 import Alamofire
 
 class ChatService{
+    var headers: HTTPHeaders
     var accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
+    
+    init(){
+        headers = [
+            "Content-Type": "application/json",
+            "Authorization": "bearer \(self.accessToken)"
+        ]
+        
+    }
 
     func sendMessage(message: String, completion:@escaping(_ statusCode:Int)->()){
         let headers: HTTPHeaders = [
@@ -42,4 +51,22 @@ class ChatService{
             
         }
     }
+    
+    func fetchAllChats(completion:@escaping(_ userResponse: ChatListResponse?)->()){
+        AF.request(API.HOST_URL+"/chat", method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            
+            var chatListResponse: ChatListResponse?
+            let jsonDecoder = JSONDecoder()
+            
+            let statusCode = response.response?.statusCode
+            print("statuscode\(statusCode)")
+            if response.data != nil{
+                
+                chatListResponse = try? jsonDecoder.decode(ChatListResponse.self, from: response.data!)
+            }
+            completion(chatListResponse)
+            
+        }
+    }
 }
+
