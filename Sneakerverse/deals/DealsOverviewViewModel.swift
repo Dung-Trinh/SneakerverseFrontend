@@ -8,6 +8,11 @@
 import Foundation
 
 struct DealsOVerviewViewModel{
-    var userService = UserService()
+    var sneakerService = SneakerService()
     
+    func fetchSneaker( completion: @escaping (Bool)->Void) {
+        sneakerService.getAllSneakerOffers { (response) in
+            completion(response?.statusCode == 200)
+        }
+    }
 }

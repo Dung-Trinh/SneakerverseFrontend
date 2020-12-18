@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DealsOverviewView: View {
+    @State var viewModel: DealsOVerviewViewModel = DealsOVerviewViewModel()
+    @State var fetchSuccessful: Bool = true
     let data = Array(1...1000).map {"Item\($0)"}
     let DealsOffer = [
         GridItem(.flexible()),
@@ -28,7 +30,11 @@ struct DealsOverviewView: View {
                     }
                 }
             }.navigationTitle("Sneaker Deals")
-        }
+        }.onAppear(perform: {
+            viewModel.fetchSneaker(){ success in
+                self.fetchSuccessful = success
+            }
+        })
     }
 }
 
