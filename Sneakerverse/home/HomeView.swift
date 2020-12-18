@@ -25,7 +25,7 @@ struct HomeView: View {
                         Image(systemName: "plus.circle.fill")
                         Text("Offer Sneaker")
                     }
-                Text("DEALS")
+                DealsOverviewView()
                     .tabItem {
                         Image(systemName: "tag.fill")
                         Text("Deals")
