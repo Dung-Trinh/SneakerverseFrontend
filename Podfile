@@ -8,5 +8,6 @@ target 'Sneakerverse' do
   # Pods for Sneakerverse
 pod 'KeychainAccess', '~> 4.2.1'
 pod 'Alamofire','~> 5.4.0'
+pod 'SwiftyBeaver'
 
 end

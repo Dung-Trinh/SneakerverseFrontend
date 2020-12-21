@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.4.0)
   - KeychainAccess (4.2.1)
+  - SwiftyBeaver (1.9.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.0)
   - KeychainAccess (~> 4.2.1)
+  - SwiftyBeaver
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - KeychainAccess
+    - SwiftyBeaver
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
+  SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
 
-PODFILE CHECKSUM: f3fa1a070f016ec9d182a44acedd3c26bb64122f
+PODFILE CHECKSUM: 3b220e22213ed198789f6723311f7a6fb7f8b5b3
 
 COCOAPODS: 1.10.0
