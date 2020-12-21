@@ -15,7 +15,8 @@ struct LoginViewModel{
     
     func login(username:String, password:String, completion: @escaping (Bool)->Void) {
         userService.sendLoginRequest(username: username, password: password, completion: {response in
-            completion(response?.statusCode == 200)
+                completion(response?.statusCode == 200)
+            
         })
     }
 }

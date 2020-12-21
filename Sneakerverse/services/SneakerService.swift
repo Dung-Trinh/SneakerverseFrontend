@@ -40,7 +40,8 @@ class SneakerService {
             do {
                 if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
                     userResponse = Response(json: json,statusCode: statusCode!)
-                    
+                    print("Jetzt kommt die Data")
+                    print(userResponse?.data)
                 }
             } catch {
                 print("Error: Trying to convert JSON data to string")

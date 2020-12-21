@@ -32,6 +32,10 @@
 		DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */; };
 		DF5F94512567346F00CF7C52 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */; };
 		DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94532567354200CF7C52 /* OnboardingGallery.swift */; };
+		DFAFF08F25818A7900FAEC0B /* DealsOverviewListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */; };
+		DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */; };
+		DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */; };
+		DFAFF09225818A7900FAEC0B /* DealsOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08E25818A7900FAEC0B /* DealsOverviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		DF5F94532567354200CF7C52 /* OnboardingGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGallery.swift; sourceTree = "<group>"; };
+		DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewListItemView.swift; sourceTree = "<group>"; };
+		DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewListItemViewModel.swift; sourceTree = "<group>"; };
+		DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewView.swift; sourceTree = "<group>"; };
+		DFAFF08E25818A7900FAEC0B /* DealsOverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +143,7 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
+				DFAFF08925818A7900FAEC0B /* deals */,
 				B646323F257FB5DF004E5AE3 /* constants */,
 				B601D322256BD2FC007B58CF /* offerSneaker */,
 				B61C39EB256B1F710041C4CE /* home */,
@@ -231,6 +240,25 @@
 				B697AD7C25817B6D00947710 /* PopUpView.swift */,
 			);
 			path = viewObjects;
+			sourceTree = "<group>";
+		};
+		DFAFF08925818A7900FAEC0B /* deals */ = {
+			isa = PBXGroup;
+			children = (
+				DFAFF08A25818A7900FAEC0B /* overviewListItem */,
+				DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */,
+				DFAFF08E25818A7900FAEC0B /* DealsOverviewViewModel.swift */,
+			);
+			path = deals;
+			sourceTree = "<group>";
+		};
+		DFAFF08A25818A7900FAEC0B /* overviewListItem */ = {
+			isa = PBXGroup;
+			children = (
+				DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */,
+				DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */,
+			);
+			path = overviewListItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,7 +377,9 @@
 				B6834E732566C98E00EE1C58 /* LoginViewModel.swift in Sources */,
 				B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */,
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
+				DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
+				DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */,
 				B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */,
 				DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */,
 				DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */,
@@ -361,6 +391,7 @@
 				B68F8683256FF98E00793819 /* SneakerService.swift in Sources */,
 				B68F8679256FABB100793819 /* OfferSneakerViewModel.swift in Sources */,
 				DF183B06256984A7006DE246 /* UserService.swift in Sources */,
+				DFAFF08F25818A7900FAEC0B /* DealsOverviewListItemView.swift in Sources */,
 				B6463244257FB6A9004E5AE3 /* API.swift in Sources */,
 				B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */,
 				B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */,
@@ -368,6 +399,7 @@
 				B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,
 				B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */,
+				DFAFF09225818A7900FAEC0B /* DealsOverviewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

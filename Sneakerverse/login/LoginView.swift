@@ -19,7 +19,7 @@ enum LoginStates: String{
 
 struct LoginView: View {
     
-    @State var username: String = "TestUser"
+    @State var username: String = "Tim119"
     @State var password: String = "TestPassword"
     
     @State var loginMessage: LoginStates = LoginStates.DEFAULT
