@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
     var body: some View {
         NavigationView{
             VStack {
@@ -15,7 +16,6 @@ struct OnboardingView: View {
                 
                 OnboardingGallery()
                     .frame(width: .infinity, height: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
                 
                 NavigationLink (destination: LoginView()){
                     CustomButton(buttonText: "Login", buttonColor: .black)

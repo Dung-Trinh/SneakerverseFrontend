@@ -9,14 +9,23 @@ import SwiftUI
 
 import Foundation
 
-struct LoginViewModel{
-    var userService = UserService()
-    var accessToken:String?
+class LoginViewModel: ObservableObject{
+    @Published var username: String = "Tim119"
+    @Published var password: String = "TestPassword"
     
-    func login(username:String, password:String, completion: @escaping (Bool)->Void) {
-        userService.sendLoginRequest(username: username, password: password, completion: {response in
-                completion(response?.statusCode == 200)
-            
+    @Published var loginMessage: LoginStates = LoginStates.DEFAULT
+    @Published var successfulAuth: Bool = false
+    
+    let userService = UserService()
+    
+    func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
+        userService.sendLoginRequest(username: username, password: password, completion: { response in
+            switch response {
+            case .success:
+                completion(true)
+            case .failure:
+                completion(false)
+            }
         })
     }
 }

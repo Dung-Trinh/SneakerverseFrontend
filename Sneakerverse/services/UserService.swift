@@ -9,13 +9,12 @@ import Foundation
 import KeychainAccess
 import Alamofire
 
-class UserService{
-
-    func sendLoginRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?)->()){
-        let headers: HTTPHeaders = [
-            .accept("application/json")
-        ]
-        
+class UserService {
+    let headers: HTTPHeaders = [
+        .accept("application/json")
+    ]
+    
+    func sendLoginRequest(username:String, password:String, completion: @escaping (Result<Bool,NetworkError>)->Void){
         let parameters = [
             "user":
                 [
@@ -24,31 +23,35 @@ class UserService{
                 ]
         ]
         
-        AF.request(API.HOST_URL+"/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            
+        AF.request(API.LOGIN, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var statusCode: Int?
             var userResponse: Response?
             
             statusCode = response.response?.statusCode
-            do {
-                if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
-                    userResponse = Response(json: json,statusCode: statusCode!)
-                    
-                    let keychain = Keychain(service: "sneakerverse.Sneakerverse")
-                    keychain["accessToken"] = userResponse?.accessToken ?? ""
+            switch statusCode {
+            case 200:
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
+                        userResponse = Response(json: json,statusCode: statusCode!)
+                        
+                        let keychain = Keychain(service: "sneakerverse.Sneakerverse")
+                        keychain["accessToken"] = userResponse?.accessToken ?? ""
+                        completion(.success(true))
+                    }
+                } catch {
+                    print("Error: Trying to convert JSON data to string")
+                    completion(.failure(.decodingError))
+                    return
                 }
-            } catch {
-                print("Error: Trying to convert JSON data to string")
-                return
+            case 404:
+                completion(.failure(.userNotFound))
+            case .none, .some(_):
+                completion(.failure(.loginError))
             }
-            
-            completion(userResponse)
-
         }
-        
     }
     
-    func sendSignUpRequest(username:String, password:String, completion: @escaping (_ userResponse: Response?)->()) {
+    func sendSignUpRequest(username:String, password:String, completion: @escaping (Result<Bool,NetworkError>)->Void) {
         let parameters = [
             "user":
                 [
@@ -57,31 +60,16 @@ class UserService{
                 ]
         ]
         
-        let headers: HTTPHeaders = [
-            .accept("application/json")
-        ]
-        
-        AF.request(API.HOST_URL+"/user/register", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            
+        AF.request(API.REGISTER, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var statusCode: Int?
-            var userResponse: Response?
-            
             statusCode = response.response?.statusCode
-            do {
-                if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
-                    userResponse = Response(json: json,statusCode: statusCode!)
-                    
-                    let keychain = Keychain(service: "sneakerverse.Sneakerverse")
-                    keychain["accessToken"] = userResponse?.accessToken ?? ""
-                }
-            } catch {
-                print("Error: Trying to convert JSON data to string")
-                return
-            }
             
-            completion(userResponse)
-
+            switch statusCode {
+            case 200:
+                completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.badRequest))
+            }
         }
-        
     }
 }

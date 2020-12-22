@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OfferSneakerView: View {
-    @ObservedObject var viewModel = OfferSneakerViewModel()
+    @StateObject var offerViewModel = OfferSneakerViewModel()
     
     @State var isValid = true
     @State var showResponse: Bool = false
@@ -24,27 +24,27 @@ struct OfferSneakerView: View {
                         }
                     }
                     VStack{
-                        CustomTextField(storedText: $viewModel.sneakerName, placholderText: "Sneaker name",type: .TEXT,icon: Image(systemName: "person.fill"))
-                        CustomTextField(storedText: $viewModel.description, placholderText: "Description",type: .TEXT, icon: Image(systemName:"text.below.photo.fill"))
-                        CustomTextField(storedText: $viewModel.price, placholderText: "Price",type: .NUMBERS, icon: Image(systemName:"tag.fill"))
+                        CustomTextField(storedText: $offerViewModel.sneakerName, placholderText: "Sneaker name",type: .TEXT,icon: Image(systemName: "person.fill"))
+                        CustomTextField(storedText: $offerViewModel.description, placholderText: "Description",type: .TEXT, icon: Image(systemName:"text.below.photo.fill"))
+                        CustomTextField(storedText: $offerViewModel.price, placholderText: "Price",type: .NUMBERS, icon: Image(systemName:"tag.fill"))
                         
                     }
                     Section{
-                        SneakerDataPicker(type: DataPickerType.SIZES, selectedValue: $viewModel.size)
-                        SneakerDataPicker(type: DataPickerType.BRANDS, selectedValue: $viewModel.brand)
-                        SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $viewModel.condition)
+                        SneakerDataPicker(type: DataPickerType.SIZES, selectedValue: $offerViewModel.size)
+                        SneakerDataPicker(type: DataPickerType.BRANDS, selectedValue: $offerViewModel.brand)
+                        SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $offerViewModel.condition)
                     }
                     Button(action: {
                         print( """
-                        name: \(viewModel.sneakerName)
-                        description: \(viewModel.description)
-                        price: \(viewModel.price)
-                        size: \(viewModel.size)
-                        brand: \(viewModel.brand)
-                        condition: \(viewModel.condition)
+                        name: \(offerViewModel.sneakerName)
+                        description: \(offerViewModel.description)
+                        price: \(offerViewModel.price)
+                        size: \(offerViewModel.size)
+                        brand: \(offerViewModel.brand)
+                        condition: \(offerViewModel.condition)
                         """)
                         
-                        viewModel.offerSneaker(sneakerOffer: SneakerOffer(sneakerName: viewModel.sneakerName, description: viewModel.description, price: viewModel.price, size: viewModel.size, brand: viewModel.size, condition: viewModel.condition), completion: {success in
+                        offerViewModel.offerSneaker(sneakerOffer: SneakerOffer(sneakerName: offerViewModel.sneakerName, description: offerViewModel.description, price: offerViewModel.price, size: offerViewModel.size, brand: offerViewModel.size, condition: offerViewModel.condition), completion: {success in
                             if (success){
                                 self.showResponse = true
                             }

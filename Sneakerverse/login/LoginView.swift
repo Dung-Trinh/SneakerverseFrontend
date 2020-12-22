@@ -7,53 +7,41 @@
 
 import SwiftUI
 
-enum TextFieldType{
-    case TEXT, PASSWORD, NUMBERS
-}
-
-enum LoginStates: String{
+enum LoginStates: String {
     case DEFAULT = ""
     case LOGINFAILED = "Login failed"
     case SECCESSFUL = "Login successfull"
 }
 
 struct LoginView: View {
+    @StateObject var loginViewModel: LoginViewModel = LoginViewModel()
     
-    @State var username: String = "Tim119"
-    @State var password: String = "TestPassword"
-    
-    @State var loginMessage: LoginStates = LoginStates.DEFAULT
-    @State var successfulAuth: Bool = false
-    
-    @State var viewModel: LoginViewModel = LoginViewModel()
     var body: some View {
         ZStack {
             VStack {
-                Title(text: "Sneaker Market")
-                
-                CustomTextField(storedText: $username, placholderText: "Username",type: .TEXT,icon: Image(systemName:"person.fill"))
-                CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
-                
-                ResponseMessage(message: $loginMessage)
-                
-                Button(action: {
-                    viewModel.login(username: username, password: password){success in
-                        self.successfulAuth = success
-                        loginMessage = self.successfulAuth ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
+                if(!loginViewModel.successfulAuth){
+                    Title(text: "Sneaker Market")
+                    
+                    CustomTextField(storedText: $loginViewModel.username, placholderText: "Username",type: .TEXT,icon: Image(systemName: "person.fill"))
+                    CustomTextField(storedText: $loginViewModel.password, placholderText: "Password", type: .PASSWORD)
+                    
+                    ResponseMessage(message: $loginViewModel.loginMessage)
+                    
+                    Button(action: {
+                        loginViewModel.login(username: loginViewModel.username, password: loginViewModel.password){ success in
+                            self.loginViewModel.successfulAuth = success
+                            loginViewModel.loginMessage = self.loginViewModel.successfulAuth ? LoginStates.SECCESSFUL:LoginStates.LOGINFAILED
+                        }
+                    }) {
+                        CustomButton(buttonText: "Login", buttonColor: .blue)
                     }
-                }) {
-                    CustomButton(buttonText: "Login", buttonColor: .blue)
+                }else{
+                    HomeView()
                 }
-                
-                NavigationLink(destination: HomeView(), isActive: $successfulAuth){}
-                
             }
             .padding()
             
         }
-        
-        
-        
     }
 }
 

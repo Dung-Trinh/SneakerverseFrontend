@@ -15,26 +15,27 @@ enum SignUpStates: String{
 }
 
 struct SignUpView: View {
-    @State var username: String = "TestUser3"
-    @State var password: String = "TestPassword"
-    @State var passwordVerify: String = "TestPassword3"
-    //@State var passwordsAreNotTheSame: Bool
-    @State var responseMessage: SignUpStates = SignUpStates.DEFAULT
-    @State var viewModel: SignUpViewModel = SignUpViewModel()
+    @StateObject var signUpViewModel: SignUpViewModel = SignUpViewModel()
+    
     var body: some View {
         NavigationView{
             VStack {
                 Title(text:"Registrieren")
-                CustomTextField(storedText: $username, placholderText: "Username", type: .TEXT, icon: Image(systemName: "person.fill"))
-                CustomTextField(storedText: $password, placholderText: "Password", type: .PASSWORD)
-                CustomTextField(storedText: $passwordVerify, placholderText: "Password wiederholen", type: .PASSWORD)
-                ResponseSignUp(message: $responseMessage)
+                
+                CustomTextField(storedText: $signUpViewModel.username, placholderText: "Username", type: .TEXT, icon: Image(systemName: "person.fill"))
+                CustomTextField(storedText: $signUpViewModel.password, placholderText: "Password", type: .PASSWORD)
+                CustomTextField(storedText: $signUpViewModel.passwordVerify, placholderText: "Password wiederholen", type: .PASSWORD)
+                
+                ResponseSignUp(message: $signUpViewModel.responseMessage)
+                
                 Button(action: {
-                    if(viewModel.checkPasswordsAreTheSame(firstPW: password, secondPW: passwordVerify)){
-                        let successfullSignUp = viewModel.signUp(username: username, password: password)
-                        responseMessage = successfullSignUp ? SignUpStates.SUCCESSFUL : SignUpStates.SIGNUPFAILED
+                    if(signUpViewModel.checkPasswordsAreTheSame(firstPW: signUpViewModel.password, secondPW: signUpViewModel.passwordVerify)){
+                        
+                        signUpViewModel.signUp(username: signUpViewModel.username, password: signUpViewModel.password, completion: { response in
+                            signUpViewModel.responseMessage = response ? SignUpStates.SUCCESSFUL : SignUpStates.SIGNUPFAILED
+                        })
                     }else{
-                        responseMessage = SignUpStates.PASSWORDFAILED
+                        signUpViewModel.responseMessage = SignUpStates.PASSWORDFAILED
                     }
                 }){
                     CustomButton(buttonText: "Sign Up", buttonColor: .blue)

@@ -14,6 +14,7 @@
 		B6463244257FB6A9004E5AE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463243257FB6A9004E5AE3 /* API.swift */; };
 		B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463249257FB980004E5AE3 /* DESIGN.swift */; };
 		B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65717F6257597D800F36970 /* SneakerOffer.swift */; };
+		B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E36C22591613000C8E34D /* ComponentTypes.swift */; };
 		B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */; };
 		B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5D2566C72100EE1C58 /* ContentView.swift */; };
 		B6834E602566C72500EE1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6834E5F2566C72500EE1C58 /* Assets.xcassets */; };
@@ -30,7 +31,6 @@
 		DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94472566E0E800CF7C52 /* SignUpView.swift */; };
 		DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */; };
 		DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */; };
-		DF5F94512567346F00CF7C52 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */; };
 		DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94532567354200CF7C52 /* OnboardingGallery.swift */; };
 		DFAFF08F25818A7900FAEC0B /* DealsOverviewListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */; };
 		DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */; };
@@ -47,6 +47,7 @@
 		B6463243257FB6A9004E5AE3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B6463249257FB980004E5AE3 /* DESIGN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DESIGN.swift; sourceTree = "<group>"; };
 		B65717F6257597D800F36970 /* SneakerOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOffer.swift; sourceTree = "<group>"; };
+		B67E36C22591613000C8E34D /* ComponentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTypes.swift; sourceTree = "<group>"; };
 		B6834E582566C72100EE1C58 /* Sneakerverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sneakerverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerverseApp.swift; sourceTree = "<group>"; };
 		B6834E5D2566C72100EE1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		DF5F94472566E0E800CF7C52 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DF5F944D2567345900CF7C52 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		DF5F94532567354200CF7C52 /* OnboardingGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGallery.swift; sourceTree = "<group>"; };
 		DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewListItemView.swift; sourceTree = "<group>"; };
 		DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewListItemViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +118,7 @@
 			children = (
 				B6463243257FB6A9004E5AE3 /* API.swift */,
 				B6463249257FB980004E5AE3 /* DESIGN.swift */,
+				B67E36C22591613000C8E34D /* ComponentTypes.swift */,
 			);
 			path = constants;
 			sourceTree = "<group>";
@@ -226,7 +227,6 @@
 		DF183B0B256AD169006DE246 /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				DF5F94502567346F00CF7C52 /* OnboardingViewModel.swift */,
 				DF5F944A2566E1EF00CF7C52 /* OnboardingView.swift */,
 			);
 			path = onboarding;
@@ -385,7 +385,6 @@
 				DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */,
 				DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */,
 				DF183B0E256AE8ED006DE246 /* Response.swift in Sources */,
-				DF5F94512567346F00CF7C52 /* OnboardingViewModel.swift in Sources */,
 				DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */,
 				B697AD7D25817B6D00947710 /* PopUpView.swift in Sources */,
 				B68F8683256FF98E00793819 /* SneakerService.swift in Sources */,
@@ -396,6 +395,7 @@
 				B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */,
 				B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */,
 				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
+				B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */,
 				B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,
 				B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */,
