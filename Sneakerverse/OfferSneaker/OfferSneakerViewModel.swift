@@ -18,11 +18,14 @@ class OfferSneakerViewModel: ObservableObject {
     var sneakerService = SneakerService()
     
     func offerSneaker(sneakerOffer: SneakerOffer,completion: @escaping (Bool)->Void){
-        let success = sneakerService.sendSneakerOfferRequest(sneakerOffer: sneakerOffer, completion: { response in
-            print(response!)
-            completion(response?.statusCode == 200)
+        sneakerService.sendSneakerOfferRequest(sneakerOffer: sneakerOffer, completion: { response in
+            switch response{
+            case .success:
+                completion(true)
+            case .failure:
+                completion(false)
+            }
         })
 
-        return success
     }
 }

@@ -10,14 +10,17 @@ import KeychainAccess
 import Alamofire
 
 class SneakerService {
-    var accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
+    let headers: HTTPHeaders
+    let accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
     
-    func sendSneakerOfferRequest(sneakerOffer: SneakerOffer, completion: @escaping (_ userResponse: Response?)->()){
-        let headers: HTTPHeaders = [
+    init() {
+        headers = [
             "Content-Type": "application/json",
             "Authorization": "bearer \(self.accessToken)"
         ]
-        
+    }
+    
+    func sendSneakerOfferRequest(sneakerOffer: SneakerOffer, completion: @escaping (Result<Bool,SneakerServiceError>)->Void){
         let parameters = [
             "offer":
                 [
@@ -30,28 +33,17 @@ class SneakerService {
                 ]
         ]
         
-        
-        AF.request(API.HOST_URL+"/offer", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            
+        AF.request(API.OFFER, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var statusCode: Int?
-            var userResponse: Response?
-            
             statusCode = response.response?.statusCode
-            do {
-                if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
-                    userResponse = Response(json: json,statusCode: statusCode!)
-                    print("Jetzt kommt die Data")
-                    print(userResponse?.data)
-                }
-            } catch {
-                print("Error: Trying to convert JSON data to string")
-                return
+            
+            switch statusCode {
+            case 200:
+                completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.sendingOfferError))
             }
-            
-            completion(userResponse)
-            
         }
-        
     }
     
     func getAllSneakerOffers(completion:@escaping(_ userResponse: Response?)->()){
@@ -60,7 +52,7 @@ class SneakerService {
             "Authorization": "bearer \(self.accessToken)"
         ]
         
-        AF.request(API.HOST_URL+"/offer", method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.OFFER, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
             var userResponse: Response?
@@ -69,7 +61,6 @@ class SneakerService {
             do {
                 if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
                     userResponse = Response(json: json,statusCode: statusCode!)
-                    
                 }
             } catch {
                 print("Error: Trying to convert JSON data to string")

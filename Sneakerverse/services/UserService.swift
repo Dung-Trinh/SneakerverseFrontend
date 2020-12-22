@@ -14,7 +14,7 @@ class UserService {
         .accept("application/json")
     ]
     
-    func sendLoginRequest(username:String, password:String, completion: @escaping (Result<Bool,NetworkError>)->Void){
+    func sendLoginRequest(username:String, password:String, completion: @escaping (Result<Bool,LoginError>)->Void){
         let parameters = [
             "user":
                 [
@@ -51,7 +51,7 @@ class UserService {
         }
     }
     
-    func sendSignUpRequest(username:String, password:String, completion: @escaping (Result<Bool,NetworkError>)->Void) {
+    func sendSignUpRequest(username:String, password:String, completion: @escaping (Result<Bool,SignUpError>)->Void) {
         let parameters = [
             "user":
                 [
@@ -68,7 +68,7 @@ class UserService {
             case 200:
                 completion(.success(true))
             case .none, .some(_):
-                completion(.failure(.badRequest))
+                completion(.failure(.signUpError))
             }
         }
     }

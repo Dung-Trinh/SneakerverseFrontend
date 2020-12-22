@@ -11,6 +11,7 @@
 		B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D323256BD33A007B58CF /* OfferSneakerView.swift */; };
 		B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */; };
 		B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C39EC256B1F8C0041C4CE /* HomeView.swift */; };
+		B6292FEC2592935C0084B36B /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6292FEB2592935C0084B36B /* ErrorTypes.swift */; };
 		B6463244257FB6A9004E5AE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463243257FB6A9004E5AE3 /* API.swift */; };
 		B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463249257FB980004E5AE3 /* DESIGN.swift */; };
 		B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65717F6257597D800F36970 /* SneakerOffer.swift */; };
@@ -44,6 +45,7 @@
 		B601D323256BD33A007B58CF /* OfferSneakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerView.swift; sourceTree = "<group>"; };
 		B601D32A256BD9C4007B58CF /* SneakerDataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDataPicker.swift; sourceTree = "<group>"; };
 		B61C39EC256B1F8C0041C4CE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B6292FEB2592935C0084B36B /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		B6463243257FB6A9004E5AE3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B6463249257FB980004E5AE3 /* DESIGN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DESIGN.swift; sourceTree = "<group>"; };
 		B65717F6257597D800F36970 /* SneakerOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOffer.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B6463243257FB6A9004E5AE3 /* API.swift */,
 				B6463249257FB980004E5AE3 /* DESIGN.swift */,
 				B67E36C22591613000C8E34D /* ComponentTypes.swift */,
+				B6292FEB2592935C0084B36B /* ErrorTypes.swift */,
 			);
 			path = constants;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */,
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
 				DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */,
+				B6292FEC2592935C0084B36B /* ErrorTypes.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
 				DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */,
 				B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */,
