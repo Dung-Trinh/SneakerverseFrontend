@@ -9,5 +9,5 @@ target 'Sneakerverse' do
 pod 'KeychainAccess', '~> 4.2.1'
 pod 'Alamofire','~> 5.4.0'
 pod 'SwiftyBeaver'
-
+pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 end
