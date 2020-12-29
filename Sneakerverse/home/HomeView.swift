@@ -30,14 +30,19 @@ struct HomeView: View {
                         Image(systemName: "tag.fill")
                         Text("Deals")
                     }
-
+                
                 Text("PROFILE")
                     .tabItem {
                         Image(systemName: "person.crop.rectangle.fill")
                         Text("Profile")
                     }
             }
-        }.navigationBarHidden(true)
+            .navigationBarItems(trailing:
+                                    NavigationLink(destination: ChatListView()) {
+                                        Image(systemName: "message.fill")
+                                    }
+            )
+        }
         
     }
 }

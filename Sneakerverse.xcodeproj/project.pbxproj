@@ -14,6 +14,14 @@
 		B6292FEC2592935C0084B36B /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6292FEB2592935C0084B36B /* ErrorTypes.swift */; };
 		B6463244257FB6A9004E5AE3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463243257FB6A9004E5AE3 /* API.swift */; };
 		B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6463249257FB980004E5AE3 /* DESIGN.swift */; };
+		B64A325D2593D97A00FA7A1C /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A325C2593D97A00FA7A1C /* ChatMessageView.swift */; };
+		B64A32612593DBB100FA7A1C /* UserMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A32602593DBB100FA7A1C /* UserMessageView.swift */; };
+		B64A32642593E26C00FA7A1C /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A32632593E26C00FA7A1C /* ChatViewModel.swift */; };
+		B64A32672593EBA700FA7A1C /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A32662593EBA700FA7A1C /* ChatService.swift */; };
+		B64A326A2593EC5100FA7A1C /* ChatListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A32692593EC5100FA7A1C /* ChatListResponse.swift */; };
+		B64A326D2593F73800FA7A1C /* ChatRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A326C2593F73800FA7A1C /* ChatRow.swift */; };
+		B64A32702593F98900FA7A1C /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A326F2593F98900FA7A1C /* ChatListView.swift */; };
+		B64A32732593FB7300FA7A1C /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */; };
 		B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65717F6257597D800F36970 /* SneakerOffer.swift */; };
 		B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E36C22591613000C8E34D /* ComponentTypes.swift */; };
 		B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */; };
@@ -26,6 +34,7 @@
 		B68F8679256FABB100793819 /* OfferSneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */; };
 		B68F8683256FF98E00793819 /* SneakerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8682256FF98E00793819 /* SneakerService.swift */; };
 		B697AD7D25817B6D00947710 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AD7C25817B6D00947710 /* PopUpView.swift */; };
+		B6B736AB2593930200E5DF18 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B736AA2593930200E5DF18 /* ChatView.swift */; };
 		DF183B06256984A7006DE246 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B05256984A7006DE246 /* UserService.swift */; };
 		DF183B0E256AE8ED006DE246 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B0D256AE8ED006DE246 /* Response.swift */; };
 		DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94432566DCC700CF7C52 /* ViewObjects.swift */; };
@@ -48,6 +57,14 @@
 		B6292FEB2592935C0084B36B /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		B6463243257FB6A9004E5AE3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B6463249257FB980004E5AE3 /* DESIGN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DESIGN.swift; sourceTree = "<group>"; };
+		B64A325C2593D97A00FA7A1C /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
+		B64A32602593DBB100FA7A1C /* UserMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMessageView.swift; sourceTree = "<group>"; };
+		B64A32632593E26C00FA7A1C /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		B64A32662593EBA700FA7A1C /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		B64A32692593EC5100FA7A1C /* ChatListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListResponse.swift; sourceTree = "<group>"; };
+		B64A326C2593F73800FA7A1C /* ChatRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRow.swift; sourceTree = "<group>"; };
+		B64A326F2593F98900FA7A1C /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		B65717F6257597D800F36970 /* SneakerOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOffer.swift; sourceTree = "<group>"; };
 		B67E36C22591613000C8E34D /* ComponentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTypes.swift; sourceTree = "<group>"; };
 		B6834E582566C72100EE1C58 /* Sneakerverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sneakerverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +79,7 @@
 		B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerViewModel.swift; sourceTree = "<group>"; };
 		B68F8682256FF98E00793819 /* SneakerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerService.swift; sourceTree = "<group>"; };
 		B697AD7C25817B6D00947710 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		B6B736AA2593930200E5DF18 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		DC0DFD48700A6F9E44AD4636 /* Pods-Sneakerverse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakerverse.debug.xcconfig"; path = "Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse.debug.xcconfig"; sourceTree = "<group>"; };
 		DF183B05256984A7006DE246 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DF183B0D256AE8ED006DE246 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -147,6 +165,7 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
+				B6B736A9259392D000E5DF18 /* chatView */,
 				DFAFF08925818A7900FAEC0B /* deals */,
 				B646323F257FB5DF004E5AE3 /* constants */,
 				B601D322256BD2FC007B58CF /* offerSneaker */,
@@ -179,8 +198,31 @@
 			children = (
 				B6834E762566C9C700EE1C58 /* User.swift */,
 				B65717F6257597D800F36970 /* SneakerOffer.swift */,
+				B64A32692593EC5100FA7A1C /* ChatListResponse.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		B6B736A9259392D000E5DF18 /* chatView */ = {
+			isa = PBXGroup;
+			children = (
+				B6B736AE2593948B00E5DF18 /* chatComponents */,
+				B6B736AA2593930200E5DF18 /* ChatView.swift */,
+				B64A32632593E26C00FA7A1C /* ChatViewModel.swift */,
+				B64A326F2593F98900FA7A1C /* ChatListView.swift */,
+				B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */,
+			);
+			path = chatView;
+			sourceTree = "<group>";
+		};
+		B6B736AE2593948B00E5DF18 /* chatComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B64A325C2593D97A00FA7A1C /* ChatMessageView.swift */,
+				B64A32602593DBB100FA7A1C /* UserMessageView.swift */,
+				B64A326C2593F73800FA7A1C /* ChatRow.swift */,
+			);
+			path = chatComponents;
 			sourceTree = "<group>";
 		};
 		DC224659198B879FE60E9B78 /* Frameworks */ = {
@@ -197,6 +239,7 @@
 				DF183B05256984A7006DE246 /* UserService.swift */,
 				DF183B0D256AE8ED006DE246 /* Response.swift */,
 				B68F8682256FF98E00793819 /* SneakerService.swift */,
+				B64A32662593EBA700FA7A1C /* ChatService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -381,7 +424,10 @@
 				B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */,
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
 				DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */,
+				B6B736AB2593930200E5DF18 /* ChatView.swift in Sources */,
 				B6292FEC2592935C0084B36B /* ErrorTypes.swift in Sources */,
+				B64A32732593FB7300FA7A1C /* ChatListViewModel.swift in Sources */,
+				B64A32642593E26C00FA7A1C /* ChatViewModel.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
 				DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */,
 				B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */,
@@ -389,6 +435,7 @@
 				DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */,
 				DF5F944E2567345900CF7C52 /* SignUpViewModel.swift in Sources */,
 				DF183B0E256AE8ED006DE246 /* Response.swift in Sources */,
+				B64A32612593DBB100FA7A1C /* UserMessageView.swift in Sources */,
 				DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */,
 				B697AD7D25817B6D00947710 /* PopUpView.swift in Sources */,
 				B68F8683256FF98E00793819 /* SneakerService.swift in Sources */,
@@ -396,13 +443,18 @@
 				DF183B06256984A7006DE246 /* UserService.swift in Sources */,
 				DFAFF08F25818A7900FAEC0B /* DealsOverviewListItemView.swift in Sources */,
 				B6463244257FB6A9004E5AE3 /* API.swift in Sources */,
+				B64A325D2593D97A00FA7A1C /* ChatMessageView.swift in Sources */,
 				B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */,
 				B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */,
 				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
 				B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */,
 				B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */,
 				B6834E772566C9C700EE1C58 /* User.swift in Sources */,
+				B64A326A2593EC5100FA7A1C /* ChatListResponse.swift in Sources */,
+				B64A32672593EBA700FA7A1C /* ChatService.swift in Sources */,
+				B64A32702593F98900FA7A1C /* ChatListView.swift in Sources */,
 				B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */,
+				B64A326D2593F73800FA7A1C /* ChatRow.swift in Sources */,
 				DFAFF09225818A7900FAEC0B /* DealsOverviewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

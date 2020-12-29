@@ -22,3 +22,8 @@ enum SneakerServiceError: Error{
     case sendingOfferError
     case sneakerServiceError
 }
+
+enum ChatServiceError: Error{
+    case chatServiceError
+    case chatNotFound
+}
