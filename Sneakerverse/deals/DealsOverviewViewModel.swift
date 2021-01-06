@@ -10,9 +10,15 @@ import Foundation
 struct DealsOVerviewViewModel{
     var sneakerService = SneakerService()
     
-    func fetchSneaker( completion: @escaping (Bool)->Void) {
-        sneakerService.getAllSneakerOffers { (response) in
-            completion(response?.statusCode == 200)
-        }
+    func fetchSneaker( completion: @escaping ([Offer])->Void) {
+        sneakerService.getAllSneakerOffers(completion: { response in
+            switch response{
+            case .success(let offerList):
+                completion(offerList)
+            case .failure:
+                print("fetch Sneaker Deals failed")
+                completion([])
+            }
+        })
     }
 }

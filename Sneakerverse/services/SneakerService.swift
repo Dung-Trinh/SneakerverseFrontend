@@ -46,29 +46,28 @@ class SneakerService {
         }
     }
     
-    func getAllSneakerOffers(completion:@escaping(_ userResponse: Response?)->()){
+    func getAllSneakerOffers(completion:@escaping(Result<[Offer],SneakerServiceError>)->Void){
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "Authorization": "bearer \(self.accessToken)"
         ]
+        let jsonDecoder = JSONDecoder()
         
         AF.request(API.OFFER, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
-            var userResponse: Response?
-            
+            var offerResponse :SneakerDealsResponse
             statusCode = response.response?.statusCode
-            do {
-                if let json = try JSONSerialization.jsonObject(with: response.data!, options: []) as? [String: Any] {
-                    userResponse = Response(json: json,statusCode: statusCode!)
+            
+            switch statusCode {
+            case 200:
+                if response.data != nil{
+                    offerResponse = try! jsonDecoder.decode(SneakerDealsResponse.self, from: response.data!)
+                    completion(.success(offerResponse.data.offerlist))
                 }
-            } catch {
-                print("Error: Trying to convert JSON data to string")
-                return
+            case .none, .some(_):
+                completion(.failure(.sendingOfferError))
             }
-            
-            completion(userResponse)
-            
         }
     }
 }

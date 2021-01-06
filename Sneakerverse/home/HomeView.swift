@@ -38,6 +38,7 @@ struct HomeView: View {
                     Text("Profile")
                 }
         }
+        .navigationTitle("Sneaker")
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(trailing:
                                 NavigationLink(destination: ChatListView().environmentObject(homeViewModel.chatService)) {
