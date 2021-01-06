@@ -168,7 +168,7 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
-				B6B736A9259392D000E5DF18 /* chatView */,
+				B6B736A9259392D000E5DF18 /* chat */,
 				DFAFF08925818A7900FAEC0B /* deals */,
 				B646323F257FB5DF004E5AE3 /* constants */,
 				B601D322256BD2FC007B58CF /* offerSneaker */,
@@ -206,16 +206,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		B6B736A9259392D000E5DF18 /* chatView */ = {
+		B6B736A9259392D000E5DF18 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				B6F8504E25A64A6500131AFC /* chatListView */,
+				B6F8504C25A64A0C00131AFC /* chatView */,
 				B6B736AE2593948B00E5DF18 /* chatComponents */,
-				B6B736AA2593930200E5DF18 /* ChatView.swift */,
-				B64A32632593E26C00FA7A1C /* ChatViewModel.swift */,
-				B64A326F2593F98900FA7A1C /* ChatListView.swift */,
-				B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */,
 			);
-			path = chatView;
+			path = chat;
 			sourceTree = "<group>";
 		};
 		B6B736AE2593948B00E5DF18 /* chatComponents */ = {
@@ -226,6 +224,24 @@
 				B64A326C2593F73800FA7A1C /* ChatRow.swift */,
 			);
 			path = chatComponents;
+			sourceTree = "<group>";
+		};
+		B6F8504C25A64A0C00131AFC /* chatView */ = {
+			isa = PBXGroup;
+			children = (
+				B6B736AA2593930200E5DF18 /* ChatView.swift */,
+				B64A32632593E26C00FA7A1C /* ChatViewModel.swift */,
+			);
+			path = chatView;
+			sourceTree = "<group>";
+		};
+		B6F8504E25A64A6500131AFC /* chatListView */ = {
+			isa = PBXGroup;
+			children = (
+				B64A326F2593F98900FA7A1C /* ChatListView.swift */,
+				B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */,
+			);
+			path = chatListView;
 			sourceTree = "<group>";
 		};
 		DC224659198B879FE60E9B78 /* Frameworks */ = {
