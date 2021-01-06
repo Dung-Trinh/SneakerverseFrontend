@@ -8,10 +8,16 @@
 import Foundation
 import Alamofire
 import KeychainAccess
+import SocketIO
 
-class ChatService{
+struct NewChatMessages : Codable {
+    let results: [ChatMessage]
+}
+
+class ChatService: ObservableObject{
     var headers: HTTPHeaders
     var accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
+    let socketManager = WebSocketManager()
     
     init(){
         headers = [
@@ -22,11 +28,11 @@ class ChatService{
     }
     
     func fetchChatByChatId(chatId: String, completion: @escaping (Result<[ChatMessage], ChatServiceError>) -> Void){
-        AF.request(API.HOST_URL+"/chat", method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.CHAT, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var chatListResponse: ChatListResponse?
             let jsonDecoder = JSONDecoder()
             let statusCode = response.response?.statusCode
-
+            
             switch statusCode {
             case 200:
                 if response.data != nil{
@@ -39,31 +45,88 @@ class ChatService{
                     }
                     completion(.failure(.chatNotFound))
                 }
-
+                
             case .none, .some(_):
                 completion(.failure(.chatServiceError))
             }
         }
     }
-
+    
     func fetchAllChats(completion: @escaping (Result<[ChatList], ChatServiceError>) -> Void){
-        AF.request(API.HOST_URL+"/chat", method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        AF.request(API.CHAT, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var chatListResponse: ChatListResponse?
             let jsonDecoder = JSONDecoder()
             let statusCode = response.response?.statusCode
-
+            
             switch statusCode {
             case 200:
                 if response.data != nil{
                     chatListResponse = try? jsonDecoder.decode(ChatListResponse.self, from: response.data!)
                     
-                   
+                    
                     completion(.success(chatListResponse!.data.chatList))
                 }
-
+                
             case .none, .some(_):
                 completion(.failure(.chatServiceError))
             }
+        }
+    }
+    
+    func sendMessage(message: String, completion:@escaping(Result<Bool, ChatServiceError>) -> Void){
+        let parameters = [
+            "chatId":"5fd78adc346cd5eb94649174",
+            "chatMessage":"\(message)"
+        ]
+        
+        AF.request(API.CHAT_MESSAGE, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            var statusCode: Int?
+            
+            statusCode = response.response?.statusCode
+            
+            switch statusCode {
+            case 200:
+                completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.chatServiceError))
+            }
+        }
+    }
+    
+}
+
+class WebSocketManager: ObservableObject{
+    
+    let manager = SocketManager(socketURL: URL(string: "ws://localhost:3000")!)
+    let socket: SocketIOClient
+    
+    init(){
+        socket = manager.defaultSocket
+        socket.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+            self.socket.emit("join", "5fd78adc346cd5eb94649174")
+        }
+        
+        //        socket.on("update5fd78adc346cd5eb94649174"){ data, ack in
+        //        print(data)
+        //        }
+        
+        socket.connect()
+    }
+    
+    func updateChat(setAllMessages: @escaping (_ newMessages: [ChatMessage])-> Void){
+        socket.on("update5fd78adc346cd5eb94649174"){ data, ack in
+            //print(data)
+            
+            do {
+                let dat = try JSONSerialization.data(withJSONObject:data)
+                let res = try JSONDecoder().decode(NewChatMessages.self,from:dat)
+                setAllMessages(res.results)
+            }
+            catch {
+                print(error)
+            }
+            
         }
     }
 }

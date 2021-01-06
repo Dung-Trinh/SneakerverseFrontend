@@ -34,8 +34,9 @@ struct ChatList: Codable, Identifiable {
 }
 
 // MARK: - Message
-struct ChatMessage: Codable, Identifiable {
+struct ChatMessage: Codable, Identifiable,Hashable {
     let id, senderName, message, chatID: String
+    let created: String?
     let v: Int
 
     enum CodingKeys: String, CodingKey {
@@ -44,5 +45,6 @@ struct ChatMessage: Codable, Identifiable {
         case message = "_message"
         case chatID = "_chatId"
         case v = "__v"
+        case created = "_created"
     }
 }

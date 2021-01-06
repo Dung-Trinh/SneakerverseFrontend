@@ -36,7 +36,8 @@ struct LoginView: View {
                         CustomButton(buttonText: "Login", buttonColor: .blue)
                     }
                 }else{
-                    HomeView()
+                    NavigationLink("toHomeView", destination: HomeView(), isActive: $loginViewModel.successfulAuth)
+                    
                 }
             }
             .padding()

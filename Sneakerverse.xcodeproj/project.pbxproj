@@ -35,6 +35,7 @@
 		B68F8683256FF98E00793819 /* SneakerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8682256FF98E00793819 /* SneakerService.swift */; };
 		B697AD7D25817B6D00947710 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AD7C25817B6D00947710 /* PopUpView.swift */; };
 		B6B736AB2593930200E5DF18 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B736AA2593930200E5DF18 /* ChatView.swift */; };
+		B6D9F066259E1EE7002FA5DB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9F065259E1EE7002FA5DB /* HomeViewModel.swift */; };
 		DF183B06256984A7006DE246 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B05256984A7006DE246 /* UserService.swift */; };
 		DF183B0E256AE8ED006DE246 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF183B0D256AE8ED006DE246 /* Response.swift */; };
 		DF5F94442566DCC700CF7C52 /* ViewObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F94432566DCC700CF7C52 /* ViewObjects.swift */; };
@@ -80,6 +81,7 @@
 		B68F8682256FF98E00793819 /* SneakerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerService.swift; sourceTree = "<group>"; };
 		B697AD7C25817B6D00947710 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		B6B736AA2593930200E5DF18 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		B6D9F065259E1EE7002FA5DB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DC0DFD48700A6F9E44AD4636 /* Pods-Sneakerverse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakerverse.debug.xcconfig"; path = "Target Support Files/Pods-Sneakerverse/Pods-Sneakerverse.debug.xcconfig"; sourceTree = "<group>"; };
 		DF183B05256984A7006DE246 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DF183B0D256AE8ED006DE246 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B61C39EC256B1F8C0041C4CE /* HomeView.swift */,
+				B6D9F065259E1EE7002FA5DB /* HomeViewModel.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				B64A32642593E26C00FA7A1C /* ChatViewModel.swift in Sources */,
 				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
 				DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */,
+				B6D9F066259E1EE7002FA5DB /* HomeViewModel.swift in Sources */,
 				B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */,
 				DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */,
 				DF5F94542567354200CF7C52 /* OnboardingGallery.swift in Sources */,

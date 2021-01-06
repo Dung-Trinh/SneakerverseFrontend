@@ -10,6 +10,7 @@ import SwiftUI
 struct UserMessage {
     var content: String
     var user: UserProfile
+    var time: String?
 }
 struct UserProfile {
     var name: String
@@ -20,6 +21,7 @@ struct UserMessageView : View {
     var currentMessage: UserMessage
     
     var body: some View {
+        VStack{
         HStack(alignment: .bottom, spacing: 15) {
             if !currentMessage.user.isCurrentUser {
                 currentMessage.user.avatar
@@ -32,6 +34,8 @@ struct UserMessageView : View {
             ChatMessageView(message: currentMessage.content,
                             isCurrentUser: currentMessage.user.isCurrentUser)
         }
+            Text(currentMessage.time ?? "")
+    }
     }
 }
 

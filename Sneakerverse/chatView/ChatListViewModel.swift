@@ -8,11 +8,11 @@
 import Foundation
 
 class ChatListViewModel: ObservableObject{
-    let chatService = ChatService()
     @Published var currentChatList: [ChatList] = []
-    
+    var chatService: ChatService?
+  
     func getAllChats( completion: @escaping ([ChatList]) -> Void){
-        chatService.fetchAllChats(completion: { response in
+        chatService!.fetchAllChats(completion: { response in
             switch response{
             case .success(let chatList):
                 self.currentChatList = chatList
@@ -22,5 +22,9 @@ class ChatListViewModel: ObservableObject{
             }
             
         })
+    }
+    
+    func setChatService(chatService: ChatService){
+        self.chatService = chatService
     }
 }

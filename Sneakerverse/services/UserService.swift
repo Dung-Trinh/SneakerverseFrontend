@@ -36,6 +36,7 @@ class UserService {
                         
                         let keychain = Keychain(service: "sneakerverse.Sneakerverse")
                         keychain["accessToken"] = userResponse?.accessToken ?? ""
+                        keychain["username"] = username
                         completion(.success(true))
                     }
                 } catch {
