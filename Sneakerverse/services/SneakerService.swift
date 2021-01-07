@@ -29,7 +29,12 @@ class SneakerService {
                     "size": "\(sneakerOffer.size)",
                     "brand": "\(sneakerOffer.brand)",
                     "price": "\(sneakerOffer.price)",
-                    "condition": "\(sneakerOffer.condition)"
+                    "condition": "\(sneakerOffer.condition)",
+                    "city":[
+                        "latitude": "7.8",
+                        "longitude": "9.0",
+                        "cityName": "Wiesbaden"
+                    ]
                 ]
         ]
         
@@ -47,10 +52,6 @@ class SneakerService {
     }
     
     func getAllSneakerOffers(completion:@escaping(Result<[Offer],SneakerServiceError>)->Void){
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "Authorization": "bearer \(self.accessToken)"
-        ]
         let jsonDecoder = JSONDecoder()
         
         AF.request(API.OFFER, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in

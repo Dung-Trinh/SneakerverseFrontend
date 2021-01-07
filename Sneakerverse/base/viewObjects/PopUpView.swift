@@ -20,11 +20,6 @@ struct PopUpView: View {
                     .foregroundColor(.blue)
                 
                 Text("you have successfully offered your sneaker!")
-                
-                Button(action: {}) {
-                    Text("Back to Home")
-                }
-                
             }
             .padding(.vertical,25)
             .padding(.horizontal,25)
@@ -44,11 +39,11 @@ struct PopUpView: View {
     }
 }
 
-//struct PopUpView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PopUpView()
-//    }
-//}
+struct PopUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        PopUpView(show: .constant(true) )
+    }
+}
 
 
 struct BlurView: UIViewRepresentable {

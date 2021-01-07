@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Photos
+import SwiftUI
 
 class OfferSneakerViewModel: ObservableObject {
     @Published var sneakerName = "adidas UltraBOOST"
@@ -14,6 +16,9 @@ class OfferSneakerViewModel: ObservableObject {
     @Published var size = "9.5"
     @Published var brand = "Adidas"
     @Published var condition = "New"
+    @Published var selectedImages : [UIImage] = [#imageLiteral(resourceName: "default-sneaker")]
+    @Published var showResponse: Bool = false
+    @Published var showImagePicker = false
     
     var sneakerService = SneakerService()
     
