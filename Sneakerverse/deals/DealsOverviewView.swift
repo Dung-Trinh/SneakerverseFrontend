@@ -19,7 +19,10 @@ struct DealsOverviewView: View {
                 LazyVGrid(columns: DealsOffer, spacing: 20) {
                     ForEach(offerList){ offer in
                         VStack{
-                            DealsOverviewListItemView(offer: offer)
+                            NavigationLink(
+                                destination: SneakerOfferDetailView(offer:offer)){
+                                DealsOverviewListItemView(offer: offer)
+                            }
                         }
                     }
                 }
@@ -29,7 +32,6 @@ struct DealsOverviewView: View {
                     self.offerList = fetchedOfferList
                 }
             })
-            .navigationTitle("Sneaker Deals")
     }
 }
 
