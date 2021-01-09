@@ -11,7 +11,43 @@ struct SneakerOfferDetailView: View {
     @ObservedObject var viewModel: SneakerOfferDetailViewModel = SneakerOfferDetailViewModel()
     var offer: Offer
     var body: some View {
-        Text(offer.ownerName + offer.name)
+        VStack{
+            DetailGallerySlideView()
+            Group{
+                Text(offer.name)
+                    .font(.title)
+                    .fontWeight(.semibold)
+                Text("\(offer.price)")
+                HStack{
+                    Text(offer.city.cityName)
+                    Text(offer.created)
+                }
+                Divider().background(Color.gray)
+            }
+            Group{
+                Text("Details")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Text(offer.brand)
+                Text(offer.condition)
+                Text("\(offer.size)")
+                Divider().background(Color.gray)
+            }
+            Group{
+                Text("Description")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Text(offer.offerDescription)
+                Divider().background(Color.gray)
+            }
+            Text("Location")
+                .font(.title2)
+                .fontWeight(.semibold)
+            Divider().background(Color.gray)
+            Text("Seller")
+                .font(.title2)
+                .fontWeight(.semibold)
+        }
     }
 }
 
