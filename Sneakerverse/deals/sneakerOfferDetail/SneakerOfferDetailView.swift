@@ -43,6 +43,7 @@ struct SneakerOfferDetailView: View {
             Text("Location")
                 .font(.title2)
                 .fontWeight(.semibold)
+            OfferMapView()
             Divider().background(Color.gray)
             Text("Seller")
                 .font(.title2)
