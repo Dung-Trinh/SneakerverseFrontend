@@ -27,3 +27,8 @@ enum ChatServiceError: Error{
     case chatServiceError
     case chatNotFound
 }
+
+enum ProfileError: Error{
+    case profileError
+    case userNotFound
+}

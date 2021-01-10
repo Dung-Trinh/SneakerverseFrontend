@@ -32,7 +32,7 @@ struct HomeView: View {
                     Text("Deals")
                 }
             
-            Text("PROFILE")
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person.crop.rectangle.fill")
                     Text("Profile")

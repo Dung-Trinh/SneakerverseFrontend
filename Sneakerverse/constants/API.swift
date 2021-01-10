@@ -14,4 +14,5 @@ struct API{
     static let OFFER = HOST_URL + "/offer"
     static let CHAT = HOST_URL + "/chat"
     static let CHAT_MESSAGE = CHAT + "/message"
+    static let PROFILE = HOST_URL + "/profile"
 }
