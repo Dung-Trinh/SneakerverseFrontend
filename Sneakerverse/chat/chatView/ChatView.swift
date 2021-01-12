@@ -25,7 +25,7 @@ struct ChatView: View {
                 CustomTextField(storedText: $chatViewModel.userInput, placholderText: "text...", type: .TEXT)
                 
                 Button(action:{
-                    chatViewModel.sendMessage(completion: { response in
+                    chatViewModel.sendMessage(chatID: chatID,completion: { response in
                         if response{
                             chatViewModel.userInput = ""
                         }
@@ -40,8 +40,7 @@ struct ChatView: View {
         }.onAppear{
             chatViewModel.setChatService(chatService: chatService)
             chatViewModel.setChat(chatID: chatID)
-            chatViewModel.setChatService(chatService: self.chatService)
-            chatViewModel.updateChat()
+            chatViewModel.updateChat(chatID: chatID)
         }
     }
 }

@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import KeychainAccess
 
 class ChatListViewModel: ObservableObject{
     @Published var currentChatList: [ChatList] = []
     var chatService: ChatService?
+    let username = Keychain(service: "sneakerverse.Sneakerverse")["username"]!
   
     func getAllChats( completion: @escaping ([ChatList]) -> Void){
         chatService!.fetchAllChats(completion: { response in
@@ -26,5 +28,9 @@ class ChatListViewModel: ObservableObject{
     
     func setChatService(chatService: ChatService){
         self.chatService = chatService
+    }
+    
+    func getUsername(subscribers: [String]) -> String{
+        return subscribers.filter{$0 != self.username }[0]
     }
 }
