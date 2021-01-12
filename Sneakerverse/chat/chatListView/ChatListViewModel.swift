@@ -31,8 +31,6 @@ class ChatListViewModel: ObservableObject{
     }
     
     func getUsername(subscribers: [String]) -> String{
-        print("mein username: \(username)")
-        print(subscribers)
         return subscribers.filter{$0 != self.username }[0]
     }
 }

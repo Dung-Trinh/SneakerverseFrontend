@@ -15,8 +15,13 @@ class ChatViewModel: ObservableObject {
     var chatService: ChatService?
     let username = Keychain(service: "sneakerverse.Sneakerverse")["username"]!
 
-    func sendMessage(completion: @escaping (Bool) -> Void){
-        chatService!.sendMessage(message: userInput, completion: { response in
+    func setup(chatService: ChatService, chatID: String ){
+        self.chatService = chatService
+        
+    }
+    
+    func sendMessage(chatID: String, completion: @escaping (Bool) -> Void){
+        chatService!.sendMessage(chatID: chatID ,message: userInput, completion: { response in
             switch response{
             case .success:
                 completion(true)
@@ -30,8 +35,9 @@ class ChatViewModel: ObservableObject {
         self.chatService = chatService
     }
     
-    func updateChat(){
-        chatService?.socketManager.updateChat(setAllMessages: setAllMessages)
+    func updateChat(chatID: String){
+        print(chatID)
+        chatService?.socketManager.updateChat(chatID:chatID, setAllMessages: setAllMessages)
     }
     
     func setChat(chatID: String){

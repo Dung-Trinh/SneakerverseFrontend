@@ -41,7 +41,7 @@ struct ChatRow: View {
             }
             Spacer()
             if !lastMessage.isEmpty {
-                if !wasRead{
+                if wasRead{
                     Text("🔵")
                 }
             }
