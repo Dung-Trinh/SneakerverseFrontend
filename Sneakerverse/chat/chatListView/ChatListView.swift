@@ -12,20 +12,25 @@ struct ChatListView: View {
     @StateObject var chatListViewModel = ChatListViewModel()
     
     var body: some View {
-            List{
-                ForEach(chatListViewModel.currentChatList){ chat in
-                    NavigationLink(
-                        // TODO: Model mitgeben um chat anzuzeigen
-                        destination: ChatView(chatID: chat.id)){
-                        ChatRow(username: chat.id, lastMessage: "")
-                    }
+        List{
+            ForEach(chatListViewModel.currentChatList){ chat in
+                NavigationLink(
+                    destination: ChatView(chatID: chat.id)){
+                    ChatRow(username: chatListViewModel.getUsername(subscribers: chat.subscriber), lastMessages: chat.messages)
                 }
             }
-            .navigationBarTitle("Chats")
-            .onAppear {
-                chatListViewModel.setChatService(chatService: self.chatService)
-                chatListViewModel.getAllChats(completion: {_ in })
-            }
+        }
+        .navigationBarTitle("Chats")
+        .navigationBarItems(trailing:
+                                Button("reload") {
+                                    chatListViewModel.getAllChats(completion: {_ in })
+                                }
+                            
+        )
+        .onAppear {
+            chatListViewModel.setChatService(chatService: self.chatService)
+            chatListViewModel.getAllChats(completion: {_ in })
+        }
         
     }
 }
