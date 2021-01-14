@@ -22,7 +22,6 @@
 		B64A326D2593F73800FA7A1C /* ChatRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A326C2593F73800FA7A1C /* ChatRow.swift */; };
 		B64A32702593F98900FA7A1C /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A326F2593F98900FA7A1C /* ChatListView.swift */; };
 		B64A32732593FB7300FA7A1C /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */; };
-		B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65717F6257597D800F36970 /* SneakerOffer.swift */; };
 		B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E36C22591613000C8E34D /* ComponentTypes.swift */; };
 		B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */; };
 		B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5D2566C72100EE1C58 /* ContentView.swift */; };
@@ -34,6 +33,7 @@
 		B68F8679256FABB100793819 /* OfferSneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */; };
 		B68F8683256FF98E00793819 /* SneakerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68F8682256FF98E00793819 /* SneakerService.swift */; };
 		B697AD7D25817B6D00947710 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697AD7C25817B6D00947710 /* PopUpView.swift */; };
+		B69E7D5825B0F5BA0083C27E /* SneakerOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E7D5725B0F5BA0083C27E /* SneakerOffer.swift */; };
 		B6A6725025A6FEF200A72A13 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6724F25A6FEF200A72A13 /* ImagePreview.swift */; };
 		B6A6725325A7002C00A72A13 /* CustomImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6725225A7002C00A72A13 /* CustomImagePicker.swift */; };
 		B6B736AB2593930200E5DF18 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B736AA2593930200E5DF18 /* ChatView.swift */; };
@@ -70,7 +70,6 @@
 		B64A326C2593F73800FA7A1C /* ChatRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRow.swift; sourceTree = "<group>"; };
 		B64A326F2593F98900FA7A1C /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		B64A32722593FB7300FA7A1C /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
-		B65717F6257597D800F36970 /* SneakerOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOffer.swift; sourceTree = "<group>"; };
 		B67E36C22591613000C8E34D /* ComponentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTypes.swift; sourceTree = "<group>"; };
 		B6834E582566C72100EE1C58 /* Sneakerverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sneakerverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerverseApp.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		B68F8678256FABB100793819 /* OfferSneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferSneakerViewModel.swift; sourceTree = "<group>"; };
 		B68F8682256FF98E00793819 /* SneakerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerService.swift; sourceTree = "<group>"; };
 		B697AD7C25817B6D00947710 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		B69E7D5725B0F5BA0083C27E /* SneakerOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOffer.swift; sourceTree = "<group>"; };
 		B6A6724F25A6FEF200A72A13 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		B6A6725225A7002C00A72A13 /* CustomImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImagePicker.swift; sourceTree = "<group>"; };
 		B6B736AA2593930200E5DF18 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				B6834E762566C9C700EE1C58 /* User.swift */,
-				B65717F6257597D800F36970 /* SneakerOffer.swift */,
+				B69E7D5725B0F5BA0083C27E /* SneakerOffer.swift */,
 				B64A32692593EC5100FA7A1C /* ChatListResponse.swift */,
 				DFB91BDE25A64CA20000EB07 /* SneakerDealsResponse.swift */,
 			);
@@ -468,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6834E732566C98E00EE1C58 /* LoginViewModel.swift in Sources */,
+				B69E7D5825B0F5BA0083C27E /* SneakerOffer.swift in Sources */,
 				B61C39ED256B1F8C0041C4CE /* HomeView.swift in Sources */,
 				B6834E702566C84500EE1C58 /* LoginView.swift in Sources */,
 				DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */,
@@ -497,7 +498,6 @@
 				B6463244257FB6A9004E5AE3 /* API.swift in Sources */,
 				B64A325D2593D97A00FA7A1C /* ChatMessageView.swift in Sources */,
 				B646324A257FB980004E5AE3 /* DESIGN.swift in Sources */,
-				B65717F7257597D800F36970 /* SneakerOffer.swift in Sources */,
 				DF5F944B2566E1EF00CF7C52 /* OnboardingView.swift in Sources */,
 				B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */,
 				B601D324256BD33A007B58CF /* OfferSneakerView.swift in Sources */,
