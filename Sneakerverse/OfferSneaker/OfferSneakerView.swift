@@ -48,29 +48,22 @@ struct OfferSneakerView: View {
                         CustomTextField(storedText: $offerViewModel.sneakerName, placholderText: "Sneaker name",type: .TEXT,icon: Image(systemName: "person.fill"))
                         CustomTextField(storedText: $offerViewModel.description, placholderText: "Description",type: .TEXT, icon: Image(systemName:"text.below.photo.fill"))
                         CustomTextField(storedText: $offerViewModel.price, placholderText: "Price",type: .NUMBERS, icon: Image(systemName:"tag.fill"))
+                        CustomTextField(storedText: $offerViewModel.city, placholderText: "City",type: .TEXT, icon: Image(systemName:"mappin"))
+                        
                         
                     }
+                    
                     Section{
                         SneakerDataPicker(type: DataPickerType.SIZES, selectedValue: $offerViewModel.size)
                         SneakerDataPicker(type: DataPickerType.BRANDS, selectedValue: $offerViewModel.brand)
                         SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $offerViewModel.condition)
                     }
+                    
                     Button(action: {
-                        print( """
-                        name: \(offerViewModel.sneakerName)
-                        description: \(offerViewModel.description)
-                        price: \(offerViewModel.price)
-                        size: \(offerViewModel.size)
-                        brand: \(offerViewModel.brand)
-                        condition: \(offerViewModel.condition)
-                        images: \(offerViewModel.selectedImages)
-                        """)
-                        
-                        offerViewModel.offerSneaker(sneakerOffer: SneakerOffer(sneakerName: offerViewModel.sneakerName, description: offerViewModel.description, price: offerViewModel.price, size: offerViewModel.size, brand: offerViewModel.size, condition: offerViewModel.condition), completion: {success in
-                            if (success){
-                                offerViewModel.showResponse = true
-                            }
+                        offerViewModel.sendSneakerOffer(completion: {_ in
+                            
                         })
+                        
                     }) {
                         CustomButton(buttonText: "add sneaker", buttonColor: .blue)
                     }
@@ -78,7 +71,6 @@ struct OfferSneakerView: View {
             }
             
             if offerViewModel.showResponse {
-                
                 PopUpView(show: $offerViewModel.showResponse)
             }
         }

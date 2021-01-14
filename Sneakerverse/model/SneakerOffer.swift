@@ -14,4 +14,5 @@ struct SneakerOffer {
     var size: String
     var brand: String
     var condition: String
+    var city: City
 }
