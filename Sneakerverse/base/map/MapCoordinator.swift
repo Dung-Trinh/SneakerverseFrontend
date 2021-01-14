@@ -16,11 +16,6 @@ final class MapCoordinator: NSObject, MKMapViewDelegate {
         self.control = control
     }
     
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        parent.centerCoordinate = mapView.centerCoordinate
-    }
-    
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         let view = MKPinAnnotationView( annotation: annotation, reuseIdentifier: nil)
         view.canShowCallout = true

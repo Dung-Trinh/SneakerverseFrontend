@@ -9,10 +9,10 @@ import SwiftUI
 import MapKit
 
 struct DetailsMapView: View {
-    @State private var centerCoordinate: CLLocationCoordinate2D()
+   // @State private var centerCoordinate: CLLocationCoordinate2D()
     
     var body: some View {
-        MapView(centerCoordinate: centerCoordinate)
+        MapView()
     }
 }
 
