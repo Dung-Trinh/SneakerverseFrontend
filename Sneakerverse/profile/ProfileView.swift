@@ -10,13 +10,26 @@ import SwiftUI
 struct ProfileView: View {
     @StateObject var profileViewModel = ProfileViewModel()
     
+    let DealsOffer = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         VStack{
-            Text("\(profileViewModel.username)")
-            Text("\(profileViewModel.profileData?.registered ?? "")")
-        }
-        .onAppear {
-            profileViewModel.getProfileData(username: profileViewModel.username, completion: {response in})
+            Picker("profileMenu", selection: $profileViewModel.pickerIndex) {
+                ForEach(0..<profileViewModel.menuItems.count) { index in
+                    Text(self.profileViewModel.menuItems[index]).tag(index)
+                }
+            }.pickerStyle(SegmentedPickerStyle())
+            
+            ScrollView{
+                if(profileViewModel.pickerIndex == 0){
+                    ProfileDetailView(offerList: $profileViewModel.offerList)
+                }else if(profileViewModel.pickerIndex == 1){
+                    
+                }
+            }
         }
     }
 }
