@@ -9,9 +9,10 @@ import Foundation
 import Alamofire
 import KeychainAccess
 import SocketIO
+import SwiftyJSON
 
-struct NewChatMessages : Codable {
-    let results: [ChatMessage]
+struct NewMessages: Codable{
+    var messages: [ChatMessage]
 }
 
 class ChatService: ObservableObject{
@@ -73,9 +74,9 @@ class ChatService: ObservableObject{
         }
     }
     
-    func sendMessage(message: String, completion:@escaping(Result<Bool, ChatServiceError>) -> Void){
+    func sendMessage(chatID: String, message: String, completion:@escaping(Result<Bool, ChatServiceError>) -> Void){
         let parameters = [
-            "chatId":"5fd78adc346cd5eb94649174",
+            "chatId":"\(chatID)",
             "chatMessage":"\(message)"
         ]
         
@@ -114,19 +115,20 @@ class WebSocketManager: ObservableObject{
         socket.connect()
     }
     
-    func updateChat(setAllMessages: @escaping (_ newMessages: [ChatMessage])-> Void){
-        socket.on("update5fd78adc346cd5eb94649174"){ data, ack in
-            //print(data)
+    func updateChat(chatID: String,setAllMessages: @escaping (_ newMessages: [ChatMessage])-> Void){
+        socket.on("update\(chatID)"){ data, ack in
             
             do {
-                let dat = try JSONSerialization.data(withJSONObject:data)
-                let res = try JSONDecoder().decode(NewChatMessages.self,from:dat)
-                setAllMessages(res.results)
+                let json:JSON = JSON(data[0])
+                let jsonData = Data(json.rawString()!.utf8)
+                
+                do {
+                    let newMessages = try JSONDecoder().decode(NewMessages.self, from: jsonData)
+                    setAllMessages(newMessages.messages)
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
-            catch {
-                print(error)
-            }
-            
         }
     }
 }
