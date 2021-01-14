@@ -23,7 +23,7 @@ struct Offer: Codable,Identifiable {
     let id, name, offerDescription: String
     let price: Double
     let size: Int
-    let brand, condition, ownerName: String
+    let brand, condition, ownerName, ownerID: String
     let city: City
     let created: String
     let v: Int
@@ -37,6 +37,7 @@ struct Offer: Codable,Identifiable {
         case brand = "_brand"
         case condition = "_condition"
         case ownerName = "_ownerName"
+        case ownerID = "_ownerId"
         case city = "_city"
         case created = "_created"
         case v = "__v"

@@ -28,6 +28,25 @@ class ChatService: ObservableObject{
         
     }
     
+    func startChatByID(subscriberID: String, completion:@escaping(Result<Bool, ChatServiceError>) -> Void){
+        let parameters = [
+            "subscriber":"\(subscriberID)"
+        ]
+        
+        AF.request(API.CHAT, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            var statusCode: Int?
+            
+            statusCode = response.response?.statusCode
+            
+            switch statusCode {
+            case 200:
+                completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.chatServiceError))
+            }
+        }
+    }
+    
     func fetchChatByChatId(chatId: String, completion: @escaping (Result<[ChatMessage], ChatServiceError>) -> Void){
         AF.request(API.CHAT, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var chatListResponse: ChatListResponse?
