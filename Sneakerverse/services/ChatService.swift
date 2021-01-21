@@ -108,10 +108,6 @@ class WebSocketManager: ObservableObject{
             self.socket.emit("join", "5fd78adc346cd5eb94649174")
         }
         
-        //        socket.on("update5fd78adc346cd5eb94649174"){ data, ack in
-        //        print(data)
-        //        }
-        
         socket.connect()
     }
     

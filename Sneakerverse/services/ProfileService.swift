@@ -46,9 +46,9 @@ class ProfileService: ObservableObject{
     }
     
     func getRatingByIDs(ratingIDs: [String],completion: @escaping (Result<[Rating], ProfileError>) -> Void){
-        let parameters = ["ids" : ""]
+        let parameters = ["ids" : ratingIDs]
         
-        AF.request(API.GET_PROFILE, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+        AF.request(API.GET_RATING_BY_ID, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
             var statusCode: Int?
             statusCode = response.response?.statusCode
             var ratingResponse: RatingResponse

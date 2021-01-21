@@ -29,9 +29,11 @@ struct ProfileDetailView: View {
             Text(userData.username)
             Text(userData.city)
             Text("Registriert seit \(userData.registerDate)")
-            RatingBar(userRating: $rating)
-                .padding(.bottom, 20)
             
+            if(!rating.isEmpty){
+                RatingBar(userRating: $rating)
+                    .padding(.bottom, 20)
+            }
             Text("My offers")
             LazyVGrid(columns: DealsOffer, spacing: 20) {
                 ForEach(offerList){ offer in
