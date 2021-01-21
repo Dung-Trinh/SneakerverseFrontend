@@ -22,7 +22,7 @@ struct offerListData: Codable {
 struct Offer: Codable,Identifiable {
     let id, name, offerDescription: String
     let price: Double
-    let size: Int
+    let size: Double
     let brand, condition, ownerName, ownerID: String
     let city: City
     let created: String

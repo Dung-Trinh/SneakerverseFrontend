@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DealsOverviewView: View {
+    @EnvironmentObject var chatService: ChatService
     @State var viewModel: DealsOVerviewViewModel = DealsOVerviewViewModel()
     @State var offerList: [Offer] = []
     let DealsOffer = [
@@ -20,7 +21,7 @@ struct DealsOverviewView: View {
                     ForEach(offerList){ offer in
                         VStack{
                             NavigationLink(
-                                destination: SneakerOfferDetailView(offer:offer)){
+                                destination: SneakerOfferDetailView(offer:offer).environmentObject(self.chatService)){
                                 DealsOverviewListItemView(offer: offer)
                             }
                         }

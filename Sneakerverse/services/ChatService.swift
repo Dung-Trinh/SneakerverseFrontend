@@ -28,19 +28,26 @@ class ChatService: ObservableObject{
         
     }
     
-    func startChatByID(subscriberID: String, completion:@escaping(Result<Bool, ChatServiceError>) -> Void){
+    func startChatByID(subscriberID: String, completion:@escaping(Result<String, ChatServiceError>) -> Void){
         let parameters = [
             "subscriber":"\(subscriberID)"
         ]
         
         AF.request(API.CHAT, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var statusCode: Int?
+            var startChatResponse: StartChatResponse?
+            let jsonDecoder = JSONDecoder()
+            
             
             statusCode = response.response?.statusCode
             
             switch statusCode {
             case 200:
-                completion(.success(true))
+                if response.data != nil{
+                    startChatResponse = try?
+                        jsonDecoder.decode(StartChatResponse.self, from: response.data!)
+                    completion(.success(startChatResponse!.data.id))
+                }
             case .none, .some(_):
                 completion(.failure(.chatServiceError))
             }
@@ -85,6 +92,32 @@ class ChatService: ObservableObject{
                     
                     
                     completion(.success(chatListResponse!.data.chatList))
+                }
+                
+            case .none, .some(_):
+                completion(.failure(.chatServiceError))
+            }
+        }
+    }
+    
+    func checkIfUserAlreadyHasChat(subscriberName:String,completion: @escaping (Result<String, ChatServiceError>) -> Void){
+        AF.request(API.CHAT, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            var chatListResponse: ChatListResponse?
+            let jsonDecoder = JSONDecoder()
+            let statusCode = response.response?.statusCode
+            
+            switch statusCode {
+            case 200:
+                if response.data != nil{
+                    chatListResponse = try? jsonDecoder.decode(ChatListResponse.self, from: response.data!)
+                    for chat in chatListResponse!.data.chatList{
+                        for ownerName in chat.subscriber{
+                            if(subscriberName == ownerName){
+                                completion(.success(chat.id))
+                            }
+                        }
+                    }
+                    completion(.failure(.chatServiceError))
                 }
                 
             case .none, .some(_):

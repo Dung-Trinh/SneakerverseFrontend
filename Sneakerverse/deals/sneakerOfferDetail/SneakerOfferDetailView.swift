@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SneakerOfferDetailView: View {
+    @EnvironmentObject var chatService: ChatService
     @ObservedObject var viewModel: SneakerOfferDetailViewModel = SneakerOfferDetailViewModel()
     var offer: Offer
     var body: some View {
@@ -54,16 +55,16 @@ struct SneakerOfferDetailView: View {
                         .fontWeight(.semibold)
                     Text("Owner: "+offer.ownerName)
                     Button(action: {
-                        viewModel.startChatWithOwner(ownerID: offer.ownerID){
-                            success in
-                        }
+                        viewModel.chatWithOwner(ownerName: offer.ownerName, ownerID: offer.ownerID)
                     }){
                         CustomButton(buttonText: "Chat with Owner", buttonColor: .blue)
                     }
                 }
             }else{
-                NavigationLink("toChatView", destination: ChatView(chatID: offer.ownerID), isActive: $viewModel.jumpToChat)
+                NavigationLink("toChatView", destination: ChatView(chatID: viewModel.chatID).environmentObject(self.chatService), isActive: $viewModel.jumpToChat)
             }
+        }.onAppear{
+            viewModel.setChatService(chatService: self.chatService)
         }
     }
 }

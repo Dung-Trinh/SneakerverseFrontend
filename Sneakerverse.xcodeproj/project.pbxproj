@@ -55,6 +55,7 @@
 		DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */; };
 		DFAFF09225818A7900FAEC0B /* DealsOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08E25818A7900FAEC0B /* DealsOverviewViewModel.swift */; };
 		DFB91BDF25A64CA20000EB07 /* SneakerDealsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB91BDE25A64CA20000EB07 /* SneakerDealsResponse.swift */; };
+		DFEEC29B25B9FA8C00B70AF3 /* StartChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEEC29A25B9FA8C00B70AF3 /* StartChatResponse.swift */; };
 		DFFD990625A7889800D1C68F /* SneakerOfferDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFD990525A7889800D1C68F /* SneakerOfferDetailViewModel.swift */; };
 		DFFD990A25A788AC00D1C68F /* SneakerOfferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFD990925A788AC00D1C68F /* SneakerOfferDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,7 @@
 		DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewView.swift; sourceTree = "<group>"; };
 		DFAFF08E25818A7900FAEC0B /* DealsOverviewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewViewModel.swift; sourceTree = "<group>"; };
 		DFB91BDE25A64CA20000EB07 /* SneakerDealsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDealsResponse.swift; sourceTree = "<group>"; };
+		DFEEC29A25B9FA8C00B70AF3 /* StartChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartChatResponse.swift; sourceTree = "<group>"; };
 		DFFD990525A7889800D1C68F /* SneakerOfferDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOfferDetailViewModel.swift; sourceTree = "<group>"; };
 		DFFD990925A788AC00D1C68F /* SneakerOfferDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerOfferDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 				B65717F6257597D800F36970 /* SneakerOffer.swift */,
 				B64A32692593EC5100FA7A1C /* ChatListResponse.swift */,
 				DFB91BDE25A64CA20000EB07 /* SneakerDealsResponse.swift */,
+				DFEEC29A25B9FA8C00B70AF3 /* StartChatResponse.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */,
 				DF61AD6D25A9ABB800F198B8 /* MapCoordinator.swift in Sources */,
 				B6D9F066259E1EE7002FA5DB /* HomeViewModel.swift in Sources */,
+				DFEEC29B25B9FA8C00B70AF3 /* StartChatResponse.swift in Sources */,
 				B601D32B256BD9C4007B58CF /* SneakerDataPicker.swift in Sources */,
 				DF5F94482566E0E800CF7C52 /* SignUpView.swift in Sources */,
 				DF61AD7325A9C66A00F198B8 /* MkCoordinateRegionExtension.swift in Sources */,
