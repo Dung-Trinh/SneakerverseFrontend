@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DealsOverviewView: View {
+    @EnvironmentObject var chatService: ChatService
     @State var viewModel: DealsOVerviewViewModel = DealsOVerviewViewModel()
     @State var offerList: [Offer] = []
     let DealsOffer = [
@@ -19,7 +20,10 @@ struct DealsOverviewView: View {
                 LazyVGrid(columns: DealsOffer, spacing: 20) {
                     ForEach(offerList){ offer in
                         VStack{
-                            DealsOverviewListItemView(offer: offer)
+                            NavigationLink(
+                                destination: SneakerOfferDetailView(offer:offer).environmentObject(self.chatService)){
+                                DealsOverviewListItemView(offer: offer)
+                            }
                         }
                     }
                 }
@@ -29,7 +33,6 @@ struct DealsOverviewView: View {
                     self.offerList = fetchedOfferList
                 }
             })
-            .navigationTitle("Sneaker Deals")
     }
 }
 

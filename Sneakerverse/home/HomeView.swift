@@ -27,12 +27,13 @@ struct HomeView: View {
                     Text("Offer Sneaker")
                 }
             DealsOverviewView()
+                .environmentObject(homeViewModel.chatService)
                 .tabItem {
                     Image(systemName: "tag.fill")
                     Text("Deals")
                 }
             
-            Text("PROFILE")
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person.crop.rectangle.fill")
                     Text("Profile")
