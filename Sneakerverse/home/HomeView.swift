@@ -27,6 +27,7 @@ struct HomeView: View {
                     Text("Offer Sneaker")
                 }
             DealsOverviewView()
+                .environmentObject(homeViewModel.chatService)
                 .tabItem {
                     Image(systemName: "tag.fill")
                     Text("Deals")

@@ -10,8 +10,8 @@ import SwiftUI
 import Foundation
 
 class LoginViewModel: ObservableObject{
-    @Published var username: String = "Tim119"
-    @Published var password: String = "TestPassword"
+    @Published var username: String = "Hoang"
+    @Published var password: String = "password"
     
     @Published var loginMessage: LoginStates = LoginStates.DEFAULT
     @Published var successfulAuth: Bool = false
