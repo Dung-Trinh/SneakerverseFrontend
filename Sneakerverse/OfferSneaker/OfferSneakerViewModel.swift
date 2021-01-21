@@ -23,6 +23,8 @@ class OfferSneakerViewModel: ObservableObject {
     var sneakerService = SneakerService()
     
     func sendSneakerOffer(completion: @escaping (Bool)->Void){
+        
+        
         sneakerService.getCityLocation(city: self.city, completion: { cityResponse in
             switch cityResponse{
             case .success(let cityData):
@@ -33,21 +35,23 @@ class OfferSneakerViewModel: ObservableObject {
                                                    brand: self.brand,
                                                    condition: self.condition,
                                                    city: cityData)
-                
+
                 self.sneakerService.sendSneakerOfferRequest(sneakerOffer: newSneakerOffer, completion: { response in
                     switch response{
-                    case .success:
+                    case .success(let offerResponse):
+//                        sneakerService.uploadImage(offerID: offerResponse. ,images: selectedImages)
+
                         completion(true)
                     case .failure:
                         completion(false)
                     }
                 })
-                
+
             case .failure:
                 completion(false)
             }
-            
-            
+
+
         })
     }
 }

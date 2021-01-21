@@ -100,4 +100,29 @@ class SneakerService {
             }
         }
     }
+    
+    func uploadImage(offerID: String, images: [UIImage]){
+        print("bild senden")
+        let newHeader: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+            "Authorization": "bearer \(self.accessToken)"
+        ]
+        
+        let params = [
+            "offerId": offerID
+        ]
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            for (key, value) in params {
+                multipartFormData.append((value as! String).data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+            multipartFormData.append(images[0].jpegData(compressionQuality: 0.5)!, withName: "pic" , fileName: "file.jpeg", mimeType: "image/jpeg")
+            },
+        to: "http://localhost:3000/offer/upload?offerId=60004862b7e21682f9fb80a1", method: .post , headers: newHeader)
+            .response { resp in
+                print("server antwort")
+                print(resp)
+            }
+    }
 }
