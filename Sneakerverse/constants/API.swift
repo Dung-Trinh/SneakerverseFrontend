@@ -15,4 +15,6 @@ struct API{
     static let CHAT = HOST_URL + "/chat"
     static let CHAT_MESSAGE = CHAT + "/message"
     static let PROFILE = HOST_URL + "/profile"
+    static let GET_PROFILE = PROFILE + "/get"
+    static let GET_RATING_BY_ID = HOST_URL + "/rating"
 }

@@ -25,11 +25,17 @@ struct ProfileView: View {
             
             ScrollView{
                 if(profileViewModel.pickerIndex == 0){
-                    ProfileDetailView(offerList: $profileViewModel.offerList)
+                    if(profileViewModel.userProfileViewData != nil){
+                        ProfileDetailView(offerList: $profileViewModel.offerList,
+                                          rating: $profileViewModel.ratings,
+                                          userData: profileViewModel.userProfileViewData!)
+                    }
                 }else if(profileViewModel.pickerIndex == 1){
                     
                 }
             }
+        }.onAppear{
+            profileViewModel.fetchUserData(completion: {_ in})
         }
     }
 }

@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct RatingView: View {
+    @Binding var ratings: [Rating]
+    
     var body: some View {
         VStack{
             Text("Ratings")
-        List{
-            UserRating(username: "user", description: "nice", currentRating: 3)
-        }
+            List{
+                ForEach(ratings){ userRating in
+                    UserRating(username: userRating.evaluatorName, description: "", currentRating: userRating.rating)
+                }
+            }
         }
     }
 }
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView()
+        RatingView(ratings: .constant([]))
     }
 }

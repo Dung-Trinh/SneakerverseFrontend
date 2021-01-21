@@ -14,6 +14,8 @@ struct ProfileDetailView: View {
     ]
     
     @Binding var offerList: [Offer]
+    @Binding var rating: [Rating]
+    var userData: UserProfileViewData
     
     var body: some View {
         VStack{
@@ -24,10 +26,10 @@ struct ProfileDetailView: View {
                     .cornerRadius(50)
                     .padding(.top, 10)
             }
-            Text("TestUser")
-            Text("Wiesbaden")
-            Text("Registriert seit 2020")
-            RatingBar(currentRating: 3, ratingAmount: 3)
+            Text(userData.username)
+            Text(userData.city)
+            Text("Registriert seit \(userData.registerDate)")
+            RatingBar(userRating: $rating)
                 .padding(.bottom, 20)
             
             Text("My offers")
@@ -42,8 +44,8 @@ struct ProfileDetailView: View {
     }
 }
 
-struct ProfileDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileDetailView(offerList: .constant([]))
-    }
-}
+//struct ProfileDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileDetailView(offerList: .constant([]), userData: <#UserProfileViewData#>)
+//    }
+//}

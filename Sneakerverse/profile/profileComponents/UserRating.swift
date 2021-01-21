@@ -16,14 +16,13 @@ struct UserRating: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("tt")
+                Text(username)
                     .font(.system(size: 21, weight: .medium, design: .default))
-                Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam ")
-                
+                Text(description)
             }
-            
+            Spacer()
             HStack{
-                ForEach(0 ..< (maxRating-currentRating)+1) {_ in
+                ForEach(0 ..< (currentRating)) {_ in
                     Image(uiImage: UIImage(systemName: "star.fill")!)
                         .padding(-5)
                 }
@@ -32,7 +31,9 @@ struct UserRating: View {
                     Image(uiImage: UIImage(systemName: "star")!)
                         .padding(-5)
                 }
-            }.padding(10)
+            }
+            .padding(10)
+            
             
             
         }
