@@ -9,10 +9,22 @@ import Foundation
 import KeychainAccess
 import Alamofire
 
+// MARK: - LocationAPIResponse
+struct LocationAPIResponse: Codable {
+    let data: [CityLocation]
+}
+
+// MARK: - Datum
+struct CityLocation: Codable {
+    let latitude, longitude: Double
+    let name, country, label: String
+}
+
 class SneakerService {
     let headers: HTTPHeaders
     let accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
-    
+    let jsonDecoder = JSONDecoder()
+
     init() {
         headers = [
             "Content-Type": "application/json",
@@ -29,7 +41,12 @@ class SneakerService {
                     "size": "\(sneakerOffer.size)",
                     "brand": "\(sneakerOffer.brand)",
                     "price": "\(sneakerOffer.price)",
-                    "condition": "\(sneakerOffer.condition)"
+                    "condition": "\(sneakerOffer.condition)",
+                    "city":[
+                        "latitude": "\(sneakerOffer.city.latitude)",
+                        "longitude": "\(sneakerOffer.city.longitude)",
+                        "cityName": "\(sneakerOffer.city.cityName)"
+                    ]
                 ]
         ]
         
@@ -47,12 +64,6 @@ class SneakerService {
     }
     
     func getAllSneakerOffers(completion:@escaping(Result<[Offer],SneakerServiceError>)->Void){
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "Authorization": "bearer \(self.accessToken)"
-        ]
-        let jsonDecoder = JSONDecoder()
-        
         AF.request(API.OFFER, method: .get, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
@@ -62,12 +73,56 @@ class SneakerService {
             switch statusCode {
             case 200:
                 if response.data != nil{
-                    offerResponse = try! jsonDecoder.decode(SneakerDealsResponse.self, from: response.data!)
+                    offerResponse = try! self.jsonDecoder.decode(SneakerDealsResponse.self, from: response.data!)
                     completion(.success(offerResponse.data.offerlist))
                 }
             case .none, .some(_):
                 completion(.failure(.sendingOfferError))
             }
         }
+    }
+    
+    func getCityLocation(city: String, completion:@escaping(Result<City,SneakerServiceError>)->Void){
+        AF.request(API.MAPS_API_URL + city, method: .get, encoding: JSONEncoding.default).responseJSON { response in
+            var statusCode: Int?
+            statusCode = response.response?.statusCode
+            var locationResponse: LocationAPIResponse?
+            
+            switch statusCode {
+            case 200:
+                if response.data != nil{
+                    locationResponse = try! self.jsonDecoder.decode(LocationAPIResponse.self, from: response.data!)
+                    let cityData = City(id: "", latitude: (locationResponse?.data[0].latitude)!, longitude: (locationResponse?.data[0].longitude)!, cityName: city)
+                    completion(.success(cityData))
+                }
+            case .none, .some(_):
+                completion(.failure(.sendingOfferError))
+            }
+        }
+    }
+    
+    func uploadImage(offerID: String, images: [UIImage]){
+        print("bild senden")
+        let newHeader: HTTPHeaders = [
+            "Content-Type": "multipart/form-data",
+            "Authorization": "bearer \(self.accessToken)"
+        ]
+        
+        let params = [
+            "offerId": offerID
+        ]
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            for (key, value) in params {
+                multipartFormData.append((value as! String).data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+            multipartFormData.append(images[0].jpegData(compressionQuality: 0.5)!, withName: "pic" , fileName: "file.jpeg", mimeType: "image/jpeg")
+            },
+        to: "http://localhost:3000/offer/upload?offerId=60004862b7e21682f9fb80a1", method: .post , headers: newHeader)
+            .response { resp in
+                print("server antwort")
+                print(resp)
+            }
     }
 }

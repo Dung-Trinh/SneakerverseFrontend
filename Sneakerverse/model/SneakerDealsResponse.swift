@@ -50,13 +50,13 @@ struct City: Codable {
     let latitude: Double
     let longitude: Double
     let cityName: String
-    let v: Int
+//    let v: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case latitude = "_latitude"
         case longitude = "_longitude"
         case cityName = "_cityName"
-        case v = "__v"
+       // case v = "__v"
     }
 }
