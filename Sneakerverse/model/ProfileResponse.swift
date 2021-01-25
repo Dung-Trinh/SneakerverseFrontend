@@ -65,6 +65,7 @@ struct Rating: Codable, Identifiable {
     let id, targetUsername: String
     let rating: Int
     let evaluatorName, created: String
+    let message: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -72,5 +73,6 @@ struct Rating: Codable, Identifiable {
         case rating = "_rating"
         case evaluatorName = "_evaluatorName"
         case created = "_created"
+        case message = "_message"
     }
 }

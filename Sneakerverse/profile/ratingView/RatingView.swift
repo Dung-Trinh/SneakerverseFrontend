@@ -15,7 +15,7 @@ struct RatingView: View {
             Text("Ratings")
             List{
                 ForEach(ratings){ userRating in
-                    UserRating(username: userRating.evaluatorName, description: "", currentRating: userRating.rating)
+                    UserRating(username: userRating.evaluatorName, description: "", message: userRating.message ,currentRating: userRating.rating)
                 }
             }
         }
