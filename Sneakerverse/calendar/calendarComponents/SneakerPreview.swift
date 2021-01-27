@@ -6,29 +6,37 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SneakerPreview: View {
-    var sneakerName: String
-    var date: String
-    
+    var sneaker: SneakerCalendarItem
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
-            Image("1")
+            KFImage.url(URL(string: self.sneaker.imageURL))
+                .loadDiskFileSynchronously()
+                .placeholder{return Image("default-calendar-sneaker")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 200)}
+                .cacheMemoryOnly()
+                .onProgress { receivedSize, totalSize in  }
+                .onSuccess { result in  }
+                .onFailure { error in }
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 200)
             
             VStack(alignment: .leading, spacing: 30){
-                Text(date.prefix(2))
+                Text(sneaker.releaseDate.prefix(2))
                     .font(.title)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.black)
                     .padding(.top,-80)
                     .padding(.leading,12)
                 
-                Text(sneakerName)
+                Text(sneaker.title)
                     .font(.system(size: 13))
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
                     .padding(12)
                     .frame(width: 150, height:80)
@@ -40,8 +48,8 @@ struct SneakerPreview: View {
     }
 }
 
-struct SneakerPreview_Previews: PreviewProvider {
-    static var previews: some View {
-        SneakerPreview(sneakerName: "sneaker name",date: "11.11.2020")
-    }
-}
+//struct SneakerPreview_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SneakerPreview()
+//    }
+//}

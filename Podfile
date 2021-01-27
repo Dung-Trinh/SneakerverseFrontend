@@ -11,4 +11,5 @@ pod 'Alamofire','~> 5.4.0'
 pod 'SwiftyBeaver'
 pod 'Socket.IO-Client-Swift', '~> 15.2.0'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'Kingfisher', '~> 6.0'
 end

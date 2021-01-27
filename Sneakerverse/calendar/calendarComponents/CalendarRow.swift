@@ -14,7 +14,7 @@ struct CalendarRow: View {
         ScrollView(.horizontal){
             HStack{
                 ForEach(sneakerItems, id: \.self) { item in
-                    SneakerPreview(sneakerName: item.title, date: item.releaseDate)
+                    SneakerPreview(sneaker: item)
                 }
             }
         }
