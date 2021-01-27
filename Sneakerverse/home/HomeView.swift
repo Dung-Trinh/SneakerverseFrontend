@@ -16,7 +16,7 @@ struct HomeView: View {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
-            Text("CALENDAR")
+            CalendarView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")

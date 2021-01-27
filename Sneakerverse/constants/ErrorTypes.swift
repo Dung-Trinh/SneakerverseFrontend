@@ -32,3 +32,8 @@ enum ProfileError: Error{
     case profileError
     case userNotFound
 }
+
+enum CalendarError: Error{
+    case calendarError
+    case itemNotFound
+}
