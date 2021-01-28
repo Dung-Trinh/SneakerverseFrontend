@@ -12,7 +12,8 @@ struct HomeView: View {
     
     var body: some View {
         TabView{
-            Text("HOME").tabItem {
+            BlogPostOverviewView()
+                .tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
             }

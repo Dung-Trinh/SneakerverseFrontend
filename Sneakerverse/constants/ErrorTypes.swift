@@ -32,3 +32,7 @@ enum ProfileError: Error{
     case profileError
     case userNotFound
 }
+
+enum BlogPostServiceError: Error{
+    case blogPostError
+}

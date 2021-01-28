@@ -19,4 +19,5 @@ struct API{
     static let PROFILE = HOST_URL + "/profile"
     static let GET_PROFILE = PROFILE + "/get"
     static let GET_RATING_BY_ID = HOST_URL + "/rating/get"
+    static let BLOGPOST = HOST_URL + "/blog"
 }
