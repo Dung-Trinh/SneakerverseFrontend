@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject var profileViewModel = ProfileViewModel()
-    
+    var username: String? = nil
     let DealsOffer = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -17,12 +17,13 @@ struct ProfileView: View {
     
     var body: some View {
         VStack{
-            Picker("profileMenu", selection: $profileViewModel.pickerIndex) {
-                ForEach(0..<profileViewModel.menuItems.count) { index in
-                    Text(self.profileViewModel.menuItems[index]).tag(index)
-                }
-            }.pickerStyle(SegmentedPickerStyle())
-            
+            if(profileViewModel.isMyProfile()){                
+                Picker("profileMenu", selection: $profileViewModel.pickerIndex) {
+                    ForEach(0..<profileViewModel.menuItems.count, id:\.self) { index in
+                        Text(self.profileViewModel.menuItems[index]).tag(index)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+            }
             ScrollView{
                 if(profileViewModel.pickerIndex == 0){
                     if(profileViewModel.userProfileViewData != nil){
@@ -31,10 +32,12 @@ struct ProfileView: View {
                                           userData: profileViewModel.userProfileViewData!)
                     }
                 }else if(profileViewModel.pickerIndex == 1){
-                    
+                    // favorite view
                 }
             }
         }.onAppear{
+            profileViewModel.username = username != nil ? username! : ""
+            
             profileViewModel.fetchUserData(completion: {_ in})
         }
     }

@@ -61,7 +61,7 @@ struct SneakerOfferDetailView: View {
                     }
                 }
             }else{
-                NavigationLink("toChatView", destination: ChatView(chatID: viewModel.chatID).environmentObject(self.chatService), isActive: $viewModel.jumpToChat)
+                NavigationLink("toChatView", destination: ChatView(chatID: viewModel.chatID, chatPartner: offer.ownerName).environmentObject(self.chatService), isActive: $viewModel.jumpToChat)
             }
         }.onAppear{
             viewModel.setChatService(chatService: self.chatService)

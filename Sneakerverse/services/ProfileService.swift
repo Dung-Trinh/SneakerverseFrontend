@@ -13,7 +13,6 @@ class ProfileService: ObservableObject{
     var headers: HTTPHeaders
     let jsonDecoder = JSONDecoder()
     var accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
-    var username: String = Keychain(service: "sneakerverse.Sneakerverse")["username"]!
     
     init(){
         headers = [
@@ -22,14 +21,14 @@ class ProfileService: ObservableObject{
         ]
     }
     
-    func fetchProfileData(completion: @escaping (Result<UserProfileDetails, ProfileError>) -> Void){
+    func fetchProfileData(username: String, completion: @escaping (Result<UserProfileDetails, ProfileError>) -> Void){
         let parameters = ["username" : "\(username)"]
         
         AF.request(API.GET_PROFILE, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
             var statusCode: Int?
             statusCode = response.response?.statusCode
             var profileResponse: ProfileResponse
-
+            
             switch statusCode {
             case 200:
                 if response.data != nil{

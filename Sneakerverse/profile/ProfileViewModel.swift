@@ -6,18 +6,33 @@
 //
 
 import Foundation
+import KeychainAccess
 
 class ProfileViewModel: ObservableObject {
     @Published var profileData: UserProfileDetails?
     @Published var userProfileViewData: UserProfileViewData?
     @Published var ratings: [Rating] = []
     @Published var offerList: [Offer] = []
-    var menuItems = ["Profile", "Favorites"]
+    @Published var menuItems: [String] = []
     @Published  var pickerIndex = 0
     var profileService = ProfileService()
+    var myUserName = Keychain(service: "sneakerverse.Sneakerverse")["username"]!
+    var username: String = "" {
+        didSet {
+            if(isMyProfile()){
+                menuItems =  ["Profile", "Favorites"]
+            }else{
+                menuItems = ["Profile"]
+            }
+        }
+    }
     
     func fetchUserData(completion: @escaping (Bool)->Void){
-        profileService.fetchProfileData(completion: { response in
+        if(username == ""){
+            username = myUserName
+        }
+        
+        profileService.fetchProfileData(username: username,completion: { response in
             switch response {
             case .success(let data):
                 self.setProfileData(profileData: data)
@@ -51,5 +66,13 @@ class ProfileViewModel: ObservableObject {
                 print("error")
             }
         })
+    }
+    
+    func isMyProfile() -> Bool{
+        if(username == myUserName){
+            return true
+        }else{
+            return false
+        }
     }
 }
