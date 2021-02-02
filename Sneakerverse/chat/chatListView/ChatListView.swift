@@ -15,7 +15,7 @@ struct ChatListView: View {
         List{
             ForEach(chatListViewModel.currentChatList){ chat in
                 NavigationLink(
-                    destination: ChatView(chatID: chat.id)){
+                    destination: ChatView(chatID: chat.id, chatPartner: chatListViewModel.getUsername(subscribers: chat.subscriber))){
                     ChatRow(username: chatListViewModel.getUsername(subscribers: chat.subscriber), lastMessages: chat.messages)
                 }
             }

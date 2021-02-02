@@ -10,6 +10,7 @@ import SwiftUI
 struct UserRating: View {
     var username: String
     var description: String
+    var message: String?
     var maxRating : Int = 5
     var currentRating: Int
     
@@ -19,6 +20,9 @@ struct UserRating: View {
                 Text(username)
                     .font(.system(size: 21, weight: .medium, design: .default))
                 Text(description)
+            }
+            if((message) != nil){
+                Text(message!)
             }
             Spacer()
             HStack{
