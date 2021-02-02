@@ -18,7 +18,7 @@ struct CreateRatingView: View {
                 .font(.title3)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-            Stepper(value: $createRatingViewModel.rating, in: 0...5) {
+            Stepper(value: $createRatingViewModel.rating, in: 1...5) {
                 Text("rating")
             }
             HStack{
@@ -39,13 +39,23 @@ struct CreateRatingView: View {
                 
             }.padding()
             
-            TextField("Message ...",text: $createRatingViewModel.desciption)
+            TextField("Message ...",text: $createRatingViewModel.message)
             Button(action: {
-                
+                createRatingViewModel.sendRating(completion: {respose in
+                    if respose{
+                        print("gesendet")
+                    }else{
+                        print("failed raitng")
+                    }
+                    
+                })
             }, label: {
                 Text("send rating")
             })
         }.padding()
+        .onAppear{
+            createRatingViewModel.targetUser = targetUser
+        }
     }
 }
 

@@ -65,16 +65,25 @@ class ProfileService: ObservableObject{
         
     }
     
-    func sendUserRating(){
+    func sendUserRating(message: String, rating: Int, targetUser: String,completion: @escaping (Result<Bool, ProfileError>) -> Void){
         let parameters = ["rating" :
-                            ["targetUsername" : "",
-                             "rating": "",
-                             "message": ""
+                            ["targetUsername" : targetUser,
+                             "rating": "\(rating)",
+                             "message": message
                             ]
         ]
         
-        AF.request(API.GET_PROFILE, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+        AF.request(API.SEND_RATING, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+            var statusCode: Int?
+            statusCode = response.response?.statusCode
+            print("send rating \(statusCode)")
             
+            switch statusCode {
+            case 200:
+                completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.profileError))
+            }
         }
     }
 }
