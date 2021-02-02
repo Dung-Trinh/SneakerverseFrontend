@@ -12,9 +12,13 @@ struct ChatView: View {
     @EnvironmentObject var chatService: ChatService
     @StateObject var chatViewModel = ChatViewModel()
     let chatID: String
+    let chatPartner: String
     
     var body: some View {
         VStack(){
+            NavigationLink(destination: ProfileView(username: chatPartner)){
+                Text(chatPartner)
+            }
             List{
                 ForEach(chatViewModel.allMessages){ message in
                     UserMessageView(currentMessage: UserMessage (content: message.message, user: UserProfile(name: "Dung", avatar: Image(systemName: "person.circle.fill"), isCurrentUser: message.senderName == chatViewModel.username ? true : false),time: message.created))
@@ -47,6 +51,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(chatID: "")
+        ChatView(chatID: "", chatPartner: "")
     }
 }
