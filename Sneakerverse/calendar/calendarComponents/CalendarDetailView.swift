@@ -52,6 +52,14 @@ struct CalendarDetailView: View {
                     .lineLimit(1)
                     .frame(maxWidth: 200)
                 }
+                HStack{
+                    Image(uiImage: UIImage(systemName: "square.and.arrow.up")!)
+                        .resizable()
+                        .frame(width:30, height: 30)
+                    Image(uiImage: UIImage(systemName: "star.fill")!)
+                        .resizable()
+                        .frame(width:30, height: 30)
+                }
             }.padding()
             
             ForEach(sneaker.imgArray , id: \.self){ img in
