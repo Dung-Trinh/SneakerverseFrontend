@@ -95,9 +95,7 @@ class SneakerService {
             case 200:
                 if response.data != nil{
                     let json = try? JSON(data: response.data!)
-                    
                     let jsonData = json!["data"]
-                    print("meine json", jsonData)
                     
                     if(jsonData.isEmpty){
                         print("is empty")
@@ -117,7 +115,6 @@ class SneakerService {
     }
     
     func uploadImage(offerID: String, images: [UIImage]){
-        print("bild senden")
         let newHeader: HTTPHeaders = [
             "Content-Type": "multipart/form-data",
             "Authorization": "bearer \(self.accessToken)"
@@ -132,12 +129,12 @@ class SneakerService {
                 multipartFormData.append((value as! String).data(using: String.Encoding.utf8)!, withName: key)
             }
             
-            multipartFormData.append(images[0].jpegData(compressionQuality: 0.5)!, withName: "pic" , fileName: "file.jpeg", mimeType: "image/jpeg")
+            for img in images{
+                multipartFormData.append(img.jpegData(compressionQuality: 0.5)!, withName: "pic" , fileName: "file.jpeg", mimeType: "image/jpeg")
+            }
         },
-        to: "http://localhost:3000/offer/upload?offerId=60004862b7e21682f9fb80a1", method: .post , headers: newHeader)
+        to: "http://localhost:3000/offer/upload?offerId=\(offerID)", method: .post , headers: newHeader)
         .response { resp in
-            print("server antwort")
-            print(resp)
         }
     }
 }
