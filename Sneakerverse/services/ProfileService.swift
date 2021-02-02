@@ -51,7 +51,7 @@ class ProfileService: ObservableObject{
             var statusCode: Int?
             statusCode = response.response?.statusCode
             var ratingResponse: RatingResponse
-
+            
             switch statusCode {
             case 200:
                 if response.data != nil{
@@ -63,5 +63,18 @@ class ProfileService: ObservableObject{
             }
         }
         
+    }
+    
+    func sendUserRating(){
+        let parameters = ["rating" :
+                            ["targetUsername" : "",
+                             "rating": "",
+                             "message": ""
+                            ]
+        ]
+        
+        AF.request(API.GET_PROFILE, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+            
+        }
     }
 }

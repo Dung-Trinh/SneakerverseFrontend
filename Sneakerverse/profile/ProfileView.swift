@@ -17,7 +17,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack{
-            if(profileViewModel.isMyProfile()){                
+            if(profileViewModel.isMyProfile()){
                 Picker("profileMenu", selection: $profileViewModel.pickerIndex) {
                     ForEach(0..<profileViewModel.menuItems.count, id:\.self) { index in
                         Text(self.profileViewModel.menuItems[index]).tag(index)
@@ -40,6 +40,11 @@ struct ProfileView: View {
             
             profileViewModel.fetchUserData(completion: {_ in})
         }
+        .navigationBarItems(trailing:
+                                NavigationLink(destination: CreateRatingView(targetUser: username ?? "")) {
+                                    Text("Rate user")
+                                }
+        )
     }
 }
 
