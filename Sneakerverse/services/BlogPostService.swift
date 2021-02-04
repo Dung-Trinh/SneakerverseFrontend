@@ -33,7 +33,7 @@ class BlogPostService{
                 if response.data != nil{
                     blogPostResponse = try!
                         self.jsonDecoder.decode(BlogPostResponse.self, from: response.data!)
-                    completion(.success(blogPostResponse.data.blogposts))
+                    completion(.success(blogPostResponse.data.blog))
                 }
             case .none, .some(_):
                 completion(.failure(.blogPostError))

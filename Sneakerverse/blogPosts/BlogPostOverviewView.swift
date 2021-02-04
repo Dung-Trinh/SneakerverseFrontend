@@ -16,7 +16,10 @@ struct BlogPostOverviewView: View {
         ScrollView{
             LazyVGrid(columns: BlogPost, spacing:20){
                 ForEach(blogPostList, id: \.self){ blogPost in
-                    BlogPostListItemView(blog: blogPost)
+                    NavigationLink(
+                        destination: BlogPostDetailView(blogPost: blogPost)){
+                        BlogPostListItemView(blog: blogPost)
+                    }
                 }
             }
         } .onAppear(perform: {

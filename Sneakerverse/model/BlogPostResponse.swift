@@ -14,7 +14,7 @@ struct BlogPostResponse: Codable {
 
 // MARK: - BlogPosts
 struct BlogPosts: Codable {
-    let blogposts: [Blog]
+    let blog: [Blog]
 }
 
 // MARK: - Blog
