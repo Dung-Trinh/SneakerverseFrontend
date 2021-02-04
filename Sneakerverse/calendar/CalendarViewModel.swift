@@ -22,15 +22,17 @@ class CalendarViewModel: ObservableObject {
     
     var calendarService = CalendarService()
     
-    func getCalendarItems(completion: @escaping  (Bool)->Void){
-        calendarService.fetchCalendarItems(completion: { response in
+    func getCalendarItems(calendarRow: String, completion: @escaping  (Bool)->Void){
+        calendarService.fetchCalendarItems(row: calendarRow, completion: { response in
             switch response{
             case .success(let newCalendarItems):
-                self.calenderReleaseDataTop = newCalendarItems
-                self.calenderReleaseDataBottom = newCalendarItems
-                
-                self.calendarReleaseTop = newCalendarItems
-                self.calendarReleaseBottom = newCalendarItems
+                if(calendarRow == "1"){
+                    self.calenderReleaseDataTop = newCalendarItems
+                    self.calendarReleaseBottom = newCalendarItems
+                }else{
+                    self.calenderReleaseDataBottom = newCalendarItems
+                    self.calendarReleaseTop = newCalendarItems
+                }
                 completion(true)
             case .failure(_):
                 completion(false)

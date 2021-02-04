@@ -32,7 +32,8 @@ struct CalendarView: View {
             CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseBottom)
             Spacer()
         }.onAppear{
-            calendarViewModel.getCalendarItems(completion: {_ in})
+            calendarViewModel.getCalendarItems(calendarRow: "1", completion: {_ in})
+            calendarViewModel.getCalendarItems(calendarRow: "2", completion: {_ in})
         }
     }
 }

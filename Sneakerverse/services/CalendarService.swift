@@ -21,8 +21,8 @@ class CalendarService{
         ]
     }
     
-    func fetchCalendarItems(completion: @escaping (Result<[SneakerCalendarItem],CalendarError>)->Void){
-        AF.request(API.GET_CALENDAR_RELEASES, method: .get,  encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+    func fetchCalendarItems(row: String, completion: @escaping (Result<[SneakerCalendarItem],CalendarError>)->Void){
+        AF.request(API.GET_CALENDAR_RELEASES + "/" + row, method: .get,  encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             var statusCode: Int?
             statusCode = response.response?.statusCode
             var calendarResponse: CalendarResponse
