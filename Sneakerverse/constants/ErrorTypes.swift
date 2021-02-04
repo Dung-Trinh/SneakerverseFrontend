@@ -33,6 +33,10 @@ enum ProfileError: Error{
     case userNotFound
 }
 
+enum BlogPostServiceError: Error{
+    case blogPostError
+}
+
 enum CalendarError: Error{
     case calendarError
     case itemNotFound
