@@ -8,6 +8,7 @@
 import Foundation
 import KeychainAccess
 import Alamofire
+import SwiftyJSON
 
 // MARK: - LocationAPIResponse
 struct LocationAPIResponse: Codable {
@@ -24,7 +25,7 @@ class SneakerService {
     let headers: HTTPHeaders
     let accessToken : String = Keychain(service: "sneakerverse.Sneakerverse")["accessToken"]!
     let jsonDecoder = JSONDecoder()
-
+    
     init() {
         headers = [
             "Content-Type": "application/json",
@@ -32,7 +33,7 @@ class SneakerService {
         ]
     }
     
-    func sendSneakerOfferRequest(sneakerOffer: SneakerOffer, completion: @escaping (Result<Bool,SneakerServiceError>)->Void){
+    func sendSneakerOfferRequest(sneakerOffer: SneakerOffer, completion: @escaping (Result<String,SneakerServiceError>)->Void){
         let parameters = [
             "offer":
                 [
@@ -56,7 +57,9 @@ class SneakerService {
             
             switch statusCode {
             case 200:
-                completion(.success(true))
+                let json = try? JSON(data: response.data!)
+                let offerID = json!["data"]["offerId"].stringValue
+                completion(.success(offerID))
             case .none, .some(_):
                 completion(.failure(.sendingOfferError))
             }
@@ -91,9 +94,19 @@ class SneakerService {
             switch statusCode {
             case 200:
                 if response.data != nil{
-                    locationResponse = try! self.jsonDecoder.decode(LocationAPIResponse.self, from: response.data!)
-                    let cityData = City(id: "", latitude: (locationResponse?.data[0].latitude)!, longitude: (locationResponse?.data[0].longitude)!, cityName: city)
-                    completion(.success(cityData))
+                    let json = try? JSON(data: response.data!)
+                    let jsonData = json!["data"]
+                    
+                    if(jsonData.isEmpty){
+                        print("is empty")
+                        let cityData = City(id: "", latitude: 0, longitude: 0, cityName: "")
+                        completion(.success(cityData))
+                    }else{
+                        
+                        locationResponse = try! self.jsonDecoder.decode(LocationAPIResponse.self, from: response.data!)
+                        let cityData = City(id: "", latitude: (locationResponse?.data[0].latitude)!, longitude: (locationResponse?.data[0].longitude)!, cityName: city)
+                        completion(.success(cityData))
+                    }
                 }
             case .none, .some(_):
                 completion(.failure(.sendingOfferError))
@@ -102,7 +115,6 @@ class SneakerService {
     }
     
     func uploadImage(offerID: String, images: [UIImage]){
-        print("bild senden")
         let newHeader: HTTPHeaders = [
             "Content-Type": "multipart/form-data",
             "Authorization": "bearer \(self.accessToken)"
@@ -117,12 +129,12 @@ class SneakerService {
                 multipartFormData.append((value as! String).data(using: String.Encoding.utf8)!, withName: key)
             }
             
-            multipartFormData.append(images[0].jpegData(compressionQuality: 0.5)!, withName: "pic" , fileName: "file.jpeg", mimeType: "image/jpeg")
-            },
-        to: "http://localhost:3000/offer/upload?offerId=60004862b7e21682f9fb80a1", method: .post , headers: newHeader)
-            .response { resp in
-                print("server antwort")
-                print(resp)
+            for img in images{
+                multipartFormData.append(img.jpegData(compressionQuality: 0.5)!, withName: "pic" , fileName: "file.jpeg", mimeType: "image/jpeg")
             }
+        },
+        to: "http://localhost:3000/offer/upload?offerId=\(offerID)", method: .post , headers: newHeader)
+        .response { resp in
+        }
     }
 }
