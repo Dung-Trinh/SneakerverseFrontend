@@ -25,6 +25,7 @@ class ChatService: ObservableObject{
             "Content-Type": "application/json",
             "Authorization": "bearer \(self.accessToken)"
         ]
+        socketManager.setChatService(chatService: self)
         
     }
     
@@ -152,20 +153,24 @@ class WebSocketManager: ObservableObject{
     
     let manager = SocketManager(socketURL: URL(string: "ws://localhost:3000")!)
     let socket: SocketIOClient
+    var chatService: ChatService? = nil
     
     init(){
         socket = manager.defaultSocket
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
-            self.socket.emit("join", "5fd78adc346cd5eb94649174")
         }
         
         socket.connect()
     }
     
+    func setChatService(chatService: ChatService) {
+        self.chatService = chatService
+    }
+    
     func updateChat(chatID: String,setAllMessages: @escaping (_ newMessages: [ChatMessage])-> Void){
+        print("chatID: " ,chatID)
         socket.on("update\(chatID)"){ data, ack in
-            
             do {
                 let json:JSON = JSON(data[0])
                 let jsonData = Data(json.rawString()!.utf8)
@@ -178,5 +183,24 @@ class WebSocketManager: ObservableObject{
                 }
             }
         }
+    }
+    
+    func updateChatList(chatID: [String],setChatList: @escaping (_ newChatList: [ChatList]) -> Void ){
+        print("chat IDS chat service",chatID)
+        for i in chatID {
+            self.socket.emit("join", "\(i)")
+            socket.on("update\(i)"){ data, ack in
+                self.chatService?.fetchAllChats(completion: { response in
+                    switch response{
+                    case .success(let chatList):
+                        setChatList(chatList)
+                    case .failure:
+                        break
+                    }
+                })
+            }
+        }
+        
+        
     }
 }

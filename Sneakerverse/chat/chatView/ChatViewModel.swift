@@ -36,7 +36,6 @@ class ChatViewModel: ObservableObject {
     }
     
     func updateChat(chatID: String){
-        print(chatID)
         chatService?.socketManager.updateChat(chatID:chatID, setAllMessages: setAllMessages)
     }
     

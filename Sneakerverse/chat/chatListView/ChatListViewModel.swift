@@ -19,10 +19,10 @@ class ChatListViewModel: ObservableObject{
             case .success(let chatList):
                 self.currentChatList = chatList
                 completion(chatList)
+                self.addWebsocketListener()
             case .failure:
                 completion([])
             }
-            
         })
     }
     
@@ -37,4 +37,18 @@ class ChatListViewModel: ObservableObject{
         
         return subscribers.filter{$0 != self.username }[0]
     }
+    
+    func addWebsocketListener(){
+        var chatIDs: [String] = []
+        for i in currentChatList{
+            chatIDs.append(i.id)
+        }
+        
+        self.chatService?.socketManager.updateChatList(chatID: chatIDs, setChatList: self.setChatlist)
+    }
+    
+    func setChatlist(newChatList: [ChatList]) -> Void{
+        self.currentChatList = newChatList
+    }
+    
 }
