@@ -106,6 +106,7 @@ class ChatService: ObservableObject{
             var chatListResponse: ChatListResponse?
             let jsonDecoder = JSONDecoder()
             let statusCode = response.response?.statusCode
+            var idExist = false
             
             switch statusCode {
             case 200:
@@ -114,11 +115,14 @@ class ChatService: ObservableObject{
                     for chat in chatListResponse!.data.chatList{
                         for ownerName in chat.subscriber{
                             if(subscriberName == ownerName){
+                                idExist = true
                                 completion(.success(chat.id))
                             }
                         }
                     }
+                    if(!idExist){
                     completion(.failure(.chatServiceError))
+                    }
                 }
                 
             case .none, .some(_):
@@ -169,9 +173,11 @@ class WebSocketManager: ObservableObject{
     }
     
     func updateChat(chatID: String,setAllMessages: @escaping (_ newMessages: [ChatMessage])-> Void){
-        print("chatID: " ,chatID)
+        print("add listener chatID: " ,chatID)
+        self.socket.emit("join", "\(chatID)")
         socket.on("update\(chatID)"){ data, ack in
             do {
+                print(data)
                 let json:JSON = JSON(data[0])
                 let jsonData = Data(json.rawString()!.utf8)
                 
