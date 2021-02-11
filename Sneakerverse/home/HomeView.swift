@@ -11,42 +11,53 @@ struct HomeView: View {
     @StateObject var homeViewModel = HomeViewModel()
     
     var body: some View {
-        TabView{
-            BlogPostOverviewView()
-                .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
+        if(!homeViewModel.loggedOut){
+            TabView{
+                BlogPostOverviewView()
+                    .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+                CalendarView()
+                    .tabItem {
+                        Image(systemName: "calendar")
+                        Text("Calendar")
+                    }
+                OfferSneakerView()
+                    .tabItem {
+                        Image(systemName: "plus.circle.fill")
+                        Text("Offer Sneaker")
+                    }
+                DealsOverviewView()
+                    .environmentObject(homeViewModel.chatService)
+                    .tabItem {
+                        Image(systemName: "tag.fill")
+                        Text("Deals")
+                    }
+                
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person.crop.rectangle.fill")
+                        Text("Profile")
+                    }
             }
-            CalendarView()
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-                }
-            OfferSneakerView()
-                .tabItem {
-                    Image(systemName: "plus.circle.fill")
-                    Text("Offer Sneaker")
-                }
-            DealsOverviewView()
-                .environmentObject(homeViewModel.chatService)
-                .tabItem {
-                    Image(systemName: "tag.fill")
-                    Text("Deals")
-                }
-            
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person.crop.rectangle.fill")
-                    Text("Profile")
-                }
+            .navigationTitle("Sneaker")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(trailing:
+                                    HStack{
+                                        NavigationLink(destination: ChatListView().environmentObject(homeViewModel.chatService)) {
+                                            Image(systemName: "message.fill")
+                                        }
+                                        Button(action: {
+                                            homeViewModel.logout()
+                                        }){
+                                            CustomButton(buttonText: "Logout", buttonColor: .blue)
+                                        }
+                                    }
+            )
+        }else{
+            NavigationLink("toOnboardingView", destination: OnboardingView(), isActive: $homeViewModel.loggedOut)
         }
-        .navigationTitle("Sneaker")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(trailing:
-                                NavigationLink(destination: ChatListView().environmentObject(homeViewModel.chatService)) {
-                                    Image(systemName: "message.fill")
-                                }
-        )
     }
 }
 
