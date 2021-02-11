@@ -18,7 +18,6 @@ struct SignUpView: View {
     @StateObject var signUpViewModel: SignUpViewModel = SignUpViewModel()
     
     var body: some View {
-        NavigationView{
             if(!signUpViewModel.navigateToHome){
                 VStack {
                     Title(text:"Registrieren")
@@ -33,7 +32,13 @@ struct SignUpView: View {
                         if(signUpViewModel.checkPasswordsAreTheSame(firstPW: signUpViewModel.password, secondPW: signUpViewModel.passwordVerify)){
                             
                             signUpViewModel.signUp(username: signUpViewModel.username, password: signUpViewModel.password, completion: { response in
-                                signUpViewModel.responseMessage = response ? SignUpStates.SUCCESSFUL : SignUpStates.SIGNUPFAILED
+                                switch response{
+                                case true:
+                                    signUpViewModel.responseMessage = SignUpStates.SUCCESSFUL
+                                    signUpViewModel.login(username: signUpViewModel.username, password: signUpViewModel.password)
+                                case false:
+                                    signUpViewModel.responseMessage = SignUpStates.SIGNUPFAILED
+                                }
                             })
                         }else{
                             signUpViewModel.responseMessage = SignUpStates.PASSWORDFAILED
@@ -46,7 +51,6 @@ struct SignUpView: View {
                 NavigationLink("toHomeView", destination: HomeView(),
                                isActive: $signUpViewModel.navigateToHome)
             }
-        }
     }
 }
 
