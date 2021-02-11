@@ -36,7 +36,7 @@ class ProfileViewModel: ObservableObject {
             switch response {
             case .success(let data):
                 self.setProfileData(profileData: data)
-                self.userProfileViewData = UserProfileViewData(username: self.profileData!.username, registerDate: self.profileData!.registered, city: "Stadt fehlt", image: nil)
+                self.userProfileViewData = UserProfileViewData(username: self.profileData!.username, registerDate: self.profileData!.registered, city: "", image: nil)
                 self.profileService.getRatingByIDs(ratingIDs: data.ratings, completion: {response in
                     switch response {
                     case .success(let data):
@@ -45,10 +45,22 @@ class ProfileViewModel: ObservableObject {
                         print("error fetch rating")
                     }
                 })
+                self.fetchMyOffer(ids: data.offers)
                 completion(true)
             case .failure:
                 print("error")
                 completion(false)
+            }
+        })
+    }
+    
+    func fetchMyOffer(ids: [String]){
+        profileService.fetchOfferByID(ids: ids, completion: { response in
+            switch response{
+            case .success(let myOffer):
+                self.offerList = myOffer
+            case .failure:
+                break
             }
         })
     }

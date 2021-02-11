@@ -12,6 +12,7 @@ struct API{
     static let LOGIN = HOST_URL + "/user/login"
     static let REGISTER = HOST_URL + "/user/register"
     static let OFFER = HOST_URL + "/offer"
+    static let SELECTED_OFFER = OFFER + "/selected"
     static let CHAT = HOST_URL + "/chat"
     static let CHAT_MESSAGE = CHAT + "/message"
     static let MAPS_API_KEY = "8abf68a5b2179b5bb56e874572bfc841"
