@@ -11,6 +11,7 @@ class SignUpViewModel: ObservableObject{
     @Published var username: String = "TestUser3"
     @Published var password: String = "TestPassword"
     @Published var passwordVerify: String = "TestPassword"
+    @Published var navigateToHome: Bool = false
     //@Published var passwordsAreNotTheSame: Bool
     @Published var responseMessage: SignUpStates = SignUpStates.DEFAULT
     
@@ -27,6 +28,17 @@ class SignUpViewModel: ObservableObject{
                 completion(true)
             case .failure(_):
                 completion(false)
+            }
+        })
+    }
+    
+    func login(username:String, password: String){
+        userService.sendLoginRequest(username: username, password: password, completion: { response in
+            switch response{
+            case .success:
+                self.navigateToHome = true
+            case .failure(_):
+                print("loginFailure after Signup")
             }
         })
     }
