@@ -40,7 +40,8 @@ struct DealsOverviewListItemView: View {
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 }.padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
-        }.frame(width: 200, height: 200)
+        }.frame(width: 180, height: 180)
+        .padding()
     }
 }
 

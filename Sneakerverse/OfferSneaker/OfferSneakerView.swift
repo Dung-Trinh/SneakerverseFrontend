@@ -20,6 +20,11 @@ struct OfferSneakerView: View {
     var body: some View {
         ZStack{
             VStack{
+                Text("Offer sneaker")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding()
+                
                 if !offerViewModel.selectedImages.isEmpty && !offerViewModel.showImagePicker{
                     ImageSilder(selectedImages: $offerViewModel.selectedImages)
                 }
@@ -75,7 +80,6 @@ struct OfferSneakerView: View {
             }
         }
         .padding()
-        .navigationBarTitle("")
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }

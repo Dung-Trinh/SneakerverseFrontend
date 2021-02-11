@@ -40,7 +40,7 @@ struct HomeView: View {
                     Text("Profile")
                 }
         }
-        .navigationTitle("Sneaker")
+        .navigationBarTitle("", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(trailing:
                                 NavigationLink(destination: ChatListView().environmentObject(homeViewModel.chatService)) {

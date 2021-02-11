@@ -15,6 +15,7 @@ struct CalendarView: View {
             Text("Releases")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .padding()
             
             Picker("calendarFilter", selection: $calendarViewModel.pickerIndex) {
                 ForEach(0..<calendarViewModel.categories.count) { index in
@@ -27,7 +28,7 @@ struct CalendarView: View {
                 .font(.headline)
             CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseTop)
             Spacer()
-            Text("Month: January")
+            Text("Month: February")
                 .font(.headline)
             CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseBottom)
             Spacer()

@@ -13,20 +13,26 @@ struct BlogPostOverviewView: View {
     let BlogPost = [GridItem(.flexible())]
     
     var body: some View {
-        ScrollView{
-            LazyVGrid(columns: BlogPost, spacing:20){
-                ForEach(blogPostList, id: \.self){ blogPost in
-                    NavigationLink(
-                        destination: BlogPostDetailView(blogPost: blogPost)){
-                        BlogPostListItemView(blog: blogPost)
+        VStack{
+            Text("Blog posts")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding()
+            ScrollView{
+                LazyVGrid(columns: BlogPost, spacing:20){
+                    ForEach(blogPostList, id: \.self){ blogPost in
+                        NavigationLink(
+                            destination: BlogPostDetailView(blogPost: blogPost)){
+                            BlogPostListItemView(blog: blogPost)
+                        }
                     }
                 }
-            }
-        } .onAppear(perform: {
-            viewModel.fetchBlogPosts(){ fetchedBlogPosts in
-                self.blogPostList = fetchedBlogPosts
-            }
-        })
+            } .onAppear(perform: {
+                viewModel.fetchBlogPosts(){ fetchedBlogPosts in
+                    self.blogPostList = fetchedBlogPosts
+                }
+            })
+        }
     }
 }
 

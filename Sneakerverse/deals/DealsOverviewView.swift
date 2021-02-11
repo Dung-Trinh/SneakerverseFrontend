@@ -16,6 +16,12 @@ struct DealsOverviewView: View {
         GridItem(.flexible())
     ]
     var body: some View {
+        VStack{
+            Text("Deals")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding()
+            
             ScrollView{
                 LazyVGrid(columns: DealsOffer, spacing: 20) {
                     ForEach(offerList){ offer in
@@ -33,6 +39,7 @@ struct DealsOverviewView: View {
                     self.offerList = fetchedOfferList
                 }
             })
+        }
     }
 }
 
