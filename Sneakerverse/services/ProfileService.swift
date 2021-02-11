@@ -94,15 +94,17 @@ class ProfileService: ObservableObject{
         AF.request(API.SELECTED_OFFER, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             var statusCode: Int?
-            var offerResponse :SneakerDealsResponse
+            var deals: SelectedDealsResponse
             statusCode = response.response?.statusCode
+            
             print(statusCode!)
             print(response.data!)
             switch statusCode {
             case 200:
                 if response.data != nil{
-                    offerResponse = try! self.jsonDecoder.decode(SneakerDealsResponse.self, from: response.data!)
-                    completion(.success(offerResponse.data.offerlist))
+                    deals = try! self.jsonDecoder.decode(SelectedDealsResponse.self, from: response.data!)
+                    print(deals)
+                    completion(.success(deals.data.offers ?? []))
                 }
             case .none, .some(_):
                 completion(.failure(.profileError))
