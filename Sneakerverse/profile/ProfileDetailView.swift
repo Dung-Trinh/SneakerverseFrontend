@@ -12,7 +12,7 @@ struct ProfileDetailView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
+    let chatService = ChatService()
     @Binding var offerList: [Offer]
     @Binding var rating: [Rating]
     var userData: UserProfileViewData
@@ -38,7 +38,10 @@ struct ProfileDetailView: View {
             LazyVGrid(columns: DealsOffer, spacing: 20) {
                 ForEach(offerList){ offer in
                     VStack{
-                        DealsOverviewListItemView(offer: offer)
+                        NavigationLink(
+                            destination: SneakerOfferDetailView(offer:offer).environmentObject(self.chatService)){
+                            DealsOverviewListItemView(offer: offer)
+                        }
                     }
                 }
             }

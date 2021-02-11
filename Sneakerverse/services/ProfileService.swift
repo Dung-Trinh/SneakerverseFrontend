@@ -41,7 +41,6 @@ class ProfileService: ObservableObject{
                 completion(.failure(.profileError))
             }
         }
-        
     }
     
     func getRatingByIDs(ratingIDs: [String],completion: @escaping (Result<[Rating], ProfileError>) -> Void){
@@ -81,6 +80,32 @@ class ProfileService: ObservableObject{
             switch statusCode {
             case 200:
                 completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.profileError))
+            }
+        }
+    }
+    
+    func fetchOfferByID(ids: [String], completion:@escaping(Result<[Offer],ProfileError>)->Void){
+        let parameters = [
+            "ids": ids
+        ]
+        
+        AF.request(API.SELECTED_OFFER, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            
+            var statusCode: Int?
+            var deals: SelectedDealsResponse
+            statusCode = response.response?.statusCode
+            
+            print(statusCode!)
+            print(response.data!)
+            switch statusCode {
+            case 200:
+                if response.data != nil{
+                    deals = try! self.jsonDecoder.decode(SelectedDealsResponse.self, from: response.data!)
+                    print(deals)
+                    completion(.success(deals.data.offers ?? []))
+                }
             case .none, .some(_):
                 completion(.failure(.profileError))
             }

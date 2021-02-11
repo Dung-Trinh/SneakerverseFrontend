@@ -15,7 +15,7 @@ struct SneakerDealsResponse: Codable {
 
 // MARK: - DataClass
 struct offerListData: Codable {
-    let offerlist: [Offer]
+    let offerlist: [Offer]?
 }
 
 // MARK: - Offer
@@ -59,4 +59,13 @@ struct City: Codable {
         case cityName = "_cityName"
        // case v = "__v"
     }
+}
+
+struct OfferData: Codable {
+    let offers: [Offer]?
+}
+
+struct SelectedDealsResponse: Codable {
+    let accessToken: String
+    let data: OfferData
 }
