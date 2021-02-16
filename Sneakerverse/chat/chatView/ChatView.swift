@@ -16,9 +16,15 @@ struct ChatView: View {
     
     var body: some View {
         VStack(){
+            HStack{
+                Text("chat partner:")
+                    .fontWeight(.bold)
             NavigationLink(destination: ProfileView(username: chatPartner)){
                 Text(chatPartner)
             }
+                
+            }.padding()
+            
             List{
                 ForEach(chatViewModel.allMessages){ message in
                     UserMessageView(currentMessage: UserMessage (content: message.message, user: UserProfile(name: message.senderName, avatar: Image(systemName: "person.circle.fill"), isCurrentUser: message.senderName == chatViewModel.username ? true : false),time: message.created))

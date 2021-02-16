@@ -16,10 +16,13 @@ struct UserRating: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            HStack {
                 Text(username)
                     .font(.system(size: 21, weight: .medium, design: .default))
-                Text(description)
+                VStack{
+                    Text(description)
+                }
+                .padding()
             }
             if((message) != nil){
                 Text(message!)

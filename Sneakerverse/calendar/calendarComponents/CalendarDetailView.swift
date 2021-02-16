@@ -55,7 +55,7 @@ struct CalendarDetailView: View {
                 HStack{
                     Image(uiImage: UIImage(systemName: "square.and.arrow.up")!)
                         .resizable()
-                        .frame(width:30, height: 30)
+                        .frame(width:30, height: 35)
                     Image(uiImage: UIImage(systemName: "star.fill")!)
                         .resizable()
                         .frame(width:30, height: 30)
@@ -70,8 +70,7 @@ struct CalendarDetailView: View {
                     .onSuccess { result in  }
                     .onFailure { error in }
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: .infinity, height: .infinity)
+                    .aspectRatio(contentMode: .fit)
             }
         }
     }

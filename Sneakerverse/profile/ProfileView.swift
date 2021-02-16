@@ -32,7 +32,10 @@ struct ProfileView: View {
                                           userData: profileViewModel.userProfileViewData!)
                     }
                 }else if(profileViewModel.pickerIndex == 1){
-                    // favorite view
+                    Text("\"coming soon\"")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding()
                 }
             }
         }.onAppear{

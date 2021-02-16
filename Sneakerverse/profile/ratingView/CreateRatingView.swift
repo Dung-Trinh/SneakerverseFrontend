@@ -14,6 +14,9 @@ struct CreateRatingView: View {
     
     var body: some View {
         VStack{
+            Image("rate_user")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             Text("rate user: \(targetUser)")
                 .font(.title3)
                 .fontWeight(.bold)

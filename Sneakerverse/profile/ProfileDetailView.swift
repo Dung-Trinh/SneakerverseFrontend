@@ -27,6 +27,8 @@ struct ProfileDetailView: View {
                     .padding(.top, 10)
             }
             Text(userData.username)
+                .font(.callout)
+                .fontWeight(.bold)
             Text(userData.city)
             Text("Registriert seit \(userData.registerDate)")
             
@@ -34,7 +36,10 @@ struct ProfileDetailView: View {
                 RatingBar(userRating: $rating)
                     .padding(.bottom, 20)
             }
+            Spacer()
             Text("My offers")
+                .font(.title)
+                .fontWeight(.bold)
             LazyVGrid(columns: DealsOffer, spacing: 20) {
                 ForEach(offerList){ offer in
                     VStack{

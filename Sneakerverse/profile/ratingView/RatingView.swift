@@ -13,6 +13,9 @@ struct RatingView: View {
     var body: some View {
         VStack{
             Text("Ratings")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding()
             List{
                 ForEach(ratings){ userRating in
                     UserRating(username: userRating.evaluatorName, description: "", message: userRating.message ,currentRating: userRating.rating)
