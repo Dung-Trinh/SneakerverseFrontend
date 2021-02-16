@@ -12,6 +12,9 @@ class CreateRatingViewModel: ObservableObject {
     @Published var message = ""
     var targetUser = ""
     var profileService = ProfileService()
+    @Published var showPopup = false
+    @Published var successfulRequest = false
+
     
     func sendRating(completion: @escaping (Bool)->Void){
         print(rating)

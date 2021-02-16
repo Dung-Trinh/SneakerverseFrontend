@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CreateRatingView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     @StateObject var createRatingViewModel = CreateRatingViewModel()
     var targetUser: String
     var maxRating : Int = 5
@@ -46,11 +48,15 @@ struct CreateRatingView: View {
             Button(action: {
                 createRatingViewModel.sendRating(completion: {respose in
                     if respose{
+                        createRatingViewModel.successfulRequest = true
+                        self.presentationMode.wrappedValue.dismiss()
+
                         print("gesendet")
                     }else{
+                        createRatingViewModel.successfulRequest = false
                         print("failed raitng")
                     }
-                    
+                    createRatingViewModel.showPopup.toggle()
                 })
             }, label: {
                 Text("send rating")
@@ -58,6 +64,10 @@ struct CreateRatingView: View {
         }.padding()
         .onAppear{
             createRatingViewModel.targetUser = targetUser
+        }
+        .alert(isPresented: $createRatingViewModel.showPopup) {
+            Alert(title: Text(createRatingViewModel.successfulRequest ? "user rating sent": "user rating failed"), message: Text(createRatingViewModel.successfulRequest ? "thank you for your rating!" : "rating failed to send"), dismissButton: .default(Text("OK")))
+            
         }
     }
 }

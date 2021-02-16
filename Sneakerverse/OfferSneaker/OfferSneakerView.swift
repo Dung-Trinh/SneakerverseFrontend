@@ -26,8 +26,19 @@ struct OfferSneakerView: View {
                     .padding()
                 
                 if !offerViewModel.selectedImages.isEmpty && !offerViewModel.showImagePicker{
-                    ImageSilder(selectedImages: $offerViewModel.selectedImages)
-                }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20){
+                            ForEach(offerViewModel.selectedImages,id: \.self){ image in
+                                
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+                                    .cornerRadius(15)
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }                }
                 
                 if !offerViewModel.showImagePicker {
                     Button(action: {
@@ -54,8 +65,6 @@ struct OfferSneakerView: View {
                         CustomTextField(storedText: $offerViewModel.description, placholderText: "Description",type: .TEXT, icon: Image(systemName:"text.below.photo.fill"))
                         CustomTextField(storedText: $offerViewModel.price, placholderText: "Price",type: .NUMBERS, icon: Image(systemName:"tag.fill"))
                         CustomTextField(storedText: $offerViewModel.city, placholderText: "City",type: .TEXT, icon: Image(systemName:"mappin"))
-                        
-                        
                     }
                     
                     Section{
@@ -64,14 +73,21 @@ struct OfferSneakerView: View {
                         SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $offerViewModel.condition)
                     }
                     
-                    Button(action: {
-                        offerViewModel.sendSneakerOffer(completion: {_ in
-                            
-                        })
-                        
-                    }) {
-                        CustomButton(buttonText: "add sneaker", buttonColor: .blue)
-                    }
+                    
+                    
+                }
+                Button(action: {
+                    offerViewModel.sendSneakerOffer(completion: { response in
+                        if response {
+                            offerViewModel.successfulRequest = true
+                            offerViewModel.clearValues()
+                        }else{
+                            offerViewModel.successfulRequest = false
+                        }
+                    })
+                    offerViewModel.showPopup.toggle()
+                }) {
+                    CustomButton(buttonText: "add sneaker", buttonColor: .blue)
                 }
             }
             
@@ -82,6 +98,10 @@ struct OfferSneakerView: View {
         .padding()
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .alert(isPresented: $offerViewModel.showPopup) {
+            Alert(title: Text(offerViewModel.successfulRequest ? "offer sent successfully": "offer failed to send"), message: Text(offerViewModel.successfulRequest ? "your offer is now online!" : "something went wrong..."), dismissButton: .default(Text("OK")))
+            
+        }
     }
 }
 

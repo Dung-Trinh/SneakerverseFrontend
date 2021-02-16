@@ -20,6 +20,8 @@ class OfferSneakerViewModel: ObservableObject {
     @Published var showResponse: Bool = false
     @Published var showImagePicker = false
     @Published var city = ""
+    @Published var showPopup = false
+    @Published var successfulRequest = false
     var sneakerService = SneakerService()
     
     func sendSneakerOffer(completion: @escaping (Bool)->Void){
@@ -50,5 +52,12 @@ class OfferSneakerViewModel: ObservableObject {
                 completion(false)
             }
         })
+    }
+    
+    func clearValues(){
+        sneakerName = ""
+        description = ""
+        city = ""
+        price = ""
     }
 }
