@@ -19,7 +19,7 @@ struct BlogPostOverviewView: View {
                 .fontWeight(.bold)
                 .padding()
             ScrollView{
-                LazyVGrid(columns: BlogPost, spacing:20){
+                LazyVGrid(columns: BlogPost, spacing:10){
                     ForEach(blogPostList, id: \.self){ blogPost in
                         NavigationLink(
                             destination: BlogPostDetailView(blogPost: blogPost)){
