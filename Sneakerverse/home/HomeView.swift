@@ -41,7 +41,7 @@ struct HomeView: View {
                         Text("Profile")
                     }
             }
-            .navigationTitle("Sneaker")
+            .navigationBarTitle("", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(trailing:
                                     HStack{
