@@ -32,9 +32,8 @@ struct UserMessageView : View {
                 Spacer()
             }
             ChatMessageView(message: currentMessage.content,
-                            isCurrentUser: currentMessage.user.isCurrentUser)
+                            isCurrentUser: currentMessage.user.isCurrentUser, time: currentMessage.time ?? "").frame(alignment: .leading)
         }
-            Text(currentMessage.time ?? "")
     }
     }
 }
