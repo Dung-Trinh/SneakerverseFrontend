@@ -86,6 +86,19 @@ class ProfileService: ObservableObject{
         }
     }
     
+    func sendLogoutReqest(completion:@escaping (Result<Bool, ProfileError>) -> Void){
+        AF.request(API.LOGOUT, method: .post, encoding: JSONEncoding.default, headers: headers).response { response in
+            var statusCode: Int?
+            statusCode = response.response?.statusCode
+            switch statusCode {
+            case 200:
+                completion(.success(true))
+            case .none, .some(_):
+                completion(.failure(.profileError))
+            }
+        }
+    }
+    
     func fetchOfferByID(ids: [String], completion:@escaping(Result<[Offer],ProfileError>)->Void){
         let parameters = [
             "ids": ids

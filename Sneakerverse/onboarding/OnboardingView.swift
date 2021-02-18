@@ -27,7 +27,7 @@ struct OnboardingView: View {
                     CustomButton(buttonText: "Sign up", buttonColor: .blue)
                 }
             }
-        }
+        }.navigationBarHidden(true)
     }
 }
 

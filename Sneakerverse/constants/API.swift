@@ -22,5 +22,6 @@ struct API{
     static let GET_RATING_BY_ID = HOST_URL + "/rating/get"
     static let GET_CALENDAR_RELEASES = HOST_URL + "/releaseCalendar"
     static let SEND_RATING = HOST_URL + "/rating"
+    static let LOGOUT = HOST_URL + "/user/logout"
     static let BLOGPOST = HOST_URL + "/blog"
 }
