@@ -14,7 +14,7 @@ struct SneakerOfferDetailView: View {
     var body: some View {
         VStack{
             if(!viewModel.jumpToChat){
-                DetailGallerySlideView()
+                //DetailGallerySlideView()
                 Group{
                     Text(offer.name)
                         .font(.title)

@@ -6,31 +6,37 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct DetailGallerySlideView: View {
-    var imageList: [UIImage] = []
-    private var numberOfImages = 3
+    var imageList: [String]
     @State private var currentIndex = 0
     private let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         GeometryReader{ proxy in
             TabView{
-                ForEach(0..<numberOfImages){
+                ForEach(0..<imageList.count){
                     num in
-                    Image("sneakerDefault"+"\(num)")
+                    KFImage.url(URL(string: self.imageList[num]))
+                        .loadDiskFileSynchronously()
+                        .placeholder{return Image("default-calendar-sneaker")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 170)}
+                        .cacheMemoryOnly()
+                        .onProgress { receivedSize, totalSize in  }
+                        .onSuccess { result in  }
+                        .onFailure { error in }
                         .resizable()
-                        .scaledToFill()
-                        .tag(num)
+                        .frame(width: .infinity, height: 250)
+                        .scaledToFit()
                 }
             }.tabViewStyle(PageTabViewStyle())
-            .clipShape(RoundedRectangle(cornerRadius: 5))
-            .padding()
-            .frame(width: proxy.size.width, height: proxy.size.height/3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .onReceive(timer, perform: { _ in
                 withAnimation{
                     currentIndex = currentIndex <
-                        numberOfImages ? currentIndex+1 : 0
+                        imageList.count ? currentIndex+1 : 0
                 }
             })
         }
@@ -39,6 +45,6 @@ struct DetailGallerySlideView: View {
 
 struct DetailGallerySlideView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailGallerySlideView()
+        DetailGallerySlideView(imageList: [""])
     }
 }
