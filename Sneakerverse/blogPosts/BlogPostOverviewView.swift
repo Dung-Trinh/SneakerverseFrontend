@@ -18,6 +18,7 @@ struct BlogPostOverviewView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
+                .foregroundColor(.white)
             ScrollView{
                 LazyVGrid(columns: BlogPost, spacing:10){
                     ForEach(blogPostList, id: \.self){ blogPost in
@@ -33,6 +34,7 @@ struct BlogPostOverviewView: View {
                 }
             })
         }
+        .background(DESIGN.COLOR.backgroundGradient)
     }
 }
 

@@ -46,6 +46,7 @@ struct SneakerPreview: View {
                 
             }
             .shadow(radius: 20 )
+            .background(Color(.white).opacity(0.6))
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         }
     }

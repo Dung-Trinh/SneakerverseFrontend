@@ -16,12 +16,14 @@ struct CalendarView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
+                .foregroundColor(.white)
             
             Picker("calendarFilter", selection: $calendarViewModel.pickerIndex) {
                 ForEach(0..<calendarViewModel.categories.count) { index in
                     Text(self.calendarViewModel.categories[index]).tag(index)
                 }
             }.pickerStyle(SegmentedPickerStyle())
+            .background(Color(.white).opacity(0.3))
             
             Spacer()
             Text("Month: January")
@@ -32,7 +34,8 @@ struct CalendarView: View {
                 .font(.headline)
             CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseBottom)
             Spacer()
-        }.onAppear{
+        }.background(DESIGN.COLOR.backgroundGradient)
+        .onAppear{
             calendarViewModel.getCalendarItems(calendarRow: "1", completion: {_ in})
             calendarViewModel.getCalendarItems(calendarRow: "2", completion: {_ in})
         }
