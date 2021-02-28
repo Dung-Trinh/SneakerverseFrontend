@@ -43,8 +43,8 @@ struct CreateRatingView: View {
                 
                 
             }.padding()
-            
-            TextField("Message ...",text: $createRatingViewModel.message)
+            CustomTextField(storedText: $createRatingViewModel.message, placholderText: "Message ...", type: .TEXT)
+            Spacer()
             Button(action: {
                 createRatingViewModel.sendRating(completion: {respose in
                     if respose{
@@ -59,7 +59,7 @@ struct CreateRatingView: View {
                     createRatingViewModel.showPopup.toggle()
                 })
             }, label: {
-                Text("send rating")
+                CustomButton(buttonText: "send rating", buttonColor: .blue)
             })
         }.padding()
         .onAppear{

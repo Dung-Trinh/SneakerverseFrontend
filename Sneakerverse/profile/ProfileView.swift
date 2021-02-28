@@ -36,6 +36,7 @@ struct ProfileView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .padding()
+                        .foregroundColor(.white)
                 }
             }
         }.onAppear{
@@ -43,6 +44,7 @@ struct ProfileView: View {
             
             profileViewModel.fetchUserData(completion: {_ in})
         }
+        .background(DESIGN.COLOR.backgroundGradient)
         .navigationBarItems(trailing:
                                 NavigationLink(destination: CreateRatingView(targetUser: username ?? "")) {
                                     Text("Rate user")

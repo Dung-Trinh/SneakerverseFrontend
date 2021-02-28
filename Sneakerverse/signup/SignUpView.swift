@@ -20,7 +20,7 @@ struct SignUpView: View {
     var body: some View {
             if(!signUpViewModel.navigateToHome){
                 VStack {
-                    Title(text:"Registrieren")
+                    Title(text:"Sign Up")
                     
                     CustomTextField(storedText: $signUpViewModel.username, placholderText: "Username", type: .TEXT, icon: Image(systemName: "person.fill"))
                     CustomTextField(storedText: $signUpViewModel.password, placholderText: "Password", type: .PASSWORD)

@@ -10,12 +10,12 @@ import Photos
 import SwiftUI
 
 class OfferSneakerViewModel: ObservableObject {
-    @Published var sneakerName = "adidas UltraBOOST"
-    @Published var description = "feels good"
-    @Published var price = "180"
-    @Published var size = "9.5"
-    @Published var brand = "Adidas"
-    @Published var condition = "New"
+    @Published var sneakerName = ""
+    @Published var description = ""
+    @Published var price = ""
+    @Published var size = ""
+    @Published var brand = ""
+    @Published var condition = ""
     @Published var selectedImages : [UIImage] = [#imageLiteral(resourceName: "default-sneaker")]
     @Published var showResponse: Bool = false
     @Published var showImagePicker = false

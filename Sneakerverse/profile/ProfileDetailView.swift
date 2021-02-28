@@ -51,6 +51,7 @@ struct ProfileDetailView: View {
                 }
             }
         }
+        .foregroundColor(.white)
     }
 }
 

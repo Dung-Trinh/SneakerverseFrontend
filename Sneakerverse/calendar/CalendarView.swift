@@ -26,13 +26,31 @@ struct CalendarView: View {
             .background(Color(.white).opacity(0.3))
             
             Spacer()
-            Text("Month: January")
+            Text("January")
                 .font(.headline)
-            CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseTop)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            if(calendarViewModel.calendarReleaseTop.count > 0){
+                CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseTop)
+            }else{
+                Spacer()
+                Text("\"no releases confirmed\"")
+                    .font(.caption)
+                    .foregroundColor(.white)
+            }
             Spacer()
-            Text("Month: February")
+            Text("February")
                 .font(.headline)
-            CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseBottom)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            if(calendarViewModel.calendarReleaseBottom.count > 0){
+                CalendarRow(sneakerItems: $calendarViewModel.calendarReleaseBottom)
+            }else{
+                Spacer()
+                Text("\"no releases confirmed\"")
+                    .font(.caption)
+                    .foregroundColor(.white)
+            }
             Spacer()
         }.background(DESIGN.COLOR.backgroundGradient)
         .onAppear{

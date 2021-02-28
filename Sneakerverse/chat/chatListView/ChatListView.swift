@@ -22,10 +22,11 @@ struct ChatListView: View {
         }
         .navigationBarTitle("Chats")
         .navigationBarItems(trailing:
-                                Button("reload") {
+                                Button(action: {
                                     chatListViewModel.getAllChats(completion: {_ in })
+                                }){
+                                    Image(systemName: "arrow.counterclockwise")
                                 }
-                            
         )
         .onAppear {
             chatListViewModel.setChatService(chatService: self.chatService)

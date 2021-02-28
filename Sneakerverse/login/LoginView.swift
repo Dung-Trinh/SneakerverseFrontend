@@ -20,7 +20,7 @@ struct LoginView: View {
         ZStack {
             VStack {
                 if(!loginViewModel.successfulAuth){
-                    Title(text: "Sneaker Market")
+                    Title(text: "Login")
                     
                     CustomTextField(storedText: $loginViewModel.username, placholderText: "Username",type: .TEXT,icon: Image(systemName: "person.fill"))
                     CustomTextField(storedText: $loginViewModel.password, placholderText: "Password", type: .PASSWORD)
