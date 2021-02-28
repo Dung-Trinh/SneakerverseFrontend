@@ -18,6 +18,8 @@ struct BlogPostDetailView: View {
                 .padding(.bottom,10)
             HStack{
                 Text(blogPost.title)
+                    .foregroundColor(DESIGN.COLOR.darkPurple)
+                    .font(.system(size:20))
                     .fontWeight(.semibold)
                 Spacer()
             }

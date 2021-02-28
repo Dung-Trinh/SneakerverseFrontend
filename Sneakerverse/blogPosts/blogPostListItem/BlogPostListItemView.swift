@@ -13,8 +13,8 @@ struct BlogPostListItemView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(.red)
-                .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 0, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.white)
+                .shadow(color: .black, radius: 0, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
             VStack{
                 KFImage.url(URL(string: self.blog.cover))
                     .loadDiskFileSynchronously()
@@ -31,7 +31,7 @@ struct BlogPostListItemView: View {
                     .scaledToFit()
                 HStack{
                     Text(blog.title)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(DESIGN.COLOR.darkPurple)
                         .fontWeight(.semibold)
                         .padding(.leading,20)
                     Spacer()
@@ -46,11 +46,13 @@ struct BlogPostListItemView: View {
                 HStack {
                     Spacer()
                     Text("weiterlesen")
+                        
                         .foregroundColor(Color.black)
                     Image(systemName:"arrow.right.circle.fill")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .padding(.trailing,20)
+                        .foregroundColor(DESIGN.COLOR.darkPurple)
                         
                         .foregroundColor(Color.black)
                 }.padding(.bottom,10)
