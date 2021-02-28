@@ -39,7 +39,7 @@ struct DealsOverviewView: View {
                     self.offerList = fetchedOfferList
                 }
             })
-        }
+        }.background(DESIGN.COLOR.backgroundGradient)
     }
 }
 
