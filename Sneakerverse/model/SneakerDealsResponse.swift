@@ -26,7 +26,6 @@ struct Offer: Codable,Identifiable {
     let brand, condition, ownerName, ownerID: String
     let city: City
     let created: String
-    let img: [ImgElement]
     let v: Int
 
     enum CodingKeys: String, CodingKey {
@@ -41,7 +40,6 @@ struct Offer: Codable,Identifiable {
         case ownerID = "_ownerId"
         case city = "_city"
         case created = "_created"
-        case img = "_img"
         case v = "__v"
     }
 }
@@ -61,36 +59,6 @@ struct City: Codable {
         case cityName = "_cityName"
        // case v = "__v"
     }
-}
-
-// MARK: - ImgElement
-struct ImgElement: Codable {
-    let img: ImgImg
-    let id, name, desc: String
-
-    enum CodingKeys: String, CodingKey {
-        case img = "_img"
-        case id = "_id"
-        case name = "_name"
-        case desc = "_desc"
-    }
-}
-
-// MARK: - ImgImg
-struct ImgImg: Codable {
-    let data: ImgData
-    let contentType: String
-
-    enum CodingKeys: String, CodingKey {
-        case data = "_data"
-        case contentType = "_contentType"
-    }
-}
-
-// MARK: - ImgData
-struct ImgData: Codable {
-    let type: String
-    let data: [Int]
 }
 
 struct OfferData: Codable {
