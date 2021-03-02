@@ -12,53 +12,110 @@ struct SneakerOfferDetailView: View {
     @ObservedObject var viewModel: SneakerOfferDetailViewModel = SneakerOfferDetailViewModel()
     var offer: Offer
     var body: some View {
-        VStack{
+        ScrollView{
             if(!viewModel.jumpToChat){
-                //DetailGallerySlideView()
+                Image("default-sneaker")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: .infinity, height: 150)
                 Group{
-                    Text(offer.name)
-                        .font(.title)
-                        .fontWeight(.semibold)
-                    Text("\(offer.price)")
                     HStack{
-                        Text(offer.city.cityName)
-                        Text(offer.created)
+                        Text(offer.name)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                        Spacer()
                     }
-                    Divider().background(Color.gray)
-                }
+                    HStack{
+                        Text("\(offer.price, specifier: "%.2f") $")
+                            .fontWeight(.semibold)
+                            .font(.system(size:20))
+                            .foregroundColor(DESIGN.COLOR.darkPurple)
+                        Spacer()
+                    }.padding(.bottom,5)
+                    
+                    HStack{
+                        Image(systemName: "mappin.circle.fill")
+                        Text(offer.city.cityName)
+                            .font(.system(size:15))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                    HStack{
+                        Image(systemName: "timer")
+                        Text(offer.created)
+                            .font(.system(size:15))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                }.padding(.horizontal,10)
+                Divider().background(Color.gray)
                 Group{
-                    Text("Details")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text(offer.brand)
-                    Text(offer.condition)
-                    Text("\(offer.size)")
-                    Divider().background(Color.gray)
-                }
+                    HStack{
+                        Text("Details")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }.padding(.bottom,5)
+                    HStack{
+                        Text("Brand:")
+                        Text(offer.brand)
+                        Spacer()
+                    }
+                    HStack{
+                        Text("Condition:")
+                        Text(offer.condition)
+                        Spacer()
+                    }
+                    HStack{
+                        Text("Size:")
+                        Text("\(offer.size, specifier: "%.1f")")
+                        Spacer()
+                    }
+                }.padding(.horizontal,10)
+                Divider().background(Color.gray)
                 Group{
-                    Text("Description")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text(offer.offerDescription)
-                    Divider().background(Color.gray)
-                }
+                    HStack{
+                        Text("Description")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }.padding(.bottom,5)
+                    HStack{
+                        Text(offer.offerDescription)
+                        Spacer()
+                    }
+                }.padding(.horizontal,10)
+                Divider().background(Color.gray)
+                Group{
+                    HStack{
+                        Text("Seller")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }.padding(.bottom,5)
+                    HStack{
+                        Text(offer.ownerName)
+                        Spacer()
+                        Button(action: {
+                            viewModel.chatWithOwner(ownerName: offer.ownerName, ownerID: offer.ownerID)
+                        }){
+                            Text("Chat with Owner")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(width: 180, height: .infinity)
+                                .background(DESIGN.COLOR.darkPurple)
+                                .cornerRadius(35.0)
+                        }
+                    }
+                }.padding(.horizontal,10)
+                Divider().background(Color.gray)
                 Group{
                     Text("Location")
                         .font(.title2)
                         .fontWeight(.semibold)
                     OfferMapView()
-                    Divider().background(Color.gray)
-                }
-                Group{
-                    Text("Seller")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Text("Owner: "+offer.ownerName)
-                    Button(action: {
-                        viewModel.chatWithOwner(ownerName: offer.ownerName, ownerID: offer.ownerID)
-                    }){
-                        CustomButton(buttonText: "Chat with Owner", buttonColor: .blue)
-                    }
+                        .frame(width: .infinity, height: 200)
                 }
             }else{
                 NavigationLink("toChatView", destination: ChatView(chatID: viewModel.chatID, chatPartner: offer.ownerName).environmentObject(self.chatService), isActive: $viewModel.jumpToChat)
