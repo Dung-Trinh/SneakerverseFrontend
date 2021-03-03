@@ -24,11 +24,14 @@ struct OfferMapView: View {
     @ObservedObject private var locationManager = LocationManager()
     @State private var region = MKCoordinateRegion.defaultRegion
     @State private var cancellable: AnyCancellable?
-    @State private var annotations = [PinAnnotation]()
+    @State var coordinateRegion: CLLocationCoordinate2D
+    @State var coordinate: [PinAnnotation]
     
     private func setCurrentLocation() {
         cancellable = locationManager.$location.sink { location in
-            region = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: 500, longitudinalMeters: 500)
+//            region = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: 500, longitudinalMeters: 500)
+
+            region = MKCoordinateRegion(center: coordinateRegion, latitudinalMeters: 500, longitudinalMeters: 500)
         }
     }
     
@@ -36,7 +39,7 @@ struct OfferMapView: View {
     var body: some View {
         VStack{
             if locationManager.location != nil{
-                Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil, annotationItems: annotations) { annotation in
+                Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: nil, annotationItems: coordinate) { annotation in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)) {
                         Image(systemName:"mappin")
                             .resizable()
@@ -57,6 +60,6 @@ struct OfferMapView: View {
 
 struct OfferMapView_Previews: PreviewProvider {
     static var previews: some View {
-        OfferMapView()
+        OfferMapView(coordinateRegion: CLLocationCoordinate2D(latitude: 2.0, longitude: 3.0), coordinate: [PinAnnotation(latitude: 9.0, longitude: 3.0)])
     }
 }

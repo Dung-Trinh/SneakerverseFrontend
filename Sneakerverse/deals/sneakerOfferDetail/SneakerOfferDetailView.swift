@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct SneakerOfferDetailView: View {
     @EnvironmentObject var chatService: ChatService
@@ -114,7 +115,7 @@ struct SneakerOfferDetailView: View {
                     Text("Location")
                         .font(.title2)
                         .fontWeight(.semibold)
-                    OfferMapView()
+                    OfferMapView(coordinateRegion: CLLocationCoordinate2D(latitude: offer.city.latitude, longitude: offer.city.longitude), coordinate: [PinAnnotation(latitude: offer.city.latitude, longitude: offer.city.longitude)])
                         .frame(width: .infinity, height: 200)
                 }
             }else{
