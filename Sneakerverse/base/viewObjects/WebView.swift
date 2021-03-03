@@ -14,14 +14,14 @@ struct WebView: UIViewRepresentable {
         
     }
     
-    var url: String
+    var videoID: String
    
     func makeUIView(context:Context) -> WKWebView {
-        guard let url = URL(string: self.url) else {
+        guard let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)") else {
             return WKWebView()
         }
         
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: youtubeURL)
         let wkWebview = WKWebView()
         wkWebview.load(request)
         return wkWebview

@@ -41,8 +41,8 @@ struct BlogPostDetailView: View {
                     .frame(width:30, height: 30)
                 
             }.padding(.bottom,15)
-            WebView(url: blogPost.contentVideo)
-                .frame(width: .infinity, height: 300)
+            WebView(videoID: blogPost.contentVideo)
+                .frame(width: .infinity, height: 250)
                 .padding(.horizontal,10)
         }
     }
