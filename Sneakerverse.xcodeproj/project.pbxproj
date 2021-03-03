@@ -75,6 +75,7 @@
 		DF93AE4125C2CC8400251795 /* BlogPostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF93AE4025C2CC8400251795 /* BlogPostService.swift */; };
 		DF93AE4425C2D10500251795 /* BlogPostOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF93AE4325C2D10500251795 /* BlogPostOverviewView.swift */; };
 		DF93AE4925C2D11E00251795 /* BlogPostListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF93AE4825C2D11E00251795 /* BlogPostListItemView.swift */; };
+		DFA22C0D25EFA86B00CF799B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA22C0C25EFA86B00CF799B /* WebView.swift */; };
 		DFAFF08F25818A7900FAEC0B /* DealsOverviewListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */; };
 		DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */; };
 		DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */; };
@@ -160,6 +161,7 @@
 		DF93AE4025C2CC8400251795 /* BlogPostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostService.swift; sourceTree = "<group>"; };
 		DF93AE4325C2D10500251795 /* BlogPostOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostOverviewView.swift; sourceTree = "<group>"; };
 		DF93AE4825C2D11E00251795 /* BlogPostListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPostListItemView.swift; sourceTree = "<group>"; };
+		DFA22C0C25EFA86B00CF799B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		DFAFF08B25818A7900FAEC0B /* DealsOverviewListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewListItemView.swift; sourceTree = "<group>"; };
 		DFAFF08C25818A7900FAEC0B /* DealsOverviewListItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewListItemViewModel.swift; sourceTree = "<group>"; };
 		DFAFF08D25818A7900FAEC0B /* DealsOverviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsOverviewView.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				DF48D52825A7D21A00116688 /* DetailGallerySlideView.swift */,
 				DF61AD6425A9A95600F198B8 /* OfferMapView.swift */,
 				DF61AD7625AA37B500F198B8 /* DetailsMapView.swift */,
+				DFA22C0C25EFA86B00CF799B /* WebView.swift */,
 			);
 			path = viewObjects;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				B6CFA58B25AF72D800DD767D /* RatingBar.swift in Sources */,
 				DFAFF09025818A7900FAEC0B /* DealsOverviewListItemViewModel.swift in Sources */,
 				B6B736AB2593930200E5DF18 /* ChatView.swift in Sources */,
+				DFA22C0D25EFA86B00CF799B /* WebView.swift in Sources */,
 				B6292FEC2592935C0084B36B /* ErrorTypes.swift in Sources */,
 				B64A32732593FB7300FA7A1C /* ChatListViewModel.swift in Sources */,
 				B62CFEDC25C425C200AC7A41 /* CreateRatingViewModel.swift in Sources */,

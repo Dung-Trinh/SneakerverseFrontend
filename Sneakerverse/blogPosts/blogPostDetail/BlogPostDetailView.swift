@@ -12,7 +12,7 @@ struct BlogPostDetailView: View {
     @State var viewModel: BlogPostDetailViewModel = BlogPostDetailViewModel()
     @State var blogPost: Blog
     var body: some View {
-        VStack{
+        ScrollView{
             DetailGallerySlideView(imageList: blogPost.contentPictures)
                 .frame(width: .infinity, height: 250)
                 .padding(.bottom,10)
@@ -40,8 +40,9 @@ struct BlogPostDetailView: View {
                     .resizable()
                     .frame(width:30, height: 30)
                 
-            }
-            VideoPlayer(player: AVPlayer(url: URL(string: blogPost.contentVideo)!))
+            }.padding(.bottom,15)
+            WebView(url: blogPost.contentVideo)
+                .frame(width: .infinity, height: 300)
                 .padding(.horizontal,10)
         }
     }

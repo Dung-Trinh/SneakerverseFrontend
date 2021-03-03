@@ -29,9 +29,9 @@ struct OfferMapView: View {
     
     private func setCurrentLocation() {
         cancellable = locationManager.$location.sink { location in
-//            region = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: 500, longitudinalMeters: 500)
+            //region = MKCoordinateRegion(center: location?.coordinate ?? CLLocationCoordinate2D(), latitudinalMeters: 500, longitudinalMeters: 500)
 
-            region = MKCoordinateRegion(center: coordinateRegion, latitudinalMeters: 500, longitudinalMeters: 500)
+            region = MKCoordinateRegion(center: coordinateRegion, span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         }
     }
     
@@ -43,7 +43,7 @@ struct OfferMapView: View {
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)) {
                         Image(systemName:"mappin")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 20, height: 25)
                             .foregroundColor(.red)
                     }
                 }
