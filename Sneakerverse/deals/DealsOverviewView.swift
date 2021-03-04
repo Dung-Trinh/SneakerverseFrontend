@@ -21,6 +21,7 @@ struct DealsOverviewView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
+                .foregroundColor(.white)
             
             ScrollView{
                 LazyVGrid(columns: DealsOffer, spacing: 20) {

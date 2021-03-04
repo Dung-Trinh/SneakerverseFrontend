@@ -24,6 +24,7 @@ struct OfferSneakerView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding()
+                    .foregroundColor(.white)
                 
                 if !offerViewModel.selectedImages.isEmpty && !offerViewModel.showImagePicker{
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -72,9 +73,6 @@ struct OfferSneakerView: View {
                         SneakerDataPicker(type: DataPickerType.BRANDS, selectedValue: $offerViewModel.brand)
                         SneakerDataPicker(type: DataPickerType.CONDITION, selectedValue: $offerViewModel.condition)
                     }
-                    
-                    
-                    
                 }
                 Button(action: {
                     offerViewModel.sendSneakerOffer(completion: { response in

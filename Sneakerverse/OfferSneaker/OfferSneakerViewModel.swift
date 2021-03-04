@@ -22,35 +22,45 @@ class OfferSneakerViewModel: ObservableObject {
     @Published var city = ""
     @Published var showPopup = false
     @Published var successfulRequest = false
+    var currentCity = City(id: "", latitude: 0, longitude: 0, cityName: "")
     var sneakerService = SneakerService()
     
     func sendSneakerOffer(completion: @escaping (Bool)->Void){
-        var currentCity: City = City(id: "", latitude: 0, longitude: 0, cityName: "")
+        self.fetchCity(completion: {
+            
+            
+            let newSneakerOffer = SneakerOffer(sneakerName: self.sneakerName,
+                                               description: self.description,
+                                               price: self.price,
+                                               size: self.size,
+                                               brand: self.brand,
+                                               condition: self.condition,
+                                               city: self.currentCity)
+            self.sneakerService.sendSneakerOfferRequest(sneakerOffer: newSneakerOffer, completion: { response in
+                print("sneaker gesendet")
+                switch response{
+                case .success(let offerID):
+                    self.sneakerService.uploadImage(offerID: offerID ,images: self.selectedImages)
+                    
+                    completion(true)
+                case .failure:
+                    completion(false)
+                }
+            })
+        })
+    }
+    func fetchCity(completion: @escaping ()->Void){
         sneakerService.getCityLocation(city: self.city, completion: { cityResponse in
+            print("city gesendet")
+            
             switch cityResponse{
             case .success(let cityData):
-                currentCity = cityData
+                self.currentCity = cityData
+                print(self.currentCity)
             case .failure: break
-                
+                print("keine city")
             }
-        })
-        
-        let newSneakerOffer = SneakerOffer(sneakerName: self.sneakerName,
-                                           description: self.description,
-                                           price: self.price,
-                                           size: self.size,
-                                           brand: self.brand,
-                                           condition: self.condition,
-                                           city: currentCity)
-        self.sneakerService.sendSneakerOfferRequest(sneakerOffer: newSneakerOffer, completion: { response in
-            switch response{
-            case .success(let offerID):
-                self.sneakerService.uploadImage(offerID: offerID ,images: self.selectedImages)
-                
-                completion(true)
-            case .failure:
-                completion(false)
-            }
+            completion()
         })
     }
     
