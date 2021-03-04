@@ -32,7 +32,6 @@
 		B67E36C32591613000C8E34D /* ComponentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E36C22591613000C8E34D /* ComponentTypes.swift */; };
 		B67FE1BA25C01E4D00692248 /* CalendarResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FE1B925C01E4D00692248 /* CalendarResponse.swift */; };
 		B6834E5C2566C72100EE1C58 /* SneakerverseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */; };
-		B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E5D2566C72100EE1C58 /* ContentView.swift */; };
 		B6834E602566C72500EE1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6834E5F2566C72500EE1C58 /* Assets.xcassets */; };
 		B6834E632566C72500EE1C58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6834E622566C72500EE1C58 /* Preview Assets.xcassets */; };
 		B6834E702566C84500EE1C58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6834E6F2566C84500EE1C58 /* LoginView.swift */; };
@@ -116,7 +115,6 @@
 		B67FE1B925C01E4D00692248 /* CalendarResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarResponse.swift; sourceTree = "<group>"; };
 		B6834E582566C72100EE1C58 /* Sneakerverse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sneakerverse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerverseApp.swift; sourceTree = "<group>"; };
-		B6834E5D2566C72100EE1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B6834E5F2566C72500EE1C58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6834E622566C72500EE1C58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6834E642566C72500EE1C58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -266,22 +264,11 @@
 		B6834E5A2566C72100EE1C58 /* Sneakerverse */ = {
 			isa = PBXGroup;
 			children = (
-				DF93AE2E25C2CA2E00251795 /* blogPosts */,
-				B668B70525BF0FE8007FFF18 /* calendar */,
-				B6CBEBB825AA75A6006BB753 /* profile */,
-				B6B736A9259392D000E5DF18 /* chat */,
-				DFAFF08925818A7900FAEC0B /* deals */,
+				B6E5B33B25F13A2E003787B1 /* components */,
 				B646323F257FB5DF004E5AE3 /* constants */,
-				B601D322256BD2FC007B58CF /* offerSneaker */,
-				B61C39EB256B1F710041C4CE /* home */,
-				DF183B0B256AD169006DE246 /* onboarding */,
-				DF183B0A256AD159006DE246 /* base */,
-				DF183B09256AD132006DE246 /* signup */,
-				DF183B08256AD121006DE246 /* login */,
 				DF183B0425698496006DE246 /* services */,
 				B6834E6D2566C7DF00EE1C58 /* model */,
 				B6834E5B2566C72100EE1C58 /* SneakerverseApp.swift */,
-				B6834E5D2566C72100EE1C58 /* ContentView.swift */,
 				B6834E5F2566C72500EE1C58 /* Assets.xcassets */,
 				B6834E642566C72500EE1C58 /* Info.plist */,
 				B6834E612566C72500EE1C58 /* Preview Content */,
@@ -371,6 +358,24 @@
 				B62CFEDB25C425C200AC7A41 /* CreateRatingViewModel.swift */,
 			);
 			path = ratingView;
+			sourceTree = "<group>";
+		};
+		B6E5B33B25F13A2E003787B1 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				DF93AE2E25C2CA2E00251795 /* blogPosts */,
+				B668B70525BF0FE8007FFF18 /* calendar */,
+				B6CBEBB825AA75A6006BB753 /* profile */,
+				B6B736A9259392D000E5DF18 /* chat */,
+				DFAFF08925818A7900FAEC0B /* deals */,
+				B601D322256BD2FC007B58CF /* offerSneaker */,
+				B61C39EB256B1F710041C4CE /* home */,
+				DF183B0B256AD169006DE246 /* onboarding */,
+				DF183B0A256AD159006DE246 /* base */,
+				DF183B09256AD132006DE246 /* signup */,
+				DF183B08256AD121006DE246 /* login */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		B6F8504C25A64A0C00131AFC /* chatView */ = {
@@ -674,7 +679,6 @@
 				DFFD990A25A788AC00D1C68F /* SneakerOfferDetailView.swift in Sources */,
 				DF93AE4425C2D10500251795 /* BlogPostOverviewView.swift in Sources */,
 				DFB91BDF25A64CA20000EB07 /* SneakerDealsResponse.swift in Sources */,
-				B6834E5E2566C72100EE1C58 /* ContentView.swift in Sources */,
 				DFAFF09125818A7900FAEC0B /* DealsOverviewView.swift in Sources */,
 				B6A6725025A6FEF200A72A13 /* ImagePreview.swift in Sources */,
 				DF61AD6D25A9ABB800F198B8 /* MapCoordinator.swift in Sources */,
