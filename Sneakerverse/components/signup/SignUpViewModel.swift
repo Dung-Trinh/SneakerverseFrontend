@@ -8,11 +8,10 @@
 import Foundation
 
 class SignUpViewModel: ObservableObject{
-    @Published var username: String = "TestUser3"
-    @Published var password: String = "TestPassword"
-    @Published var passwordVerify: String = "TestPassword"
+    @Published var username: String = ""
+    @Published var password: String = ""
+    @Published var passwordVerify: String = ""
     @Published var navigateToHome: Bool = false
-    //@Published var passwordsAreNotTheSame: Bool
     @Published var responseMessage: SignUpStates = SignUpStates.DEFAULT
     
     var userService = UserService()

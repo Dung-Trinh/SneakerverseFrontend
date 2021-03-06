@@ -77,7 +77,6 @@ class SneakerService {
             case 200:
                 if response.data != nil{
                     offerResponse = try! self.jsonDecoder.decode(SneakerDealsResponse.self, from: response.data!)
-                    print(offerResponse.data.offerlist![1].id)
                     completion(.success(offerResponse.data.offerlist ?? []))
                 }
             case .none, .some(_):
