@@ -13,9 +13,9 @@ class OfferSneakerViewModel: ObservableObject {
     @Published var sneakerName = ""
     @Published var description = ""
     @Published var price = ""
-    @Published var size = ""
-    @Published var brand = ""
-    @Published var condition = ""
+    @Published var size = "6"
+    @Published var brand = "Nike"
+    @Published var condition = "new"
     @Published var selectedImages : [UIImage] = [#imageLiteral(resourceName: "default-sneaker")]
     @Published var showResponse: Bool = false
     @Published var showImagePicker = false
